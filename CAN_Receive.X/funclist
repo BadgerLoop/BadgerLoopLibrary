@@ -1,0 +1,9 @@
+_delayzz: CODE, 15976 0 66
+_main: CODE, 16146 0 108
+_CAN_Init: CODE, 16042 0 104
+__initialization: CODE, 15886 0 12
+_CAN_SetMode: CODE, 15924 0 24
+_setupCANTxRx: CODE, 15904 0 20
+_CAN_Receive: CODE, 16254 0 128
+_Delay10KTCYx: CODE, 15948 0 28
+Total: 490
