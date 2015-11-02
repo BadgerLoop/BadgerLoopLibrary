@@ -30,7 +30,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _MPU6050_getMotion6 `(v ~T0 @X0 0 ef6`*i`*i`*i`*i`*i`*i ]
 "25 /Applications/microchip/xc8/v1.32/include/plib/delays.h
 [v _Delay100TCYx `(v ~T0 @X0 0 ef1`uc ]
-"146 ../MS5803-01BA.c
+"163 ../MS5803-01BA.c
 [c E8736 0 1 .. ]
 [n E8736 _BOOL FALSE TRUE  ]
 "10783 /Applications/microchip/xc8/v1.32/include/pic18f458.h
@@ -13978,16 +13978,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;MS5803-01BA.h: 8: unsigned long MS_5803_ADC(char commandADC);
 [; ;MS5803-01BA.h: 10: BOOL MS_5803_init(BOOL Verbose);
 [; ;MS5803-01BA.h: 12: void MS_5803_readSensor(void);
+[; ;MS5803-01BA.h: 14: float temperature(void);
+[; ;MS5803-01BA.h: 16: float pressure(void);
+[; ;MS5803-01BA.h: 18: unsigned long D1val(void);
+[; ;MS5803-01BA.h: 20: unsigned long D2val(void);
 [; ;MS5803-01BA.c: 22: typedef signed long long int64_t;
 "25 ../MS5803-01BA.c
-[v _mbar `f ~T0 @X0 1 e ]
-[; ;MS5803-01BA.c: 25: float mbar;
+[v _mbar `f ~T0 @X0 1 s ]
+[; ;MS5803-01BA.c: 25: static float mbar;
 "26
-[v _tempC `f ~T0 @X0 1 e ]
-[; ;MS5803-01BA.c: 26: float tempC;
+[v _tempC `f ~T0 @X0 1 s ]
+[; ;MS5803-01BA.c: 26: static float tempC;
 "32
-[v _mbarInt `l ~T0 @X0 1 e ]
-[; ;MS5803-01BA.c: 32: int32_t mbarInt;
+[v _mbarInt `l ~T0 @X0 1 s ]
+[; ;MS5803-01BA.c: 32: static int32_t mbarInt;
 "35
 [v _sensorCoeffs `ui ~T0 @X0 -> 8 `i s ]
 [; ;MS5803-01BA.c: 35: static unsigned int sensorCoeffs[8];
@@ -14060,524 +14064,564 @@ Version 3.2 HI-TECH Software Intermediate Code
 "58
 [v _Resolution `ui ~T0 @X0 1 s ]
 [; ;MS5803-01BA.c: 58: static uint16_t Resolution;
+"60
+[v _temperature `(f ~T0 @X0 1 ef ]
+{
+[; ;MS5803-01BA.c: 60: float temperature(void) {return tempC;}
+[e :U _temperature ]
+[f ]
+[e ) _tempC ]
+[e $UE 1471  ]
+[e :UE 1471 ]
+}
 "62
+[v _pressure `(f ~T0 @X0 1 ef ]
+{
+[; ;MS5803-01BA.c: 62: float pressure(void) {return mbar;}
+[e :U _pressure ]
+[f ]
+[e ) _mbar ]
+[e $UE 1472  ]
+[e :UE 1472 ]
+}
+"74
+[v _D1val `(ul ~T0 @X0 1 ef ]
+{
+[; ;MS5803-01BA.c: 74: unsigned long D1val(void) {return D1;}
+[e :U _D1val ]
+[f ]
+[e ) _D1 ]
+[e $UE 1473  ]
+[e :UE 1473 ]
+}
+"75
+[v _D2val `(ul ~T0 @X0 1 ef ]
+{
+[; ;MS5803-01BA.c: 75: unsigned long D2val(void) {return D2;}
+[e :U _D2val ]
+[f ]
+[e ) _D2 ]
+[e $UE 1474  ]
+[e :UE 1474 ]
+}
+"79
 [v _MS_5803_setResolution `(v ~T0 @X0 1 ef1`ui ]
 {
-[; ;MS5803-01BA.c: 62: void MS_5803_setResolution(uint16_t res) {
+[; ;MS5803-01BA.c: 79: void MS_5803_setResolution(uint16_t res) {
 [e :U _MS_5803_setResolution ]
 [v _res `ui ~T0 @X0 1 r1 ]
 [f ]
-[; ;MS5803-01BA.c: 65: Resolution = res;
-"65
+[; ;MS5803-01BA.c: 82: Resolution = res;
+"82
 [e = _Resolution _res ]
-[; ;MS5803-01BA.c: 66: }
-"66
-[e :UE 1471 ]
+[; ;MS5803-01BA.c: 83: }
+"83
+[e :UE 1475 ]
 }
-"70
+"87
 [v _MS_5803_resetSensor `(v ~T0 @X0 1 ef ]
 {
-[; ;MS5803-01BA.c: 70: void MS_5803_resetSensor(void) {
+[; ;MS5803-01BA.c: 87: void MS_5803_resetSensor(void) {
 [e :U _MS_5803_resetSensor ]
 [f ]
-[; ;MS5803-01BA.c: 71: I2Cdev_writeBytes(0x76, 0x1E, 0 ,0);
-"71
+[; ;MS5803-01BA.c: 88: I2Cdev_writeBytes(0x76, 0x1E, 0 ,0);
+"88
 [e ( _I2Cdev_writeBytes (4 , , , -> -> 118 `i `uc -> -> 30 `i `uc -> -> 0 `i `uc -> -> 0 `i `*uc ]
-[; ;MS5803-01BA.c: 72: Delay100TCYx(10);
-"72
+[; ;MS5803-01BA.c: 89: Delay100TCYx(10);
+"89
 [e ( _Delay100TCYx (1 -> -> 10 `i `uc ]
-[; ;MS5803-01BA.c: 73: }
-"73
-[e :UE 1472 ]
+[; ;MS5803-01BA.c: 90: }
+"90
+[e :UE 1476 ]
 }
-"75
+"92
 [v _MS_5803_CRC `(uc ~T0 @X0 1 ef1`*ui ]
 {
-[; ;MS5803-01BA.c: 75: unsigned char MS_5803_CRC(unsigned int n_prom[]) {
+[; ;MS5803-01BA.c: 92: unsigned char MS_5803_CRC(unsigned int n_prom[]) {
 [e :U _MS_5803_CRC ]
 [v _n_prom `*ui ~T0 @X0 1 r1 ]
 [f ]
-"76
+"93
 [v _cnt `i ~T0 @X0 1 a ]
-"77
+"94
 [v _n_rem `ui ~T0 @X0 1 a ]
-"78
+"95
 [v _crc_read `ui ~T0 @X0 1 a ]
-"79
+"96
 [v _n_bit `uc ~T0 @X0 1 a ]
-[; ;MS5803-01BA.c: 76: int cnt;
-[; ;MS5803-01BA.c: 77: unsigned int n_rem;
-[; ;MS5803-01BA.c: 78: unsigned int crc_read;
-[; ;MS5803-01BA.c: 79: unsigned char n_bit;
-[; ;MS5803-01BA.c: 80: n_rem = 0x00;
-"80
+[; ;MS5803-01BA.c: 93: int cnt;
+[; ;MS5803-01BA.c: 94: unsigned int n_rem;
+[; ;MS5803-01BA.c: 95: unsigned int crc_read;
+[; ;MS5803-01BA.c: 96: unsigned char n_bit;
+[; ;MS5803-01BA.c: 97: n_rem = 0x00;
+"97
 [e = _n_rem -> -> 0 `i `ui ]
-[; ;MS5803-01BA.c: 81: crc_read = sensorCoeffs[7];
-"81
+[; ;MS5803-01BA.c: 98: crc_read = sensorCoeffs[7];
+"98
 [e = _crc_read *U + &U _sensorCoeffs * -> -> -> 7 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux ]
-[; ;MS5803-01BA.c: 82: sensorCoeffs[7] = (0xFF00 & (sensorCoeffs[7]));
-"82
+[; ;MS5803-01BA.c: 99: sensorCoeffs[7] = (0xFF00 & (sensorCoeffs[7]));
+"99
 [e = *U + &U _sensorCoeffs * -> -> -> 7 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux & -> 65280 `ui *U + &U _sensorCoeffs * -> -> -> 7 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux ]
-[; ;MS5803-01BA.c: 83: for (cnt = 0; cnt < 16; cnt++)
-"83
+[; ;MS5803-01BA.c: 100: for (cnt = 0; cnt < 16; cnt++)
+"100
 {
 [e = _cnt -> 0 `i ]
-[e $ < _cnt -> 16 `i 1474  ]
-[e $U 1475  ]
-"84
-[e :U 1474 ]
-[; ;MS5803-01BA.c: 84: {
-{
-[; ;MS5803-01BA.c: 85: if (cnt%2 == 1) {
-"85
-[e $ ! == % _cnt -> 2 `i -> 1 `i 1477  ]
-{
-[; ;MS5803-01BA.c: 86: n_rem ^= (unsigned short)((sensorCoeffs[cnt>>1]) & 0x00FF);
-"86
-[e =^ _n_rem -> -> & *U + &U _sensorCoeffs * -> -> >> _cnt -> 1 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux -> -> 255 `i `ui `us `ui ]
-"87
-}
-[; ;MS5803-01BA.c: 87: }
-[e $U 1478  ]
-"88
-[e :U 1477 ]
-[; ;MS5803-01BA.c: 88: else {
-{
-[; ;MS5803-01BA.c: 89: n_rem ^= (unsigned short)(sensorCoeffs[cnt>>1] >> 8);
-"89
-[e =^ _n_rem -> -> >> *U + &U _sensorCoeffs * -> -> >> _cnt -> 1 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux -> 8 `i `us `ui ]
-"90
-}
+[e $ < _cnt -> 16 `i 1478  ]
+[e $U 1479  ]
+"101
 [e :U 1478 ]
-[; ;MS5803-01BA.c: 90: }
-[; ;MS5803-01BA.c: 91: for (n_bit = 8; n_bit > 0; n_bit--)
-"91
+[; ;MS5803-01BA.c: 101: {
+{
+[; ;MS5803-01BA.c: 102: if (cnt%2 == 1) {
+"102
+[e $ ! == % _cnt -> 2 `i -> 1 `i 1481  ]
+{
+[; ;MS5803-01BA.c: 103: n_rem ^= (unsigned short)((sensorCoeffs[cnt>>1]) & 0x00FF);
+"103
+[e =^ _n_rem -> -> & *U + &U _sensorCoeffs * -> -> >> _cnt -> 1 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux -> -> 255 `i `ui `us `ui ]
+"104
+}
+[; ;MS5803-01BA.c: 104: }
+[e $U 1482  ]
+"105
+[e :U 1481 ]
+[; ;MS5803-01BA.c: 105: else {
+{
+[; ;MS5803-01BA.c: 106: n_rem ^= (unsigned short)(sensorCoeffs[cnt>>1] >> 8);
+"106
+[e =^ _n_rem -> -> >> *U + &U _sensorCoeffs * -> -> >> _cnt -> 1 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux -> 8 `i `us `ui ]
+"107
+}
+[e :U 1482 ]
+[; ;MS5803-01BA.c: 107: }
+[; ;MS5803-01BA.c: 108: for (n_bit = 8; n_bit > 0; n_bit--)
+"108
 {
 [e = _n_bit -> -> 8 `i `uc ]
-[e $ > -> _n_bit `i -> 0 `i 1479  ]
-[e $U 1480  ]
-"92
-[e :U 1479 ]
-[; ;MS5803-01BA.c: 92: {
-{
-[; ;MS5803-01BA.c: 93: if (n_rem & (0x8000))
-"93
-[e $ ! != & _n_rem -> 32768 `ui -> -> 0 `i `ui 1482  ]
-[; ;MS5803-01BA.c: 94: {
-"94
-{
-[; ;MS5803-01BA.c: 95: n_rem = (n_rem << 1) ^ 0x3000;
-"95
-[e = _n_rem ^ << _n_rem -> 1 `i -> -> 12288 `i `ui ]
-"96
-}
-[; ;MS5803-01BA.c: 96: }
-[e $U 1483  ]
-"97
-[e :U 1482 ]
-[; ;MS5803-01BA.c: 97: else {
-{
-[; ;MS5803-01BA.c: 98: n_rem = (n_rem << 1);
-"98
-[e = _n_rem << _n_rem -> 1 `i ]
-"99
-}
+[e $ > -> _n_bit `i -> 0 `i 1483  ]
+[e $U 1484  ]
+"109
 [e :U 1483 ]
-"100
-}
-"91
-[e -- _n_bit -> -> 1 `i `uc ]
-[e $ > -> _n_bit `i -> 0 `i 1479  ]
-[e :U 1480 ]
-"100
-}
-"101
-}
-"83
-[e ++ _cnt -> 1 `i ]
-[e $ < _cnt -> 16 `i 1474  ]
-[e :U 1475 ]
-"101
-}
-[; ;MS5803-01BA.c: 99: }
-[; ;MS5803-01BA.c: 100: }
-[; ;MS5803-01BA.c: 101: }
-[; ;MS5803-01BA.c: 102: n_rem = (0x000F & (n_rem >> 12));
-"102
-[e = _n_rem & -> -> 15 `i `ui >> _n_rem -> 12 `i ]
-[; ;MS5803-01BA.c: 103: sensorCoeffs[7] = crc_read;
-"103
-[e = *U + &U _sensorCoeffs * -> -> -> 7 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux _crc_read ]
-[; ;MS5803-01BA.c: 105: return (n_rem ^ 0x00);
-"105
-[e ) -> ^ _n_rem -> -> 0 `i `ui `uc ]
-[e $UE 1473  ]
-[; ;MS5803-01BA.c: 106: }
-"106
-[e :UE 1473 ]
-}
+[; ;MS5803-01BA.c: 109: {
+{
+[; ;MS5803-01BA.c: 110: if (n_rem & (0x8000))
 "110
+[e $ ! != & _n_rem -> 32768 `ui -> -> 0 `i `ui 1486  ]
+[; ;MS5803-01BA.c: 111: {
+"111
+{
+[; ;MS5803-01BA.c: 112: n_rem = (n_rem << 1) ^ 0x3000;
+"112
+[e = _n_rem ^ << _n_rem -> 1 `i -> -> 12288 `i `ui ]
+"113
+}
+[; ;MS5803-01BA.c: 113: }
+[e $U 1487  ]
+"114
+[e :U 1486 ]
+[; ;MS5803-01BA.c: 114: else {
+{
+[; ;MS5803-01BA.c: 115: n_rem = (n_rem << 1);
+"115
+[e = _n_rem << _n_rem -> 1 `i ]
+"116
+}
+[e :U 1487 ]
+"117
+}
+"108
+[e -- _n_bit -> -> 1 `i `uc ]
+[e $ > -> _n_bit `i -> 0 `i 1483  ]
+[e :U 1484 ]
+"117
+}
+"118
+}
+"100
+[e ++ _cnt -> 1 `i ]
+[e $ < _cnt -> 16 `i 1478  ]
+[e :U 1479 ]
+"118
+}
+[; ;MS5803-01BA.c: 116: }
+[; ;MS5803-01BA.c: 117: }
+[; ;MS5803-01BA.c: 118: }
+[; ;MS5803-01BA.c: 119: n_rem = (0x000F & (n_rem >> 12));
+"119
+[e = _n_rem & -> -> 15 `i `ui >> _n_rem -> 12 `i ]
+[; ;MS5803-01BA.c: 120: sensorCoeffs[7] = crc_read;
+"120
+[e = *U + &U _sensorCoeffs * -> -> -> 7 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux _crc_read ]
+[; ;MS5803-01BA.c: 122: return (n_rem ^ 0x00);
+"122
+[e ) -> ^ _n_rem -> -> 0 `i `ui `uc ]
+[e $UE 1477  ]
+[; ;MS5803-01BA.c: 123: }
+"123
+[e :UE 1477 ]
+}
+"127
 [v _MS_5803_ADC `(ul ~T0 @X0 1 ef1`uc ]
 {
-[; ;MS5803-01BA.c: 110: unsigned long MS_5803_ADC(char commandADC) {
+[; ;MS5803-01BA.c: 127: unsigned long MS_5803_ADC(char commandADC) {
 [e :U _MS_5803_ADC ]
 [v _commandADC `uc ~T0 @X0 1 r1 ]
 [f ]
-"113
-[v _result `l ~T0 @X0 1 a ]
-[; ;MS5803-01BA.c: 113: long result = 0;
-[e = _result -> -> 0 `i `l ]
-[; ;MS5803-01BA.c: 115: I2Cdev_writeBytes(0x76, 0x40 + commandADC, 0 ,0);
-"115
-[e ( _I2Cdev_writeBytes (4 , , , -> -> 118 `i `uc -> + -> 64 `i -> _commandADC `i `uc -> -> 0 `i `uc -> -> 0 `i `*uc ]
-[; ;MS5803-01BA.c: 119: switch (commandADC & 0x0F)
-"119
-[e $U 1486  ]
-[; ;MS5803-01BA.c: 120: {
-"120
-{
-[; ;MS5803-01BA.c: 121: case 0x00 :
-"121
-[e :U 1487 ]
-[; ;MS5803-01BA.c: 122: Delay100TCYx(1);
-"122
-[e ( _Delay100TCYx (1 -> -> 1 `i `uc ]
-[; ;MS5803-01BA.c: 123: break;
-"123
-[e $U 1485  ]
-[; ;MS5803-01BA.c: 124: case 0x02 :
-"124
-[e :U 1488 ]
-[; ;MS5803-01BA.c: 125: Delay100TCYx(3);
-"125
-[e ( _Delay100TCYx (1 -> -> 3 `i `uc ]
-[; ;MS5803-01BA.c: 126: break;
-"126
-[e $U 1485  ]
-[; ;MS5803-01BA.c: 127: case 0x04:
-"127
-[e :U 1489 ]
-[; ;MS5803-01BA.c: 128: Delay100TCYx(4);
-"128
-[e ( _Delay100TCYx (1 -> -> 4 `i `uc ]
-[; ;MS5803-01BA.c: 129: break;
-"129
-[e $U 1485  ]
-[; ;MS5803-01BA.c: 130: case 0x06:
 "130
-[e :U 1490 ]
-[; ;MS5803-01BA.c: 131: Delay100TCYx(6);
-"131
-[e ( _Delay100TCYx (1 -> -> 6 `i `uc ]
-[; ;MS5803-01BA.c: 132: break;
+[v _result `l ~T0 @X0 1 a ]
+[; ;MS5803-01BA.c: 130: long result = 0;
+[e = _result -> -> 0 `i `l ]
+[; ;MS5803-01BA.c: 132: I2Cdev_writeBytes(0x76, 0x40 + commandADC, 0 ,0);
 "132
-[e $U 1485  ]
-[; ;MS5803-01BA.c: 133: case 0x08:
-"133
-[e :U 1491 ]
-[; ;MS5803-01BA.c: 134: Delay100TCYx(10);
-"134
-[e ( _Delay100TCYx (1 -> -> 10 `i `uc ]
-[; ;MS5803-01BA.c: 135: break;
-"135
-[e $U 1485  ]
+[e ( _I2Cdev_writeBytes (4 , , , -> -> 118 `i `uc -> + -> 64 `i -> _commandADC `i `uc -> -> 0 `i `uc -> -> 0 `i `*uc ]
+[; ;MS5803-01BA.c: 136: switch (commandADC & 0x0F)
 "136
-}
-[; ;MS5803-01BA.c: 136: }
-[e $U 1485  ]
-"119
-[e :U 1486 ]
-[e [\ & -> _commandADC `i -> 15 `i , $ -> 0 `i 1487
- , $ -> 2 `i 1488
- , $ -> 4 `i 1489
- , $ -> 6 `i 1490
- , $ -> 8 `i 1491
- 1485 ]
-"136
-[e :U 1485 ]
-[; ;MS5803-01BA.c: 138: I2Cdev_readBytes(0x76, 0x00, 3, I2C_Bytes);
+[e $U 1490  ]
+[; ;MS5803-01BA.c: 137: {
+"137
+{
+[; ;MS5803-01BA.c: 138: case 0x00 :
 "138
-[e ( _I2Cdev_readBytes (4 , , , -> -> 118 `i `uc -> -> 0 `i `uc -> -> 3 `i `uc &U _I2C_Bytes ]
-[; ;MS5803-01BA.c: 141: result = ((long)I2C_Bytes[0] << 16) + ((long)I2C_Bytes[1] << 8) + (long)I2C_Bytes[2];
+[e :U 1491 ]
+[; ;MS5803-01BA.c: 139: Delay100TCYx(1);
+"139
+[e ( _Delay100TCYx (1 -> -> 1 `i `uc ]
+[; ;MS5803-01BA.c: 140: break;
+"140
+[e $U 1489  ]
+[; ;MS5803-01BA.c: 141: case 0x02 :
 "141
-[e = _result + + << -> *U + &U _I2C_Bytes * -> -> -> 0 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `l -> 16 `i << -> *U + &U _I2C_Bytes * -> -> -> 1 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `l -> 8 `i -> *U + &U _I2C_Bytes * -> -> -> 2 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `l ]
-[; ;MS5803-01BA.c: 142: return result;
+[e :U 1492 ]
+[; ;MS5803-01BA.c: 142: Delay100TCYx(3);
 "142
-[e ) -> _result `ul ]
-[e $UE 1484  ]
-[; ;MS5803-01BA.c: 143: }
+[e ( _Delay100TCYx (1 -> -> 3 `i `uc ]
+[; ;MS5803-01BA.c: 143: break;
 "143
-[e :UE 1484 ]
-}
+[e $U 1489  ]
+[; ;MS5803-01BA.c: 144: case 0x04:
+"144
+[e :U 1493 ]
+[; ;MS5803-01BA.c: 145: Delay100TCYx(4);
+"145
+[e ( _Delay100TCYx (1 -> -> 4 `i `uc ]
+[; ;MS5803-01BA.c: 146: break;
 "146
+[e $U 1489  ]
+[; ;MS5803-01BA.c: 147: case 0x06:
+"147
+[e :U 1494 ]
+[; ;MS5803-01BA.c: 148: Delay100TCYx(6);
+"148
+[e ( _Delay100TCYx (1 -> -> 6 `i `uc ]
+[; ;MS5803-01BA.c: 149: break;
+"149
+[e $U 1489  ]
+[; ;MS5803-01BA.c: 150: case 0x08:
+"150
+[e :U 1495 ]
+[; ;MS5803-01BA.c: 151: Delay100TCYx(10);
+"151
+[e ( _Delay100TCYx (1 -> -> 10 `i `uc ]
+[; ;MS5803-01BA.c: 152: break;
+"152
+[e $U 1489  ]
+"153
+}
+[; ;MS5803-01BA.c: 153: }
+[e $U 1489  ]
+"136
+[e :U 1490 ]
+[e [\ & -> _commandADC `i -> 15 `i , $ -> 0 `i 1491
+ , $ -> 2 `i 1492
+ , $ -> 4 `i 1493
+ , $ -> 6 `i 1494
+ , $ -> 8 `i 1495
+ 1489 ]
+"153
+[e :U 1489 ]
+[; ;MS5803-01BA.c: 155: I2Cdev_readBytes(0x76, 0x00, 3, I2C_Bytes);
+"155
+[e ( _I2Cdev_readBytes (4 , , , -> -> 118 `i `uc -> -> 0 `i `uc -> -> 3 `i `uc &U _I2C_Bytes ]
+[; ;MS5803-01BA.c: 158: result = ((long)I2C_Bytes[0] << 16) + ((long)I2C_Bytes[1] << 8) + (long)I2C_Bytes[2];
+"158
+[e = _result + + << -> *U + &U _I2C_Bytes * -> -> -> 0 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `l -> 16 `i << -> *U + &U _I2C_Bytes * -> -> -> 1 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `l -> 8 `i -> *U + &U _I2C_Bytes * -> -> -> 2 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `l ]
+[; ;MS5803-01BA.c: 159: return result;
+"159
+[e ) -> _result `ul ]
+[e $UE 1488  ]
+[; ;MS5803-01BA.c: 160: }
+"160
+[e :UE 1488 ]
+}
+"163
 [v _MS_5803_init `(E8736 ~T0 @X0 1 ef1`E8736 ]
 {
-[; ;MS5803-01BA.c: 146: BOOL MS_5803_init(BOOL Verbose) {
+[; ;MS5803-01BA.c: 163: BOOL MS_5803_init(BOOL Verbose) {
 [e :U _MS_5803_init ]
 [v _Verbose `E8736 ~T0 @X0 1 r1 ]
 [f ]
-[; ;MS5803-01BA.c: 147: MS_5803_resetSensor();
-"147
+[; ;MS5803-01BA.c: 164: MS_5803_resetSensor();
+"164
 [e ( _MS_5803_resetSensor ..  ]
-[; ;MS5803-01BA.c: 149: if (Verbose) {
-"149
-[e $ ! != -> _Verbose `i -> -> -> 0 `i `E8736 `i 1493  ]
+[; ;MS5803-01BA.c: 166: if (Verbose) {
+"166
+[e $ ! != -> _Verbose `i -> -> -> 0 `i `E8736 `i 1497  ]
 {
-[; ;MS5803-01BA.c: 151: if (Resolution == 256 | Resolution == 512 | Resolution == 1024 | Resolution == 2048 | Resolution == 4096){
-"151
-[e $ ! | | | | == _Resolution -> -> 256 `i `ui == _Resolution -> -> 512 `i `ui == _Resolution -> -> 1024 `i `ui == _Resolution -> -> 2048 `i `ui == _Resolution -> -> 4096 `i `ui 1494  ]
+[; ;MS5803-01BA.c: 168: if (Resolution == 256 | Resolution == 512 | Resolution == 1024 | Resolution == 2048 | Resolution == 4096){
+"168
+[e $ ! | | | | == _Resolution -> -> 256 `i `ui == _Resolution -> -> 512 `i `ui == _Resolution -> -> 1024 `i `ui == _Resolution -> -> 2048 `i `ui == _Resolution -> -> 4096 `i `ui 1498  ]
 {
-"154
+"171
 }
-[; ;MS5803-01BA.c: 154: } else {
-[e $U 1495  ]
-[e :U 1494 ]
+[; ;MS5803-01BA.c: 171: } else {
+[e $U 1499  ]
+[e :U 1498 ]
 {
-"159
+"176
 }
-[e :U 1495 ]
-"161
+[e :U 1499 ]
+"178
 }
-[e :U 1493 ]
-[; ;MS5803-01BA.c: 159: }
-[; ;MS5803-01BA.c: 161: }
-[; ;MS5803-01BA.c: 163: for (int i = 0; i < 8; i++ ){
-"163
+[e :U 1497 ]
+[; ;MS5803-01BA.c: 176: }
+[; ;MS5803-01BA.c: 178: }
+[; ;MS5803-01BA.c: 180: for (int i = 0; i < 8; i++ ){
+"180
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 8 `i 1496  ]
-[e $U 1497  ]
-[e :U 1496 ]
-{
-[; ;MS5803-01BA.c: 165: I2Cdev_readBytes(0x76, 0xA0 + (i * 2), 2, I2C_Bytes);
-"165
-[e ( _I2Cdev_readBytes (4 , , , -> -> 118 `i `uc -> + -> 160 `i * _i -> 2 `i `uc -> -> 2 `i `uc &U _I2C_Bytes ]
-[; ;MS5803-01BA.c: 166: sensorCoeffs[i] = (((unsigned int)I2C_Bytes[0] << 8) + I2C_Bytes[1]);
-"166
-[e = *U + &U _sensorCoeffs * -> -> _i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux + << -> *U + &U _I2C_Bytes * -> -> -> 0 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `ui -> 8 `i -> *U + &U _I2C_Bytes * -> -> -> 1 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `ui ]
-[; ;MS5803-01BA.c: 167: if (Verbose){
-"167
-[e $ ! != -> _Verbose `i -> -> -> 0 `i `E8736 `i 1499  ]
-{
-"174
-}
-[e :U 1499 ]
-"175
-}
-"163
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 8 `i 1496  ]
-[e :U 1497 ]
-"175
-}
-"177
-[v _p_crc `uc ~T0 @X0 1 a ]
-[; ;MS5803-01BA.c: 174: }
-[; ;MS5803-01BA.c: 175: }
-[; ;MS5803-01BA.c: 177: unsigned char p_crc = sensorCoeffs[7];
-[e = _p_crc -> *U + &U _sensorCoeffs * -> -> -> 7 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `uc ]
-"179
-[v _n_crc `uc ~T0 @X0 1 a ]
-[; ;MS5803-01BA.c: 179: unsigned char n_crc = MS_5803_CRC(sensorCoeffs);
-[e = _n_crc ( _MS_5803_CRC (1 &U _sensorCoeffs ]
-[; ;MS5803-01BA.c: 181: if (Verbose) {
-"181
-[e $ ! != -> _Verbose `i -> -> -> 0 `i `E8736 `i 1500  ]
-{
-"186
-}
+[e $ < _i -> 8 `i 1500  ]
+[e $U 1501  ]
 [e :U 1500 ]
-[; ;MS5803-01BA.c: 186: }
-[; ;MS5803-01BA.c: 189: if (p_crc != n_crc) {
-"189
-[e $ ! != -> _p_crc `i -> _n_crc `i 1501  ]
 {
-[; ;MS5803-01BA.c: 190: return 0;
-"190
-[e ) -> -> 0 `i `E8736 ]
-[e $UE 1492  ]
+[; ;MS5803-01BA.c: 182: I2Cdev_readBytes(0x76, 0xA0 + (i * 2), 2, I2C_Bytes);
+"182
+[e ( _I2Cdev_readBytes (4 , , , -> -> 118 `i `uc -> + -> 160 `i * _i -> 2 `i `uc -> -> 2 `i `uc &U _I2C_Bytes ]
+[; ;MS5803-01BA.c: 183: sensorCoeffs[i] = (((unsigned int)I2C_Bytes[0] << 8) + I2C_Bytes[1]);
+"183
+[e = *U + &U _sensorCoeffs * -> -> _i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux + << -> *U + &U _I2C_Bytes * -> -> -> 0 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `ui -> 8 `i -> *U + &U _I2C_Bytes * -> -> -> 1 `i `ui `ux -> -> # *U &U _I2C_Bytes `ui `ux `ui ]
+[; ;MS5803-01BA.c: 184: if (Verbose){
+"184
+[e $ ! != -> _Verbose `i -> -> -> 0 `i `E8736 `i 1503  ]
+{
 "191
 }
-[e :U 1501 ]
-[; ;MS5803-01BA.c: 191: }
-[; ;MS5803-01BA.c: 193: return 1;
-"193
-[e ) -> -> 1 `i `E8736 ]
-[e $UE 1492  ]
-[; ;MS5803-01BA.c: 194: }
-"194
-[e :UE 1492 ]
+[e :U 1503 ]
+"192
 }
-"197
+"180
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 8 `i 1500  ]
+[e :U 1501 ]
+"192
+}
+"194
+[v _p_crc `uc ~T0 @X0 1 a ]
+[; ;MS5803-01BA.c: 191: }
+[; ;MS5803-01BA.c: 192: }
+[; ;MS5803-01BA.c: 194: unsigned char p_crc = sensorCoeffs[7];
+[e = _p_crc -> *U + &U _sensorCoeffs * -> -> -> 7 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `uc ]
+"196
+[v _n_crc `uc ~T0 @X0 1 a ]
+[; ;MS5803-01BA.c: 196: unsigned char n_crc = MS_5803_CRC(sensorCoeffs);
+[e = _n_crc ( _MS_5803_CRC (1 &U _sensorCoeffs ]
+[; ;MS5803-01BA.c: 198: if (Verbose) {
+"198
+[e $ ! != -> _Verbose `i -> -> -> 0 `i `E8736 `i 1504  ]
+{
+"203
+}
+[e :U 1504 ]
+[; ;MS5803-01BA.c: 203: }
+[; ;MS5803-01BA.c: 206: if (p_crc != n_crc) {
+"206
+[e $ ! != -> _p_crc `i -> _n_crc `i 1505  ]
+{
+[; ;MS5803-01BA.c: 207: return 0;
+"207
+[e ) -> -> 0 `i `E8736 ]
+[e $UE 1496  ]
+"208
+}
+[e :U 1505 ]
+[; ;MS5803-01BA.c: 208: }
+[; ;MS5803-01BA.c: 210: return 1;
+"210
+[e ) -> -> 1 `i `E8736 ]
+[e $UE 1496  ]
+[; ;MS5803-01BA.c: 211: }
+"211
+[e :UE 1496 ]
+}
+"214
 [v _MS_5803_readSensor `(v ~T0 @X0 1 ef ]
 {
-[; ;MS5803-01BA.c: 197: void MS_5803_readSensor(void) {
+[; ;MS5803-01BA.c: 214: void MS_5803_readSensor(void) {
 [e :U _MS_5803_readSensor ]
 [f ]
-[; ;MS5803-01BA.c: 201: if (Resolution == 256){
-"201
-[e $ ! == _Resolution -> -> 256 `i `ui 1503  ]
+[; ;MS5803-01BA.c: 218: if (Resolution == 256){
+"218
+[e $ ! == _Resolution -> -> 256 `i `ui 1507  ]
 {
-[; ;MS5803-01BA.c: 202: D1 = MS_5803_ADC(0x00 + 0x00);
-"202
+[; ;MS5803-01BA.c: 219: D1 = MS_5803_ADC(0x00 + 0x00);
+"219
 [e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 0 `i `uc ]
-[; ;MS5803-01BA.c: 203: D2 = MS_5803_ADC(0x10 + 0x00);
-"203
+[; ;MS5803-01BA.c: 220: D2 = MS_5803_ADC(0x10 + 0x00);
+"220
 [e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 0 `i `uc ]
-"204
+"221
 }
-[; ;MS5803-01BA.c: 204: } else if (Resolution == 512) {
-[e $U 1504  ]
-[e :U 1503 ]
-[e $ ! == _Resolution -> -> 512 `i `ui 1505  ]
-{
-[; ;MS5803-01BA.c: 205: D1 = MS_5803_ADC(0x00 + 0x02);
-"205
-[e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 2 `i `uc ]
-[; ;MS5803-01BA.c: 206: D2 = MS_5803_ADC(0x10 + 0x02);
-"206
-[e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 2 `i `uc ]
-"207
-}
-[; ;MS5803-01BA.c: 207: } else if (Resolution == 1024) {
-[e $U 1506  ]
-[e :U 1505 ]
-[e $ ! == _Resolution -> -> 1024 `i `ui 1507  ]
-{
-[; ;MS5803-01BA.c: 208: D1 = MS_5803_ADC(0x00 + 0x04);
-"208
-[e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 4 `i `uc ]
-[; ;MS5803-01BA.c: 209: D2 = MS_5803_ADC(0x10 + 0x04);
-"209
-[e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 4 `i `uc ]
-"210
-}
-[; ;MS5803-01BA.c: 210: } else if (Resolution == 2048) {
+[; ;MS5803-01BA.c: 221: } else if (Resolution == 512) {
 [e $U 1508  ]
 [e :U 1507 ]
-[e $ ! == _Resolution -> -> 2048 `i `ui 1509  ]
+[e $ ! == _Resolution -> -> 512 `i `ui 1509  ]
 {
-[; ;MS5803-01BA.c: 211: D1 = MS_5803_ADC(0x00 + 0x06);
-"211
-[e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 6 `i `uc ]
-[; ;MS5803-01BA.c: 212: D2 = MS_5803_ADC(0x10 + 0x06);
-"212
-[e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 6 `i `uc ]
-"213
+[; ;MS5803-01BA.c: 222: D1 = MS_5803_ADC(0x00 + 0x02);
+"222
+[e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 2 `i `uc ]
+[; ;MS5803-01BA.c: 223: D2 = MS_5803_ADC(0x10 + 0x02);
+"223
+[e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 2 `i `uc ]
+"224
 }
-[; ;MS5803-01BA.c: 213: } else if (Resolution == 4096) {
+[; ;MS5803-01BA.c: 224: } else if (Resolution == 1024) {
 [e $U 1510  ]
 [e :U 1509 ]
-[e $ ! == _Resolution -> -> 4096 `i `ui 1511  ]
+[e $ ! == _Resolution -> -> 1024 `i `ui 1511  ]
 {
-[; ;MS5803-01BA.c: 214: D1 = MS_5803_ADC(0x00 + 0x08);
-"214
-[e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 8 `i `uc ]
-[; ;MS5803-01BA.c: 215: D2 = MS_5803_ADC(0x10 + 0x08);
-"215
-[e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 8 `i `uc ]
-"216
-}
-[e :U 1511 ]
-"221
-[e :U 1510 ]
-[e :U 1508 ]
-[e :U 1506 ]
-[e :U 1504 ]
-[; ;MS5803-01BA.c: 216: }
-[; ;MS5803-01BA.c: 221: dT = (int32_t)D2 - ( (int32_t)sensorCoeffs[5] * 256 );
-[e = _dT - -> _D2 `l * -> *U + &U _sensorCoeffs * -> -> -> 5 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l -> -> 256 `i `l ]
-[; ;MS5803-01BA.c: 225: TEMP = 2000 + ((int64_t)dT * sensorCoeffs[6]) / 8388608LL;
+[; ;MS5803-01BA.c: 225: D1 = MS_5803_ADC(0x00 + 0x04);
 "225
-[e = _TEMP + -> -> 2000 `i `l / * _dT -> *U + &U _sensorCoeffs * -> -> -> 6 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l -> 8388608 `l ]
-[; ;MS5803-01BA.c: 227: TEMP = (int32_t)TEMP;
+[e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 4 `i `uc ]
+[; ;MS5803-01BA.c: 226: D2 = MS_5803_ADC(0x10 + 0x04);
+"226
+[e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 4 `i `uc ]
 "227
-[e = _TEMP _TEMP ]
-[; ;MS5803-01BA.c: 237: if (TEMP < 2000) {
-"237
-[e $ ! < _TEMP -> -> 2000 `i `l 1512  ]
-{
-[; ;MS5803-01BA.c: 239: T2 = ((int64_t)dT * dT) / 2147483648ULL ;
-"239
-[e = _T2 -> / -> * _dT _dT `ul -> -2147483648 `ul `l ]
-[; ;MS5803-01BA.c: 240: T2 = (int32_t)T2;
-"240
-[e = _T2 _T2 ]
-[; ;MS5803-01BA.c: 241: OFF2 = 3 * ((TEMP-2000) * (TEMP-2000));
-"241
-[e = _OFF2 * -> -> 3 `i `l * - _TEMP -> -> 2000 `i `l - _TEMP -> -> 2000 `i `l ]
-[; ;MS5803-01BA.c: 242: Sens2 = 7 * ((TEMP-2000)*(TEMP-2000)) / 8 ;
-"242
-[e = _Sens2 / * -> -> 7 `i `l * - _TEMP -> -> 2000 `i `l - _TEMP -> -> 2000 `i `l -> -> 8 `i `l ]
-"243
 }
-[; ;MS5803-01BA.c: 243: } else {
-[e $U 1513  ]
-[e :U 1512 ]
+[; ;MS5803-01BA.c: 227: } else if (Resolution == 2048) {
+[e $U 1512  ]
+[e :U 1511 ]
+[e $ ! == _Resolution -> -> 2048 `i `ui 1513  ]
 {
-[; ;MS5803-01BA.c: 245: T2 = 0;
-"245
-[e = _T2 -> -> 0 `i `l ]
-[; ;MS5803-01BA.c: 246: OFF2 = 0;
-"246
-[e = _OFF2 -> -> 0 `i `l ]
-[; ;MS5803-01BA.c: 247: Sens2 = 0;
-"247
-[e = _Sens2 -> -> 0 `i `l ]
-[; ;MS5803-01BA.c: 248: if (TEMP > 4500) {
-"248
-[e $ ! > _TEMP -> -> 4500 `i `l 1514  ]
-{
-[; ;MS5803-01BA.c: 250: Sens2 = Sens2 - ((TEMP-4500)*(TEMP-4500)) / 8;
-"250
-[e = _Sens2 - _Sens2 / * - _TEMP -> -> 4500 `i `l - _TEMP -> -> 4500 `i `l -> -> 8 `i `l ]
-"251
+[; ;MS5803-01BA.c: 228: D1 = MS_5803_ADC(0x00 + 0x06);
+"228
+[e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 6 `i `uc ]
+[; ;MS5803-01BA.c: 229: D2 = MS_5803_ADC(0x10 + 0x06);
+"229
+[e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 6 `i `uc ]
+"230
 }
-[e :U 1514 ]
-"252
-}
+[; ;MS5803-01BA.c: 230: } else if (Resolution == 4096) {
+[e $U 1514  ]
 [e :U 1513 ]
-[; ;MS5803-01BA.c: 251: }
-[; ;MS5803-01BA.c: 252: }
-[; ;MS5803-01BA.c: 255: if (TEMP < -1500) {
-"255
-[e $ ! < _TEMP -> -U -> 1500 `i `l 1515  ]
+[e $ ! == _Resolution -> -> 4096 `i `ui 1515  ]
 {
-[; ;MS5803-01BA.c: 258: Sens2 = Sens2 + 2 * ((TEMP+1500)*(TEMP+1500));
-"258
-[e = _Sens2 + _Sens2 * -> -> 2 `i `l * + _TEMP -> -> 1500 `i `l + _TEMP -> -> 1500 `i `l ]
-"259
+[; ;MS5803-01BA.c: 231: D1 = MS_5803_ADC(0x00 + 0x08);
+"231
+[e = _D1 ( _MS_5803_ADC (1 -> + -> 0 `i -> 8 `i `uc ]
+[; ;MS5803-01BA.c: 232: D2 = MS_5803_ADC(0x10 + 0x08);
+"232
+[e = _D2 ( _MS_5803_ADC (1 -> + -> 16 `i -> 8 `i `uc ]
+"233
 }
 [e :U 1515 ]
-[; ;MS5803-01BA.c: 259: }
-[; ;MS5803-01BA.c: 267: Offset = (int64_t)sensorCoeffs[2] * 65536 + (sensorCoeffs[4] * (int64_t)dT) / 128;
+"238
+[e :U 1514 ]
+[e :U 1512 ]
+[e :U 1510 ]
+[e :U 1508 ]
+[; ;MS5803-01BA.c: 233: }
+[; ;MS5803-01BA.c: 238: dT = (int32_t)D2 - ( (int32_t)sensorCoeffs[5] * 256 );
+[e = _dT - -> _D2 `l * -> *U + &U _sensorCoeffs * -> -> -> 5 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l -> -> 256 `i `l ]
+[; ;MS5803-01BA.c: 242: TEMP = 2000 + ((int64_t)dT * sensorCoeffs[6]) / 8388608LL;
+"242
+[e = _TEMP + -> -> 2000 `i `l / * _dT -> *U + &U _sensorCoeffs * -> -> -> 6 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l -> 8388608 `l ]
+[; ;MS5803-01BA.c: 244: TEMP = (int32_t)TEMP;
+"244
+[e = _TEMP _TEMP ]
+[; ;MS5803-01BA.c: 254: if (TEMP < 2000) {
+"254
+[e $ ! < _TEMP -> -> 2000 `i `l 1516  ]
+{
+[; ;MS5803-01BA.c: 256: T2 = ((int64_t)dT * dT) / 2147483648ULL ;
+"256
+[e = _T2 -> / -> * _dT _dT `ul -> -2147483648 `ul `l ]
+[; ;MS5803-01BA.c: 257: T2 = (int32_t)T2;
+"257
+[e = _T2 _T2 ]
+[; ;MS5803-01BA.c: 258: OFF2 = 3 * ((TEMP-2000) * (TEMP-2000));
+"258
+[e = _OFF2 * -> -> 3 `i `l * - _TEMP -> -> 2000 `i `l - _TEMP -> -> 2000 `i `l ]
+[; ;MS5803-01BA.c: 259: Sens2 = 7 * ((TEMP-2000)*(TEMP-2000)) / 8 ;
+"259
+[e = _Sens2 / * -> -> 7 `i `l * - _TEMP -> -> 2000 `i `l - _TEMP -> -> 2000 `i `l -> -> 8 `i `l ]
+"260
+}
+[; ;MS5803-01BA.c: 260: } else {
+[e $U 1517  ]
+[e :U 1516 ]
+{
+[; ;MS5803-01BA.c: 262: T2 = 0;
+"262
+[e = _T2 -> -> 0 `i `l ]
+[; ;MS5803-01BA.c: 263: OFF2 = 0;
+"263
+[e = _OFF2 -> -> 0 `i `l ]
+[; ;MS5803-01BA.c: 264: Sens2 = 0;
+"264
+[e = _Sens2 -> -> 0 `i `l ]
+[; ;MS5803-01BA.c: 265: if (TEMP > 4500) {
+"265
+[e $ ! > _TEMP -> -> 4500 `i `l 1518  ]
+{
+[; ;MS5803-01BA.c: 267: Sens2 = Sens2 - ((TEMP-4500)*(TEMP-4500)) / 8;
 "267
-[e = _Offset + * -> *U + &U _sensorCoeffs * -> -> -> 2 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l -> 65536 `l / * -> *U + &U _sensorCoeffs * -> -> -> 4 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l _dT -> -> 128 `i `l ]
-[; ;MS5803-01BA.c: 268: Sensitivity = (int64_t)sensorCoeffs[1] * 32768 + (sensorCoeffs[3] * (int64_t)dT) / 256;
+[e = _Sens2 - _Sens2 / * - _TEMP -> -> 4500 `i `l - _TEMP -> -> 4500 `i `l -> -> 8 `i `l ]
 "268
-[e = _Sensitivity + * -> *U + &U _sensorCoeffs * -> -> -> 1 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l -> 32768 `l / * -> *U + &U _sensorCoeffs * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l _dT -> -> 256 `i `l ]
-[; ;MS5803-01BA.c: 272: TEMP = TEMP - T2;
+}
+[e :U 1518 ]
+"269
+}
+[e :U 1517 ]
+[; ;MS5803-01BA.c: 268: }
+[; ;MS5803-01BA.c: 269: }
+[; ;MS5803-01BA.c: 272: if (TEMP < -1500) {
 "272
-[e = _TEMP - _TEMP _T2 ]
-[; ;MS5803-01BA.c: 273: Offset = Offset - OFF2;
-"273
-[e = _Offset - _Offset _OFF2 ]
-[; ;MS5803-01BA.c: 274: Sensitivity = Sensitivity - Sens2;
-"274
-[e = _Sensitivity - _Sensitivity _Sens2 ]
-[; ;MS5803-01BA.c: 281: mbarInt = ((D1 * Sensitivity) / 2097152 - Offset) / 32768;
-"281
-[e = _mbarInt -> / - / * _D1 -> _Sensitivity `ul -> -> 2097152 `l `ul -> _Offset `ul -> -> 32768 `l `ul `l ]
-[; ;MS5803-01BA.c: 282: mbar = (float)mbarInt / 100;
-"282
-[e = _mbar / -> _mbarInt `f -> -> 100 `i `f ]
-[; ;MS5803-01BA.c: 285: tempC = (float)TEMP / 100;
+[e $ ! < _TEMP -> -U -> 1500 `i `l 1519  ]
+{
+[; ;MS5803-01BA.c: 275: Sens2 = Sens2 + 2 * ((TEMP+1500)*(TEMP+1500));
+"275
+[e = _Sens2 + _Sens2 * -> -> 2 `i `l * + _TEMP -> -> 1500 `i `l + _TEMP -> -> 1500 `i `l ]
+"276
+}
+[e :U 1519 ]
+[; ;MS5803-01BA.c: 276: }
+[; ;MS5803-01BA.c: 284: Offset = (int64_t)sensorCoeffs[2] * 65536 + (sensorCoeffs[4] * (int64_t)dT) / 128;
+"284
+[e = _Offset + * -> *U + &U _sensorCoeffs * -> -> -> 2 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l -> 65536 `l / * -> *U + &U _sensorCoeffs * -> -> -> 4 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l _dT -> -> 128 `i `l ]
+[; ;MS5803-01BA.c: 285: Sensitivity = (int64_t)sensorCoeffs[1] * 32768 + (sensorCoeffs[3] * (int64_t)dT) / 256;
 "285
-[e = _tempC / -> _TEMP `f -> -> 100 `i `f ]
-[; ;MS5803-01BA.c: 298: }
+[e = _Sensitivity + * -> *U + &U _sensorCoeffs * -> -> -> 1 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l -> 32768 `l / * -> *U + &U _sensorCoeffs * -> -> -> 3 `i `ui `ux -> -> # *U &U _sensorCoeffs `ui `ux `l _dT -> -> 256 `i `l ]
+[; ;MS5803-01BA.c: 289: TEMP = TEMP - T2;
+"289
+[e = _TEMP - _TEMP _T2 ]
+[; ;MS5803-01BA.c: 290: Offset = Offset - OFF2;
+"290
+[e = _Offset - _Offset _OFF2 ]
+[; ;MS5803-01BA.c: 291: Sensitivity = Sensitivity - Sens2;
+"291
+[e = _Sensitivity - _Sensitivity _Sens2 ]
+[; ;MS5803-01BA.c: 298: mbarInt = ((D1 * Sensitivity) / 2097152 - Offset) / 32768;
 "298
-[e :UE 1502 ]
+[e = _mbarInt -> / - / * _D1 -> _Sensitivity `ul -> -> 2097152 `l `ul -> _Offset `ul -> -> 32768 `l `ul `l ]
+[; ;MS5803-01BA.c: 299: mbar = (float)mbarInt / 100;
+"299
+[e = _mbar / -> _mbarInt `f -> -> 100 `i `f ]
+[; ;MS5803-01BA.c: 302: tempC = (float)TEMP / 100;
+"302
+[e = _tempC / -> _TEMP `f -> -> 100 `i `f ]
+[; ;MS5803-01BA.c: 315: }
+"315
+[e :UE 1506 ]
 }
 "21 ../pic18f458_badgerloop.c
 [p x OSC=HSPLL ]
@@ -14647,43 +14691,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 "127
 {
 [e = _i -> 0 `i ]
-[e $ < _i -> 5000 `i 1517  ]
-[e $U 1518  ]
+[e $ < _i -> 5000 `i 1521  ]
+[e $U 1522  ]
 "128
-[e :U 1517 ]
+[e :U 1521 ]
 [; ;pic18f458_badgerloop.c: 128: {
 {
 [; ;pic18f458_badgerloop.c: 129: for(j=0;j<2;j++)
 "129
 {
 [e = _j -> 0 `i ]
-[e $ < _j -> 2 `i 1520  ]
-[e $U 1521  ]
+[e $ < _j -> 2 `i 1524  ]
+[e $U 1525  ]
 "130
-[e :U 1520 ]
+[e :U 1524 ]
 [; ;pic18f458_badgerloop.c: 130: {
 {
 "132
 }
 "129
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 2 `i 1520  ]
-[e :U 1521 ]
+[e $ < _j -> 2 `i 1524  ]
+[e :U 1525 ]
 "132
 }
 "133
 }
 "127
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 5000 `i 1517  ]
-[e :U 1518 ]
+[e $ < _i -> 5000 `i 1521  ]
+[e :U 1522 ]
 "133
 }
 [; ;pic18f458_badgerloop.c: 132: }
 [; ;pic18f458_badgerloop.c: 133: }
 [; ;pic18f458_badgerloop.c: 134: }
 "134
-[e :UE 1516 ]
+[e :UE 1520 ]
 }
 "136
 [v _CAN_SetMode `(v ~T0 @X0 1 ef1`uc ]
@@ -14701,14 +14745,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _CANCON _canMode ]
 [; ;pic18f458_badgerloop.c: 142: while((CANSTAT & 0xE0) != canMode);
 "142
-[e $U 1524  ]
-[e :U 1525 ]
-[e :U 1524 ]
-[e $ != & -> _CANSTAT `i -> 224 `i -> _canMode `i 1525  ]
-[e :U 1526 ]
+[e $U 1528  ]
+[e :U 1529 ]
+[e :U 1528 ]
+[e $ != & -> _CANSTAT `i -> 224 `i -> _canMode `i 1529  ]
+[e :U 1530 ]
 [; ;pic18f458_badgerloop.c: 143: }
 "143
-[e :UE 1523 ]
+[e :UE 1527 ]
 }
 "145
 [v _CAN_Init `(v ~T0 @X0 1 ef ]
@@ -14770,7 +14814,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _CAN_SetMode (1 -> -> 0 `i `uc ]
 [; ;pic18f458_badgerloop.c: 189: }
 "189
-[e :UE 1527 ]
+[e :UE 1531 ]
 }
 "191
 [v _setupCANTxRx `(v ~T0 @X0 1 ef ]
@@ -14792,7 +14836,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
 [; ;pic18f458_badgerloop.c: 203: }
 "203
-[e :UE 1528 ]
+[e :UE 1532 ]
 }
 "209
 [v _initI2C `(v ~T0 @X0 1 ef ]
@@ -14815,7 +14859,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
 [; ;pic18f458_badgerloop.c: 221: }
 "221
-[e :UE 1529 ]
+[e :UE 1533 ]
 }
 "223
 [v _initMPU6050 `(v ~T0 @X0 1 ef ]
@@ -14834,7 +14878,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
 [; ;pic18f458_badgerloop.c: 231: }
 "231
-[e :UE 1530 ]
+[e :UE 1534 ]
 }
 "13 main.c
 [v _receivedData `Vuc ~T0 @X0 -> 0 `x e ]
@@ -14883,11 +14927,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _canId << _canId -> 5 `i ]
 [; ;main.c: 24: while(TXB0CON & (1<<3));
 "24
-[e $U 1532  ]
-[e :U 1533 ]
-[e :U 1532 ]
-[e $ != & -> _TXB0CON `i << -> 1 `i -> 3 `i -> 0 `i 1533  ]
-[e :U 1534 ]
+[e $U 1536  ]
+[e :U 1537 ]
+[e :U 1536 ]
+[e $ != & -> _TXB0CON `i << -> 1 `i -> 3 `i -> 0 `i 1537  ]
+[e :U 1538 ]
 [; ;main.c: 26: TXB0SIDL = (uint8_t)(canId & 0x00E0);
 "26
 [e = _TXB0SIDL -> & _canId -> -> 224 `i `ui `uc ]
@@ -14926,7 +14970,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TXB0CON -> << -> 1 `i -> 3 `i `uc ]
 [; ;main.c: 46: }
 "46
-[e :UE 1531 ]
+[e :UE 1535 ]
 }
 "48
 [v _CAN_Receive `(ui ~T0 @X0 1 ef ]
@@ -14950,11 +14994,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _canId -> -> 0 `i `ui ]
 [; ;main.c: 57: while(!(RXB0CON & (1<<7)));
 "57
-[e $U 1536  ]
-[e :U 1537 ]
-[e :U 1536 ]
-[e $ ! != & -> _RXB0CON `i << -> 1 `i -> 7 `i -> 0 `i 1537  ]
-[e :U 1538 ]
+[e $U 1540  ]
+[e :U 1541 ]
+[e :U 1540 ]
+[e $ ! != & -> _RXB0CON `i << -> 1 `i -> 7 `i -> 0 `i 1541  ]
+[e :U 1542 ]
 [; ;main.c: 60: canIdL = RXB0SIDL;
 "60
 [e = _canIdL _RXB0SIDL ]
@@ -14997,10 +15041,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 79: return canId;
 "79
 [e ) _canId ]
-[e $UE 1535  ]
+[e $UE 1539  ]
 [; ;main.c: 80: }
 "80
-[e :UE 1535 ]
+[e :UE 1539 ]
 }
 "84
 [v _flashLED `(v ~T0 @X0 1 ef ]
@@ -15016,7 +15060,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _count -> 10 `i ]
 [; ;main.c: 87: while(1) {
 "87
-[e :U 1541 ]
+[e :U 1545 ]
 {
 [; ;main.c: 88: LATBbits.LATB0 = 1;
 "88
@@ -15035,27 +15079,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- _count -> 1 `i ]
 [; ;main.c: 93: if (count == 0)
 "93
-[e $ ! == _count -> 0 `i 1543  ]
+[e $ ! == _count -> 0 `i 1547  ]
 [; ;main.c: 94: {
 "94
 {
 [; ;main.c: 95: break;
 "95
-[e $U 1542  ]
+[e $U 1546  ]
 "96
 }
-[e :U 1543 ]
+[e :U 1547 ]
 "97
 }
-[e :U 1540 ]
+[e :U 1544 ]
 "87
-[e $U 1541  ]
-[e :U 1542 ]
+[e $U 1545  ]
+[e :U 1546 ]
 [; ;main.c: 96: }
 [; ;main.c: 97: }
 [; ;main.c: 98: }
 "98
-[e :UE 1539 ]
+[e :UE 1543 ]
 }
 "100
 [v _main `(v ~T0 @X0 1 ef ]
@@ -15088,7 +15132,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _flashLED ..  ]
 [; ;main.c: 109: while(1)
 "109
-[e :U 1546 ]
+[e :U 1550 ]
 [; ;main.c: 110: {
 "110
 {
@@ -15103,7 +15147,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 1 `i `uc ]
 [; ;main.c: 123: if (ay > 10)
 "123
-[e $ ! > _ay -> 10 `i 1548  ]
+[e $ ! > _ay -> 10 `i 1552  ]
 [; ;main.c: 124: {
 "124
 {
@@ -15115,7 +15159,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 2 `i `uc ]
 "127
 }
-[e :U 1548 ]
+[e :U 1552 ]
 [; ;main.c: 127: }
 [; ;main.c: 128: CAN_Transmit();
 "128
@@ -15125,12 +15169,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _delayzz ..  ]
 "131
 }
-[e :U 1545 ]
+[e :U 1549 ]
 "109
-[e $U 1546  ]
-[e :U 1547 ]
+[e $U 1550  ]
+[e :U 1551 ]
 [; ;main.c: 131: }
 [; ;main.c: 132: }
 "132
-[e :UE 1544 ]
+[e :UE 1548 ]
 }

@@ -10,3 +10,11 @@ unsigned long MS_5803_ADC(char commandADC);
 BOOL MS_5803_init(BOOL Verbose);
 
 void MS_5803_readSensor(void);
+
+float temperature(void);
+
+float pressure(void);
+
+unsigned long D1val(void);
+
+unsigned long D2val(void);

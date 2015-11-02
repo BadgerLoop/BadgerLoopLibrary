@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtnzkTJN.obj
+$/tmp/cgtLtC1s3.obj
 end_init CODE 0 2 2 4 1
 text CODE 0 380C 380C 2 1
 reset_vec CODE 0 0 0 2 1
@@ -154,26 +154,26 @@ $dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 "/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":23 3974 text18 CODE
 "/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":24 3976 text18 CODE
 "/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":26 3978 text18 CODE
-"/tmp/cgtTpk5IJ":884 397C cinit CODE
-"/tmp/cgtTpk5IJ":886 397C cinit CODE
-"/tmp/cgtTpk5IJ":889 397C cinit CODE
-"/tmp/cgtTpk5IJ":948 397C cinit CODE
-"/tmp/cgtTpk5IJ":949 3980 cinit CODE
-"/tmp/cgtTpk5IJ":950 3982 cinit CODE
-"/tmp/cgtTpk5IJ":951 3982 cinit CODE
-"/tmp/cgtTpk5IJ":952 3984 cinit CODE
-"/tmp/cgtTpk5IJ":953 3986 cinit CODE
-"/tmp/cgtTpk5IJ":956 3988 cinit CODE
-"/tmp/cgtTpk5IJ":957 398C cinit CODE
-"/tmp/cgtTpk5IJ":958 398E cinit CODE
-"/tmp/cgtTpk5IJ":959 398E cinit CODE
-"/tmp/cgtTpk5IJ":960 3990 cinit CODE
-"/tmp/cgtTpk5IJ":961 3992 cinit CODE
-"/tmp/cgtTpk5IJ":967 3994 cinit CODE
-"/tmp/cgtTpk5IJ":969 3994 cinit CODE
-"/tmp/cgtTpk5IJ":970 3996 cinit CODE
-"/tmp/cgtTpk5IJ":971 3998 cinit CODE
-"/tmp/cgtTpk5IJ":972 399A cinit CODE
+"/tmp/cgtddVVDy":884 397C cinit CODE
+"/tmp/cgtddVVDy":886 397C cinit CODE
+"/tmp/cgtddVVDy":889 397C cinit CODE
+"/tmp/cgtddVVDy":945 397C cinit CODE
+"/tmp/cgtddVVDy":946 3980 cinit CODE
+"/tmp/cgtddVVDy":947 3982 cinit CODE
+"/tmp/cgtddVVDy":948 3982 cinit CODE
+"/tmp/cgtddVVDy":949 3984 cinit CODE
+"/tmp/cgtddVVDy":950 3986 cinit CODE
+"/tmp/cgtddVVDy":953 3988 cinit CODE
+"/tmp/cgtddVVDy":954 398C cinit CODE
+"/tmp/cgtddVVDy":955 398E cinit CODE
+"/tmp/cgtddVVDy":956 398E cinit CODE
+"/tmp/cgtddVVDy":957 3990 cinit CODE
+"/tmp/cgtddVVDy":958 3992 cinit CODE
+"/tmp/cgtddVVDy":964 3994 cinit CODE
+"/tmp/cgtddVVDy":966 3994 cinit CODE
+"/tmp/cgtddVVDy":967 3996 cinit CODE
+"/tmp/cgtddVVDy":968 3998 cinit CODE
+"/tmp/cgtddVVDy":969 399A cinit CODE
 "/Users/njaunich/MPLABXProjects/BadgerloopLibrary/pic18f458_badgerloop.c":209 399E text16 CODE
 "/Users/njaunich/MPLABXProjects/BadgerloopLibrary/pic18f458_badgerloop.c":213 39A0 text16 CODE
 "/Users/njaunich/MPLABXProjects/BadgerloopLibrary/pic18f458_badgerloop.c":216 39AE text16 CODE
@@ -406,9 +406,10 @@ I2Cdev_writeBytes@i 38 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Trans
 delayzz@j 32 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _main 3C16 0 CODE 0 text0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _mbar 80 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtnzkTJN.obj
-start 2 0 CODE 0 init /tmp/cgtnzkTJN.obj
+___sp 0 0 STACK 2 stack /tmp/cgtLtC1s3.obj
+start 2 0 CODE 0 init /tmp/cgtLtC1s3.obj
 _sendData 68 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__cntErrataNOP_/tmp/cgtLtC1s3.obj 1 0 ABS 0 - /tmp/cgtLtC1s3.obj
 _MPU6050_setClockSource 38E2 0 CODE 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __end_of_I2Cdev_writeBytes 3AE6 0 CODE 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RCSTA FAB 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -523,7 +524,7 @@ __Hdata 0 0 ABS 0 data dist/default/production/CAN_Transmit_MPU6050.X.production
 __Ldata 0 0 ABS 0 data dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _MPU6050 380E 0 CODE 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-stackhi 5FF 0 ABS 0 - /tmp/cgtnzkTJN.obj
+stackhi 5FF 0 ABS 0 - /tmp/cgtLtC1s3.obj
 main@ax 53 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 main@ay 5D 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 main@az 55 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -534,7 +535,7 @@ __end_of_I2Cdev_readByte 38C4 0 CODE 0 text14 dist/default/production/CAN_Transm
 main@gz 5B 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-stacklo 96 0 ABS 0 - /tmp/cgtnzkTJN.obj
+stacklo 96 0 ABS 0 - /tmp/cgtLtC1s3.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_BOR$ON 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -689,8 +690,8 @@ __Hcinit 0 0 ABS 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.producti
 __Lcinit 0 0 ABS 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __pcinit 397C 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ramtop 600 0 RAM 0 ramtop /tmp/cgtnzkTJN.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtnzkTJN.obj
+__ramtop 600 0 RAM 0 ramtop /tmp/cgtLtC1s3.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtLtC1s3.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeByte@regAddr 39 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeByte@devAddr 3B 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -754,7 +755,7 @@ __ptext24 39C6 0 CODE 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.pr
 __Htext25 0 0 ABS 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext25 0 0 ABS 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __ptext15 380E 0 CODE 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgtnzkTJN.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgtLtC1s3.obj
 __Htext16 0 0 ABS 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext16 0 0 ABS 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __ptext25 3B46 0 CODE 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -781,7 +782,7 @@ __Ltext19 0 0 ABS 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.produc
 __ptext28 3D0A 0 CODE 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __ptext19 388A 0 CODE 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_MPU6050_setFullScaleGyroRange 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgtnzkTJN.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgtLtC1s3.obj
 _OpenUSART 3AE6 0 CODE 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hend_init 6 0 CODE 0 end_init dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lend_init 2 0 CODE 0 end_init dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -801,7 +802,7 @@ _RXF4SIDL F11 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.productio
 _RXM1SIDL F1D 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RXF5SIDL F15 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtnzkTJN.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtLtC1s3.obj
 _flashLED 39F0 0 CODE 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_CP1$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 OpenI2C@sync_mode 31 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -814,18 +815,18 @@ __size_of_MPU6050 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.pro
 __size_of_setupCANTxRx 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_MPU6050_setClockSource 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_MPU6050_setFullScaleAccelRange 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/cgtnzkTJN.obj
+__accesstop 60 0 ABS 0 - /tmp/cgtLtC1s3.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __end_of_WriteI2C 3BAE 0 CODE 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-intlevel0 380C 0 CODE 0 text /tmp/cgtnzkTJN.obj
+intlevel0 380C 0 CODE 0 text /tmp/cgtLtC1s3.obj
 __size_of_MPU6050_getMotion6 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBit@b 51 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-intlevel1 380C 0 CODE 0 text /tmp/cgtnzkTJN.obj
+intlevel1 380C 0 CODE 0 text /tmp/cgtLtC1s3.obj
 __CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-intlevel2 380C 0 CODE 0 text /tmp/cgtnzkTJN.obj
+intlevel2 380C 0 CODE 0 text /tmp/cgtLtC1s3.obj
 _MPU6050_setFullScaleAccelRange 3900 0 CODE 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-intlevel3 380C 0 CODE 0 text /tmp/cgtnzkTJN.obj
+intlevel3 380C 0 CODE 0 text /tmp/cgtLtC1s3.obj
 __CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __end_of_I2Cdev_writeByte 38E2 0 CODE 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_WriteI2C 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -856,7 +857,6 @@ I2Cdev_writeBits@b 4F 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transm
 I2Cdev_readBytes@devAddr 40 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __end_of_MPU6050_getMotion6 4000 0 CODE 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __initialization 397C 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__cntErrataNOP_/tmp/cgtnzkTJN.obj 1 0 ABS 0 - /tmp/cgtnzkTJN.obj
 __activetblptr 2 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 ___wmul@product 34 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __end_of_OpenI2C 397C 0 CODE 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj

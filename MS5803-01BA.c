@@ -22,14 +22,14 @@
 typedef signed long long int64_t;
 #endif
 
-float mbar; // Store pressure in mbar. 
-float tempC; // Store temperature in degrees Celsius
+static float mbar; // Store pressure in mbar. 
+static float tempC; // Store temperature in degrees Celsius
 //    float tempF; // Store temperature in degrees Fahrenheit
 //    float psiAbs; // Store pressure in pounds per square inch, absolute
 //    float psiGauge; // Store gauge pressure in pounds per square inch (psi)
 //    float inHgPress;  // Store pressure in inches of mercury
 //    float mmHgPress;  // Store pressure in mm of mercury
-int32_t mbarInt; // pressure in mbar, initially as a signed long integer
+static int32_t mbarInt; // pressure in mbar, initially as a signed long integer
 
 // Create array to hold the 8 sensor calibration coefficients
 static unsigned int      sensorCoeffs[8]; // unsigned 16-bit integer (0-65535)
@@ -56,6 +56,23 @@ static BYTE LowByte;
 static BYTE I2C_Bytes[3];
 
 static uint16_t Resolution;
+
+float temperature(void) {return tempC;}
+    // Return pressure in mbar.
+float pressure(void) {return mbar;}
+//    // Return temperature in degress Fahrenheit.
+//    float temperatureF() const        {return tempF;}
+//    // Return pressure in psi (absolute)
+//    float psia() const                {return psiAbs;}
+//    // Return pressure in psi (gauge)
+//    float psig() const                {return psiGauge;}
+//    // Return pressure in inHg
+//    float inHg() const                {return inHgPress;}
+//    // Return pressure in mmHg
+//    float mmHg() const                {return mmHgPress;}
+    // Return the D1 and D2 values, mostly for troubleshooting
+unsigned long D1val(void) {return D1;}
+unsigned long D2val(void) {return D2;}
 
 //-------------------------------------------------
 // Set resolution

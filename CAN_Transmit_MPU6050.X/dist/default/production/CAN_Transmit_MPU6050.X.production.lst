@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.32 build 58300 
-                                                                                               Sun Nov  1 22:06:26 2015
+                                                                                               Sun Nov  1 22:16:40 2015
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 58300
      1                           	processor	18F458
@@ -169,7 +169,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
    163                           
    164                           ;main.c: 108: flashLED();
    165  003C26  ECF8  F01C         	call	_flashLED	;wreg free
-   166  003C2A                     l5056:
+   166  003C2A                     l5076:
    167                           
    168                           ;main.c: 110: {
    169                           ;main.c: 112: MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
@@ -219,7 +219,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
    213  003C72  B4D8               	btfsc	status,2,c
    214  003C74  5C5D               	subwf	main@ay,w,c
    215  003C76  A0D8               	btfss	status,0,c
-   216  003C78  D004               	goto	l5068
+   216  003C78  D004               	goto	l5088
    217                           
    218                           ; BSR set to: 0
    219                           ;main.c: 124: {
@@ -231,7 +231,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
    225  003C7C  0E02               	movlw	2
    226  003C7E  0100               	movlb	0	; () banked
    227  003C80  6F69               	movwf	(_sendData+1)& (0+255),b	;volatile
-   228  003C82                     l5068:
+   228  003C82                     l5088:
    229                           
    230                           ; BSR set to: 0
    231                           ;main.c: 127: }
@@ -240,7 +240,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
    234                           
    235                           ;main.c: 130: delayzz();
    236  003C86  EC23  F01D         	call	_delayzz	;wreg free
-   237  003C8A  D7CF               	goto	l5056
+   237  003C8A  D7CF               	goto	l5076
    238  003C8C                     __end_of_main:
    239                           	opt stack 0
    240                           status	equ	0xFD8
@@ -826,14 +826,14 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
    820                           
    821                           ;pic18f458_badgerloop.c: 139: CANCON = canMode;
    822  00385C  C030  FF6F         	movff	CAN_SetMode@canMode,3951	;volatile
-   823  003860                     l3612:
+   823  003860                     l3632:
    824  003860  506E               	movf	3950,w,c	;volatile
    825  003862  0BE0               	andlw	224
    826  003864  1830               	xorwf	CAN_SetMode@canMode,w,c
    827  003866  B4D8               	btfsc	status,2,c
    828  003868  0012               	return	
    829  00386A  FFFF               	dw	65535	; assembler added errata NOP
-   830  00386C  D7F9               	goto	l3612
+   830  00386C  D7F9               	goto	l3632
    831  00386E  FFFF               	dw	65535	; errata NOP
    832  003870                     __end_of_CAN_SetMode:
    833                           	opt stack 0
@@ -1148,7 +1148,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   1142                           
   1143                           ;I2Cdev.c: 347: b = (data != 0) ? (b | (1 << bitNum)) : (b & ~(1 << bitNum));
   1144  003CA2  6648               	tstfsz	I2Cdev_writeBit@data,c
-  1145  003CA4  D012               	goto	l3584
+  1145  003CA4  D012               	goto	l3604
   1146  003CA6  C047  F049         	movff	I2Cdev_writeBit@bitNum,??_I2Cdev_writeBit
   1147  003CAA  0E01               	movlw	1
   1148  003CAC  6E4A               	movwf	(??_I2Cdev_writeBit+1)& (0+255),c
@@ -1167,8 +1167,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   1161  003CC2  504B               	movf	??_I2Cdev_writeBit+2,w,c
   1162  003CC4  6E4E               	movwf	_I2Cdev_writeBit$364,c
   1163  003CC6  6A4F               	clrf	_I2Cdev_writeBit$364+1,c
-  1164  003CC8  D015               	goto	l3586
-  1165  003CCA                     l3584:
+  1164  003CC8  D015               	goto	l3606
+  1165  003CCA                     l3604:
   1166  003CCA  C047  F049         	movff	I2Cdev_writeBit@bitNum,??_I2Cdev_writeBit
   1167  003CCE  0E01               	movlw	1
   1168  003CD0  6E4A               	movwf	(??_I2Cdev_writeBit+1)& (0+255),c
@@ -1191,7 +1191,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   1185  003CEE  504B               	movf	??_I2Cdev_writeBit+2,w,c
   1186  003CF0  104D               	iorwf	??_I2Cdev_writeBit+4,w,c
   1187  003CF2  6E4F               	movwf	_I2Cdev_writeBit$364+1,c
-  1188  003CF4                     l3586:
+  1188  003CF4                     l3606:
   1189  003CF4  C04E  F051         	movff	_I2Cdev_writeBit$364,I2Cdev_writeBit@b
   1190                           
   1191                           ;I2Cdev.c: 348: return I2Cdev_writeByte(devAddr, regAddr, b);
@@ -1711,8 +1711,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   1705                           ;I2Cdev.c: 267: for (uint8_t i = 0; i < length; i++) {
   1706  003AAC  0E00               	movlw	0
   1707  003AAE  6E38               	movwf	I2Cdev_writeBytes@i,c
-  1708  003AB0  D00E               	goto	l3560
-  1709  003AB2                     l3554:
+  1708  003AB0  D00E               	goto	l3580
+  1709  003AB2                     l3574:
   1710                           
   1711                           ;I2Cdev.c: 269: IdleI2C();
   1712  003AB2  EC0D  F01C         	call	_IdleI2C	;wreg free
@@ -1729,11 +1729,11 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   1723  003AC6  50DF               	movf	indf2,w,c
   1724  003AC8  ECA3  F01D         	call	_WriteI2C
   1725  003ACC  2A38               	incf	I2Cdev_writeBytes@i,f,c
-  1726  003ACE                     l3560:
+  1726  003ACE                     l3580:
   1727  003ACE  5034               	movf	I2Cdev_writeBytes@length,w,c
   1728  003AD0  5C38               	subwf	I2Cdev_writeBytes@i,w,c
   1729  003AD2  A0D8               	btfss	status,0,c
-  1730  003AD4  D7EE               	goto	l3554
+  1730  003AD4  D7EE               	goto	l3574
   1731                           
   1732                           ;I2Cdev.c: 271: }
   1733                           ;I2Cdev.c: 274: IdleI2C();
@@ -2036,42 +2036,42 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2030  003AF2  B032               	btfsc	OpenUSART@config,0,c
   2031  003AF4  88AC               	bsf	4012,4,c	;volatile
   2032  003AF6  A232               	btfss	OpenUSART@config,1,c
-  2033  003AF8  D002               	goto	l3768
+  2033  003AF8  D002               	goto	l3788
   2034  003AFA  8CAC               	bsf	4012,6,c	;volatile
   2035  003AFC  8CAB               	bsf	4011,6,c	;volatile
-  2036  003AFE                     l3768:
+  2036  003AFE                     l3788:
   2037  003AFE  B432               	btfsc	OpenUSART@config,2,c
   2038  003B00  8EAC               	bsf	4012,7,c	;volatile
   2039  003B02  A632               	btfss	OpenUSART@config,3,c
-  2040  003B04  D002               	goto	l1199
+  2040  003B04  D002               	goto	l1211
   2041  003B06  88AB               	bsf	4011,4,c	;volatile
-  2042  003B08  D001               	goto	l3776
-  2043  003B0A                     l1199:
+  2042  003B08  D001               	goto	l3796
+  2043  003B0A                     l1211:
   2044  003B0A  8AAB               	bsf	4011,5,c	;volatile
-  2045  003B0C                     l3776:
+  2045  003B0C                     l3796:
   2046  003B0C  A832               	btfss	OpenUSART@config,4,c
-  2047  003B0E  D002               	goto	l1201
+  2047  003B0E  D002               	goto	l1213
   2048  003B10  84AC               	bsf	4012,2,c	;volatile
-  2049  003B12  D001               	goto	l1202
-  2050  003B14                     l1201:
+  2049  003B12  D001               	goto	l1214
+  2050  003B14                     l1213:
   2051  003B14  94AC               	bcf	4012,2,c	;volatile
-  2052  003B16                     l1202:
+  2052  003B16                     l1214:
   2053  003B16  989E               	bcf	3998,4,c	;volatile
   2054  003B18  AC32               	btfss	OpenUSART@config,6,c
-  2055  003B1A  D002               	goto	l1203
+  2055  003B1A  D002               	goto	l1215
   2056  003B1C  8A9D               	bsf	3997,5,c	;volatile
-  2057  003B1E  D001               	goto	l1204
-  2058  003B20                     l1203:
+  2057  003B1E  D001               	goto	l1216
+  2058  003B20                     l1215:
   2059  003B20  9A9D               	bcf	3997,5,c	;volatile
-  2060  003B22                     l1204:
+  2060  003B22                     l1216:
   2061  003B22  9A9E               	bcf	3998,5,c	;volatile
   2062  003B24  AE32               	btfss	OpenUSART@config,7,c
-  2063  003B26  D002               	goto	l1205
+  2063  003B26  D002               	goto	l1217
   2064  003B28  889D               	bsf	3997,4,c	;volatile
-  2065  003B2A  D001               	goto	l1206
-  2066  003B2C                     l1205:
+  2065  003B2A  D001               	goto	l1218
+  2066  003B2C                     l1217:
   2067  003B2C  989D               	bcf	3997,4,c	;volatile
-  2068  003B2E                     l1206:
+  2068  003B2E                     l1218:
   2069  003B2E  C030  FFAF         	movff	OpenUSART@spbrg,4015	;volatile
   2070  003B32  8AAC               	bsf	4012,5,c	;volatile
   2071  003B34  8EAB               	bsf	4011,7,c	;volatile
@@ -2079,9 +2079,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2073  003B38  8E94               	bsf	3988,7,c	;volatile
   2074  003B3A  B8AC               	btfsc	4012,4,c	;volatile
   2075  003B3C  BEAC               	btfsc	4012,7,c	;volatile
-  2076  003B3E  D001               	goto	l1208
+  2076  003B3E  D001               	goto	l1220
   2077  003B40  8C94               	bsf	3988,6,c	;volatile
-  2078  003B42                     l1208:
+  2078  003B42                     l1220:
   2079  003B42  0012               	return	
   2080  003B44  FFFF               	dw	65535	; errata NOP
   2081  003B46                     __end_of_OpenUSART:
@@ -2206,7 +2206,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2200                           
   2201                           ;Delay10KTCYx@unit stored from wreg
   2202  00388C  6E31               	movwf	Delay10KTCYx@unit,c
-  2203  00388E                     l1513:
+  2203  00388E                     l1525:
   2204  00388E  0E0A               	movlw	10
   2205  003890  6E30               	movwf	??_Delay10KTCYx& (0+255),c
   2206  003892  0EBE               	movlw	190
@@ -2217,7 +2217,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2211  00389A  D7FC               	goto	u2637
   2212  00389C  D000               	nop2	
   2213  00389E  2E31               	decfsz	Delay10KTCYx@unit,f,c
-  2214  0038A0  D7F6               	goto	l1513
+  2214  0038A0  D7F6               	goto	l1525
   2215  0038A2  0012               	return	
   2216  0038A4  FFFF               	dw	65535	; errata NOP
   2217  0038A6                     __end_of_Delay10KTCYx:
@@ -2277,7 +2277,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2271  0039F4  6E35               	movwf	flashLED@count+1,c
   2272  0039F6  0E0A               	movlw	10
   2273  0039F8  6E34               	movwf	flashLED@count,c
-  2274  0039FA                     l3978:
+  2274  0039FA                     l3998:
   2275                           
   2276                           ;main.c: 88: LATBbits.LATB0 = 1;
   2277  0039FA  808A               	bsf	3978,0,c	;volatile
@@ -2305,7 +2305,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2299                           ;main.c: 95: break;
   2300  003A12  0012               	return	
   2301  003A14  FFFF               	dw	65535	; assembler added errata NOP
-  2302  003A16  D7F1               	goto	l3978
+  2302  003A16  D7F1               	goto	l3998
   2303  003A18  FFFF               	dw	65535	; errata NOP
   2304  003A1A                     __end_of_flashLED:
   2305                           	opt stack 0
@@ -2372,7 +2372,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2366  003A58  B4D8               	btfsc	status,2,c
   2367  003A5A  5C30               	subwf	delayzz@i,w,c
   2368  003A5C  B0D8               	btfsc	status,0,c
-  2369  003A5E  D012               	goto	l1129
+  2369  003A5E  D012               	goto	l1141
   2370                           
   2371                           ;pic18f458_badgerloop.c: 128: {
   2372                           ;pic18f458_badgerloop.c: 129: for(j=0;j<2;j++)
@@ -2387,17 +2387,17 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2381  003A70  B4D8               	btfsc	status,2,c
   2382  003A72  5C32               	subwf	delayzz@j,w,c
   2383  003A74  B0D8               	btfsc	status,0,c
-  2384  003A76  D003               	goto	l3714
+  2384  003A76  D003               	goto	l3734
   2385                           
   2386                           ;pic18f458_badgerloop.c: 130: {
   2387  003A78  4A32               	infsnz	delayzz@j,f,c
   2388  003A7A  2A33               	incf	delayzz@j+1,f,c
   2389  003A7C  D7F5               	goto	L1
-  2390  003A7E                     l3714:
+  2390  003A7E                     l3734:
   2391  003A7E  4A30               	infsnz	delayzz@i,f,c
   2392  003A80  2A31               	incf	delayzz@i+1,f,c
   2393  003A82  D7E6               	goto	L2
-  2394  003A84                     l1129:
+  2394  003A84                     l1141:
   2395  003A84  0012               	return	
   2396  003A86  FFFF               	dw	65535	; errata NOP
   2397  003A88                     __end_of_delayzz:
@@ -2696,8 +2696,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2690                           ;I2Cdev.c: 66: for (count = 0; count < length; count++) {
   2691  003E5C  0E00               	movlw	0
   2692  003E5E  6E41               	movwf	I2Cdev_readBytes@count,c
-  2693  003E60  D03B               	goto	l3536
-  2694  003E62                     l3516:
+  2693  003E60  D03B               	goto	l3556
+  2694  003E62                     l3536:
   2695                           
   2696                           ;I2Cdev.c: 68: IdleI2C();
   2697  003E62  EC0D  F01C         	call	_IdleI2C	;wreg free
@@ -2745,7 +2745,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2739  003EB6  183E               	xorwf	??_I2Cdev_readBytes+4,w,c
   2740  003EB8                     u1365:
   2741  003EB8  A4D8               	btfss	status,2,c
-  2742  003EBA  D007               	goto	l3528
+  2742  003EBA  D007               	goto	l3548
   2743                           
   2744                           ;I2Cdev.c: 73: IdleI2C();
   2745  003EBC  EC0D  F01C         	call	_IdleI2C	;wreg free
@@ -2755,9 +2755,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2749  003EC2  88C5               	bsf	4037,4,c	;volatile
   2750  003EC4                     l124:
   2751  003EC4  A8C5               	btfss	4037,4,c	;volatile
-  2752  003EC6  D007               	goto	l3534
+  2752  003EC6  D007               	goto	l3554
   2753  003EC8  D7FD               	goto	l124
-  2754  003ECA                     l3528:
+  2754  003ECA                     l3548:
   2755                           
   2756                           ;I2Cdev.c: 77: IdleI2C();
   2757  003ECA  EC0D  F01C         	call	_IdleI2C	;wreg free
@@ -2768,9 +2768,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2762  003ED2                     l128:
   2763  003ED2  B8C5               	btfsc	4037,4,c	;volatile
   2764  003ED4  D7FE               	goto	l128
-  2765  003ED6                     l3534:
+  2765  003ED6                     l3554:
   2766  003ED6  2A41               	incf	I2Cdev_readBytes@count,f,c
-  2767  003ED8                     l3536:
+  2767  003ED8                     l3556:
   2768  003ED8  5037               	movf	I2Cdev_readBytes@length,w,c
   2769  003EDA  6E3A               	movwf	??_I2Cdev_readBytes& (0+255),c
   2770  003EDC  6A3B               	clrf	(??_I2Cdev_readBytes+1)& (0+255),c
@@ -2787,7 +2787,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2781  003EF4  0A80               	xorlw	128
   2782  003EF6  583E               	subwfb	(??_I2Cdev_readBytes+4)& (0+255),w,c
   2783  003EF8  A0D8               	btfss	status,0,c
-  2784  003EFA  D7B3               	goto	l3516
+  2784  003EFA  D7B3               	goto	l3536
   2785                           
   2786                           ;I2Cdev.c: 79: }
   2787                           ;I2Cdev.c: 80: }
@@ -2933,7 +2933,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2927  003B48  6E32               	movwf	WriteI2C@data_out,c
   2928  003B4A  C032  FFC9         	movff	WriteI2C@data_out,4041	;volatile
   2929  003B4E  BEC6               	btfsc	4038,7,c	;volatile
-  2930  003B50  D02C               	goto	l1264
+  2930  003B50  D02C               	goto	l1276
   2931                           
   2932                           ;	Return value of _WriteI2C is never used
   2933  003B52  CFC6 F031          	movff	4038,??_WriteI2C	;volatile
@@ -2942,43 +2942,43 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   2936  003B5A  5031               	movf	??_WriteI2C,w,c
   2937  003B5C  0A08               	xorlw	8
   2938  003B5E  B4D8               	btfsc	status,2,c
-  2939  003B60  D00F               	goto	l3476
+  2939  003B60  D00F               	goto	l3496
   2940  003B62  CFC6 F031          	movff	4038,??_WriteI2C	;volatile
   2941  003B66  0E0F               	movlw	15
   2942  003B68  1631               	andwf	??_WriteI2C,f,c
   2943  003B6A  5031               	movf	??_WriteI2C,w,c
   2944  003B6C  0A0B               	xorlw	11
   2945  003B6E  B4D8               	btfsc	status,2,c
-  2946  003B70  D007               	goto	l3476
+  2946  003B70  D007               	goto	l3496
   2947  003B72  88C6               	bsf	4038,4,c	;volatile
-  2948  003B74                     l1267:
+  2948  003B74                     l1279:
   2949  003B74  A69E               	btfss	3998,3,c	;volatile
-  2950  003B76  D7FE               	goto	l1267
+  2950  003B76  D7FE               	goto	l1279
   2951  003B78  B4C7               	btfsc	4039,2,c	;volatile
-  2952  003B7A  D017               	goto	l1264
+  2952  003B7A  D017               	goto	l1276
   2953  003B7C  50C7               	movf	4039,w,c	;volatile
-  2954  003B7E  D015               	goto	l1264
-  2955  003B80                     l3476:
+  2954  003B7E  D015               	goto	l1276
+  2955  003B80                     l3496:
   2956  003B80  CFC6 F031          	movff	4038,??_WriteI2C	;volatile
   2957  003B84  0E0F               	movlw	15
   2958  003B86  1631               	andwf	??_WriteI2C,f,c
   2959  003B88  5031               	movf	??_WriteI2C,w,c
   2960  003B8A  0A08               	xorlw	8
   2961  003B8C  B4D8               	btfsc	status,2,c
-  2962  003B8E  D008               	goto	l1276
+  2962  003B8E  D008               	goto	l1288
   2963  003B90  CFC6 F031          	movff	4038,??_WriteI2C	;volatile
   2964  003B94  0E0F               	movlw	15
   2965  003B96  1631               	andwf	??_WriteI2C,f,c
   2966  003B98  5031               	movf	??_WriteI2C,w,c
   2967  003B9A  0A0B               	xorlw	11
   2968  003B9C  A4D8               	btfss	status,2,c
-  2969  003B9E  D005               	goto	l1264
-  2970  003BA0                     l1276:
+  2969  003B9E  D005               	goto	l1276
+  2970  003BA0                     l1288:
   2971  003BA0  B0C7               	btfsc	4039,0,c	;volatile
-  2972  003BA2  D7FE               	goto	l1276
+  2972  003BA2  D7FE               	goto	l1288
   2973  003BA4  EC0D  F01C         	call	_IdleI2C	;wreg free
   2974  003BA8  50C5               	movf	4037,w,c	;volatile
-  2975  003BAA                     l1264:
+  2975  003BAA                     l1276:
   2976  003BAA  0012               	return	
   2977  003BAC  FFFF               	dw	65535	; errata NOP
   2978  003BAE                     __end_of_WriteI2C:
@@ -3036,13 +3036,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   3030                           
   3031                           ;incstack = 0
   3032  00381A  FFFF               	dw	65535
-  3033  00381C                     l3452:
+  3033  00381C                     l3472:
   3034  00381C  CFC5 F030          	movff	4037,??_IdleI2C	;volatile
   3035  003820  0E1F               	movlw	31
   3036  003822  1630               	andwf	??_IdleI2C,f,c
   3037  003824  B4D8               	btfsc	status,2,c
   3038  003826  B4C7               	btfsc	4039,2,c	;volatile
-  3039  003828  D7F9               	goto	l3452
+  3039  003828  D7F9               	goto	l3472
   3040  00382A  0012               	return	
   3041  00382C  FFFF               	dw	65535	; errata NOP
   3042  00382E                     __end_of_IdleI2C:
@@ -3103,18 +3103,18 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   3097  003A24  5030               	movf	??_ReadI2C,w,c
   3098  003A26  0A08               	xorlw	8
   3099  003A28  B4D8               	btfsc	status,2,c
-  3100  003A2A  D007               	goto	l1242
+  3100  003A2A  D007               	goto	l1254
   3101  003A2C  CFC6 F030          	movff	4038,??_ReadI2C	;volatile
   3102  003A30  0E0F               	movlw	15
   3103  003A32  1630               	andwf	??_ReadI2C,f,c
   3104  003A34  5030               	movf	??_ReadI2C,w,c
   3105  003A36  0A0B               	xorlw	11
   3106  003A38  B4D8               	btfsc	status,2,c
-  3107  003A3A                     l1242:
+  3107  003A3A                     l1254:
   3108  003A3A  86C5               	bsf	4037,3,c	;volatile
-  3109  003A3C                     l1243:
+  3109  003A3C                     l1255:
   3110  003A3C  A0C7               	btfss	4039,0,c	;volatile
-  3111  003A3E  D7FE               	goto	l1243
+  3111  003A3E  D7FE               	goto	l1255
   3112  003A40  50C9               	movf	4041,w,c	;volatile
   3113  003A42  0012               	return	
   3114  003A44  FFFF               	dw	65535	; errata NOP
@@ -3188,10 +3188,10 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 58300
   3182  003D26  D7FB               	goto	u1895
   3183  003D28  C030  F033         	movff	??_CAN_Transmit,CAN_Transmit@canId
   3184  003D2C  C031  F034         	movff	??_CAN_Transmit+1,CAN_Transmit@canId+1
-  3185  003D30                     l1154:
+  3185  003D30                     l1166:
   3186  003D30  CF40 F030          	movff	3904,??_CAN_Transmit
   3187  003D34  B630               	btfsc	??_CAN_Transmit,3,c
-  3188  003D36  D7FC               	goto	l1154
+  3188  003D36  D7FC               	goto	l1166
   3189                           
   3190                           ;main.c: 26: TXB0SIDL = (uint8_t)(canId & 0x00E0);
   3191  003D38  C033  F030         	movff	CAN_Transmit@canId,??_CAN_Transmit
@@ -3632,7 +3632,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.32 build 58300 
-Symbol Table                                                                                   Sun Nov  1 22:06:26 2015
+Symbol Table                                                                                   Sun Nov  1 22:16:40 2015
 
                                             __size_of_MPU6050_setClockSource 001E  
                                                                 _SSPSTATbits 000FC7  
@@ -3666,39 +3666,39 @@ Symbol Table                                                                    
                                                                ?_initMPU6050 0030  
                                                             __end_of_MPU6050 381A  
                                                                __CFG_WDT$OFF 000000  
-                                                                       l1201 3B14  
-                                                                       l1202 3B16  
-                                                                       l1203 3B20  
-                                                                       l1204 3B22  
-                                                                       l1205 3B2C  
-                                                                       l1206 3B2E  
-                                                                       l1208 3B42  
-                                                                       l1129 3A84  
-                                                                       l1154 3D30  
-                                                                       l1242 3A3A  
-                                                                       l1243 3A3C  
-                                                                       l1264 3BAA  
-                                                                       l1513 388E  
-                                                                       l1267 3B74  
-                                                                       l1276 3BA0  
-                                                                       l1199 3B0A  
-                                                                       l3452 381C  
-                                                                       l3516 3E62  
-                                                                       l3612 3860  
-                                                                       l3534 3ED6  
-                                                                       l3528 3ECA  
-                                                                       l3536 3ED8  
-                                                                       l3560 3ACE  
-                                                                       l5056 3C2A  
-                                                                       l3714 3A7E  
-                                                                       l3554 3AB2  
-                                                                       l3476 3B80  
-                                                                       l5068 3C82  
-                                                                       l3584 3CCA  
-                                                                       l3586 3CF4  
-                                                                       l3776 3B0C  
-                                                                       l3768 3AFE  
-                                                                       l3978 39FA  
+                                                                       l1211 3B0A  
+                                                                       l1220 3B42  
+                                                                       l1141 3A84  
+                                                                       l1213 3B14  
+                                                                       l1214 3B16  
+                                                                       l1215 3B20  
+                                                                       l1216 3B22  
+                                                                       l1217 3B2C  
+                                                                       l1218 3B2E  
+                                                                       l1166 3D30  
+                                                                       l1254 3A3A  
+                                                                       l1255 3A3C  
+                                                                       l1276 3BAA  
+                                                                       l1525 388E  
+                                                                       l1279 3B74  
+                                                                       l1288 3BA0  
+                                                                       l3604 3CCA  
+                                                                       l3606 3CF4  
+                                                                       l3472 381C  
+                                                                       l3536 3E62  
+                                                                       l3632 3860  
+                                                                       l3554 3ED6  
+                                                                       l3548 3ECA  
+                                                                       l3556 3ED8  
+                                                                       l3580 3ACE  
+                                                                       l5076 3C2A  
+                                                                       l3734 3A7E  
+                                                                       l3574 3AB2  
+                                                                       l3496 3B80  
+                                                                       l5088 3C82  
+                                                                       l3796 3B0C  
+                                                                       l3788 3AFE  
+                                                                       l3998 39FA  
                                                                        u1500 3DFA  
                                                                        _OFF2 0078  
                                                                        u1505 3DF6  

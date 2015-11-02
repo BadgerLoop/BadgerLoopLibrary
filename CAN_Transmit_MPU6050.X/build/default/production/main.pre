@@ -13155,15 +13155,23 @@ BOOL MS_5803_init(BOOL Verbose);
 
 void MS_5803_readSensor(void);
 
+float temperature(void);
+
+float pressure(void);
+
+unsigned long D1val(void);
+
+unsigned long D2val(void);
+
 # 22 "../MS5803-01BA.c"
 typedef signed long long int64_t;
 
 
-float mbar;
-float tempC;
+static float mbar;
+static float tempC;
 
 # 32
-int32_t mbarInt;
+static int32_t mbarInt;
 
 
 static unsigned int sensorCoeffs[8];
@@ -13190,6 +13198,14 @@ static BYTE LowByte;
 static BYTE I2C_Bytes[3];
 
 static uint16_t Resolution;
+
+float temperature(void) {return tempC;}
+
+float pressure(void) {return mbar;}
+
+# 74
+unsigned long D1val(void) {return D1;}
+unsigned long D2val(void) {return D2;}
 
 
 
@@ -13284,10 +13300,10 @@ if (Verbose) {
 
 if (Resolution == 256 | Resolution == 512 | Resolution == 1024 | Resolution == 2048 | Resolution == 4096){
 
-# 154
+# 171
 } else {
 
-# 159
+# 176
 }
 
 }
@@ -13298,7 +13314,7 @@ I2Cdev_readBytes(0x76, 0xA0 + (i * 2), 2, I2C_Bytes);
 sensorCoeffs[i] = (((unsigned int)I2C_Bytes[0] << 8) + I2C_Bytes[1]);
 if (Verbose){
 
-# 174
+# 191
 }
 }
 
@@ -13308,7 +13324,7 @@ unsigned char n_crc = MS_5803_CRC(sensorCoeffs);
 
 if (Verbose) {
 
-# 186
+# 203
 }
 
 
@@ -13352,7 +13368,7 @@ TEMP = 2000 + ((int64_t)dT * sensorCoeffs[6]) / 8388608LL;
 
 TEMP = (int32_t)TEMP;
 
-# 237
+# 254
 if (TEMP < 2000) {
 
 T2 = ((int64_t)dT * dT) / 2147483648ULL ;
@@ -13377,7 +13393,7 @@ if (TEMP < -1500) {
 Sens2 = Sens2 + 2 * ((TEMP+1500)*(TEMP+1500));
 }
 
-# 267
+# 284
 Offset = (int64_t)sensorCoeffs[2] * 65536 + (sensorCoeffs[4] * (int64_t)dT) / 128;
 Sensitivity = (int64_t)sensorCoeffs[1] * 32768 + (sensorCoeffs[3] * (int64_t)dT) / 256;
 
@@ -13387,14 +13403,14 @@ TEMP = TEMP - T2;
 Offset = Offset - OFF2;
 Sensitivity = Sensitivity - Sens2;
 
-# 281
+# 298
 mbarInt = ((D1 * Sensitivity) / 2097152 - Offset) / 32768;
 mbar = (float)mbarInt / 100;
 
 
 tempC = (float)TEMP / 100;
 
-# 298
+# 315
 }
 
 
