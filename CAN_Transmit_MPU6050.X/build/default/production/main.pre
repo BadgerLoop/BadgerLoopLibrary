@@ -13142,8 +13142,263 @@ void MPU6050_setDMPConfig2(uint8_t config) {
 I2Cdev_writeByte(mpu6050.devAddr, 0x71, config);
 }
 
+# 2 "../MS5803-01BA.h"
+void MS_5803_setResolution(uint16_t res);
 
-# 20 "../pic18f458_badgerloop.c"
+void MS_5803_resetSensor(void);
+
+unsigned char MS_5803_CRC(unsigned int n_prom[]);
+
+unsigned long MS_5803_ADC(char commandADC);
+
+BOOL MS_5803_init(BOOL Verbose);
+
+void MS_5803_readSensor(void);
+
+# 22 "../MS5803-01BA.c"
+typedef signed long long int64_t;
+
+
+float mbar;
+float tempC;
+
+# 32
+int32_t mbarInt;
+
+
+static unsigned int sensorCoeffs[8];
+
+static uint32_t D1 = 0;
+static uint32_t D2 = 0;
+
+
+
+static int32_t dT = 0;
+static int32_t TEMP = 0;
+
+
+static int64_t Offset = 0;
+static int64_t Sensitivity = 0;
+static int64_t T2 = 0;
+static int64_t OFF2 = 0;
+static int64_t Sens2 = 0;
+
+static BYTE HighByte;
+static BYTE MidByte;
+static BYTE LowByte;
+
+static BYTE I2C_Bytes[3];
+
+static uint16_t Resolution;
+
+
+
+void MS_5803_setResolution(uint16_t res) {
+
+
+Resolution = res;
+}
+
+
+
+void MS_5803_resetSensor(void) {
+I2Cdev_writeBytes(0x76, 0x1E, 0 ,0);
+Delay100TCYx(10);
+}
+
+unsigned char MS_5803_CRC(unsigned int n_prom[]) {
+int cnt;
+unsigned int n_rem;
+unsigned int crc_read;
+unsigned char n_bit;
+n_rem = 0x00;
+crc_read = sensorCoeffs[7];
+sensorCoeffs[7] = (0xFF00 & (sensorCoeffs[7]));
+for (cnt = 0; cnt < 16; cnt++)
+{
+if (cnt%2 == 1) {
+n_rem ^= (unsigned short)((sensorCoeffs[cnt>>1]) & 0x00FF);
+}
+else {
+n_rem ^= (unsigned short)(sensorCoeffs[cnt>>1] >> 8);
+}
+for (n_bit = 8; n_bit > 0; n_bit--)
+{
+if (n_rem & (0x8000))
+{
+n_rem = (n_rem << 1) ^ 0x3000;
+}
+else {
+n_rem = (n_rem << 1);
+}
+}
+}
+n_rem = (0x000F & (n_rem >> 12));
+sensorCoeffs[7] = crc_read;
+
+return (n_rem ^ 0x00);
+}
+
+
+
+unsigned long MS_5803_ADC(char commandADC) {
+
+
+long result = 0;
+
+I2Cdev_writeBytes(0x76, 0x40 + commandADC, 0 ,0);
+
+
+
+switch (commandADC & 0x0F)
+{
+case 0x00 :
+Delay100TCYx(1);
+break;
+case 0x02 :
+Delay100TCYx(3);
+break;
+case 0x04:
+Delay100TCYx(4);
+break;
+case 0x06:
+Delay100TCYx(6);
+break;
+case 0x08:
+Delay100TCYx(10);
+break;
+}
+
+I2Cdev_readBytes(0x76, 0x00, 3, I2C_Bytes);
+
+
+result = ((long)I2C_Bytes[0] << 16) + ((long)I2C_Bytes[1] << 8) + (long)I2C_Bytes[2];
+return result;
+}
+
+
+BOOL MS_5803_init(BOOL Verbose) {
+MS_5803_resetSensor();
+
+if (Verbose) {
+
+if (Resolution == 256 | Resolution == 512 | Resolution == 1024 | Resolution == 2048 | Resolution == 4096){
+
+# 154
+} else {
+
+# 159
+}
+
+}
+
+for (int i = 0; i < 8; i++ ){
+
+I2Cdev_readBytes(0x76, 0xA0 + (i * 2), 2, I2C_Bytes);
+sensorCoeffs[i] = (((unsigned int)I2C_Bytes[0] << 8) + I2C_Bytes[1]);
+if (Verbose){
+
+# 174
+}
+}
+
+unsigned char p_crc = sensorCoeffs[7];
+
+unsigned char n_crc = MS_5803_CRC(sensorCoeffs);
+
+if (Verbose) {
+
+# 186
+}
+
+
+if (p_crc != n_crc) {
+return 0;
+}
+
+return 1;
+}
+
+
+void MS_5803_readSensor(void) {
+
+
+
+if (Resolution == 256){
+D1 = MS_5803_ADC(0x00 + 0x00);
+D2 = MS_5803_ADC(0x10 + 0x00);
+} else if (Resolution == 512) {
+D1 = MS_5803_ADC(0x00 + 0x02);
+D2 = MS_5803_ADC(0x10 + 0x02);
+} else if (Resolution == 1024) {
+D1 = MS_5803_ADC(0x00 + 0x04);
+D2 = MS_5803_ADC(0x10 + 0x04);
+} else if (Resolution == 2048) {
+D1 = MS_5803_ADC(0x00 + 0x06);
+D2 = MS_5803_ADC(0x10 + 0x06);
+} else if (Resolution == 4096) {
+D1 = MS_5803_ADC(0x00 + 0x08);
+D2 = MS_5803_ADC(0x10 + 0x08);
+}
+
+
+
+
+dT = (int32_t)D2 - ( (int32_t)sensorCoeffs[5] * 256 );
+
+
+
+TEMP = 2000 + ((int64_t)dT * sensorCoeffs[6]) / 8388608LL;
+
+TEMP = (int32_t)TEMP;
+
+# 237
+if (TEMP < 2000) {
+
+T2 = ((int64_t)dT * dT) / 2147483648ULL ;
+T2 = (int32_t)T2;
+OFF2 = 3 * ((TEMP-2000) * (TEMP-2000));
+Sens2 = 7 * ((TEMP-2000)*(TEMP-2000)) / 8 ;
+} else {
+
+T2 = 0;
+OFF2 = 0;
+Sens2 = 0;
+if (TEMP > 4500) {
+
+Sens2 = Sens2 - ((TEMP-4500)*(TEMP-4500)) / 8;
+}
+}
+
+
+if (TEMP < -1500) {
+
+
+Sens2 = Sens2 + 2 * ((TEMP+1500)*(TEMP+1500));
+}
+
+# 267
+Offset = (int64_t)sensorCoeffs[2] * 65536 + (sensorCoeffs[4] * (int64_t)dT) / 128;
+Sensitivity = (int64_t)sensorCoeffs[1] * 32768 + (sensorCoeffs[3] * (int64_t)dT) / 256;
+
+
+
+TEMP = TEMP - T2;
+Offset = Offset - OFF2;
+Sensitivity = Sensitivity - Sens2;
+
+# 281
+mbarInt = ((D1 * Sensitivity) / 2097152 - Offset) / 32768;
+mbar = (float)mbarInt / 100;
+
+
+tempC = (float)TEMP / 100;
+
+# 298
+}
+
+
+# 21 "../pic18f458_badgerloop.c"
 #pragma config OSC = HSPLL
 #pragma config OSCS = OFF
 
@@ -13190,7 +13445,7 @@ I2Cdev_writeByte(mpu6050.devAddr, 0x71, config);
 
 #pragma config EBTRB = OFF
 
-# 124
+# 125
 void delayzz(void) {
 int i, j;
 for(i=0;i<5000;i++)
@@ -13218,7 +13473,7 @@ TRISB = (1<<3);
 
 CAN_SetMode((0x80));
 
-# 160
+# 161
 BRGCON1 = 0x43;
 
 BRGCON2 = 0xA1;
@@ -13240,7 +13495,7 @@ RXF5SIDL = 0;
 RXB0CON = 0;
 RXB1CON = 0;
 
-# 187
+# 188
 CAN_SetMode((0x00));
 }
 
@@ -13258,7 +13513,7 @@ CAN_Init();
 Delay10KTCYx(50);
 }
 
-# 208
+# 209
 void initI2C(void) {
 
 
