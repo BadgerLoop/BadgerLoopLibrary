@@ -18,7 +18,8 @@
  *	Don't mess with these without consulting Nick Jaunich first!
  */
 /******************************************************************************/
-#pragma config OSC = HSPLL         // Oscillator Selection bits (HS oscillator + PLL = 20mHz*4 = 80mHz)
+//#pragma config OSC = HSPLL         // Oscillator Selection bits (HS oscillator + PLL = 20mHz*4 = 80mHz)
+#pragma config OSC = HS         // Oscillator Selection bits (HS oscillator = 20mHz)
 #pragma config OSCS = OFF       // Oscillator System Clock Switch Enable bit (Oscillator system clock switch option is disabled (main oscillator is source))
 
 // CONFIG2L
@@ -157,14 +158,14 @@ void CAN_Init(void)
     //  Phase 2 = 3Tq
     //  SJW = 1Tq
     
-    //BRGCON1 = 0x0F;
-        BRGCON1 = 0x43; //SJW = 2 Tq, BRP = 3
-    //BRGCON2 = 0xBF
-        BRGCON2 = 0xA1; // Seg2 freely programmable,
+    BRGCON1 = 0x00;
+        //BRGCON1 = 0x43; //SJW = 2 Tq, BRP = 3
+    BRGCON2 = 0xBA;
+        //BRGCON2 = 0xA1; // Seg2 freely programmable,
                         // 1 samples/bit, Ph1 = 5 Tq, Prop seg = 2 Tq
-    //BRGCON3 = 0x07;
+    BRGCON3 = 0x07;
         //BRGCON3 = 0x01; // Seg2 = 2 Tq  ---> Sample at 80%
-        BRGCON2 = 0x01;
+        //BRGCON2 = 0x01;
     // configure CAN reception,
     // accept all message
     RXM0SIDH = 0; RXM0SIDL = 0; //Set buffer 0 mask
@@ -202,15 +203,26 @@ void setupCANTxRx(void) {
 	Delay10KTCYx(50);
 } 
 
-#define MCUCLK 80000000 // 80MHz | HSPLL == 20MHz * 4
+//#define MCUCLK 80000000 // 80MHz | HSPLL == 20MHz * 4
+#define MCUCLK 20000000 // 20MHz | HS == 20MHz
 #define I2C_SPEED	400000 // 400kHz
 #define I2C_SSPADD	( ( MCUCLK / ( 4 * I2C_SPEED ) ) - 1 )
 
-void initI2C(void) {    
+void initI2C_USART(void) {  
+    //For USART
+    TRISCbits.RC6 = 0; //TX pin set as output
+    TRISCbits.RC7 = 1; //RX pin set as input
+
     //Open USART (needed for I2C to function)
     // Serial (115200 kbps)
-    OpenUSART(USART_TX_INT_OFF | USART_RX_INT_OFF | USART_ASYNCH_MODE |
-        USART_EIGHT_BIT | USART_CONT_RX | USART_BRGH_HIGH, 12); 
+    /* OpenUSART(USART_TX_INT_OFF | USART_RX_INT_OFF | USART_ASYNCH_MODE |
+        USART_EIGHT_BIT | USART_CONT_RX | USART_BRGH_HIGH, 520); //was 12 */
+    OpenUSART (USART_TX_INT_OFF &
+             USART_RX_INT_OFF &
+             USART_ASYNCH_MODE &
+             USART_EIGHT_BIT &
+             USART_CONT_RX &
+             USART_BRGH_HIGH, 64); //Baud Rate = 19.2 kbps
     
     // I2C (400 kHz)
     OpenI2C(MASTER, SLEW_OFF);

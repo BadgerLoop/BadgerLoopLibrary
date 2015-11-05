@@ -5,7 +5,7 @@
  * Created on October 30, 2015, 1:14 PM
  */
 
-#define _XTAL_FREQ 80000000
+#define _XTAL_FREQ 20000000
 #define ALL /* CAN ID = 1 */
 
 #include "pic18f458_badgerloop.c"
@@ -99,7 +99,7 @@ void flashLED(void) {
 
 void main(void) {
     int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
-    initI2C();
+    initI2C_USART();
     initMPU6050();
     setupCANTxRx();
     
@@ -127,6 +127,6 @@ void main(void) {
         }
         CAN_Transmit();
         
-        delayzz();
+        __delay_ms(25);
     }
 }

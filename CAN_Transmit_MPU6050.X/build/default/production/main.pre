@@ -13414,8 +13414,8 @@ tempC = (float)TEMP / 100;
 }
 
 
-# 21 "../pic18f458_badgerloop.c"
-#pragma config OSC = HSPLL
+# 22 "../pic18f458_badgerloop.c"
+#pragma config OSC = HS
 #pragma config OSCS = OFF
 
 
@@ -13461,7 +13461,7 @@ tempC = (float)TEMP / 100;
 
 #pragma config EBTRB = OFF
 
-# 125
+# 126
 void delayzz(void) {
 int i, j;
 for(i=0;i<5000;i++)
@@ -13490,13 +13490,14 @@ TRISB = (1<<3);
 CAN_SetMode((0x80));
 
 # 161
-BRGCON1 = 0x43;
+BRGCON1 = 0x00;
 
-BRGCON2 = 0xA1;
+BRGCON2 = 0xBA;
 
 
+BRGCON3 = 0x07;
 
-BRGCON2 = 0x01;
+
 
 
 RXM0SIDH = 0; RXM0SIDL = 0;
@@ -13511,7 +13512,7 @@ RXF5SIDL = 0;
 RXB0CON = 0;
 RXB1CON = 0;
 
-# 188
+# 189
 CAN_SetMode((0x00));
 }
 
@@ -13529,16 +13530,23 @@ CAN_Init();
 Delay10KTCYx(50);
 }
 
-# 209
-void initI2C(void) {
+# 211
+void initI2C_USART(void) {
 
+TRISCbits.RC6 = 0;
+TRISCbits.RC7 = 1;
 
-OpenUSART(0b01111111 | 0b10111111 | 0b11111110 |
-0b11111101 | 0b11111111 | 0b11111111, 12);
+# 220
+OpenUSART (0b01111111 &
+0b10111111 &
+0b11111110 &
+0b11111101 &
+0b11111111 &
+0b11111111, 64);
 
 
 OpenI2C(0b00001000, 0b10000000);
-SSPADD = ( ( 80000000 / ( 4 * 400000 ) ) - 1 );
+SSPADD = ( ( 20000000 / ( 4 * 400000 ) ) - 1 );
 
 
 Delay10KTCYx(50);
@@ -13644,7 +13652,7 @@ break;
 
 void main(void) {
 int16_t ax, ay, az, gx, gy, gz;
-initI2C();
+initI2C_USART();
 initMPU6050();
 setupCANTxRx();
 
@@ -13666,6 +13674,6 @@ sendData[1] = 2;
 }
 CAN_Transmit();
 
-delayzz();
+_delay((unsigned long)((25)*(20000000/4000.0)));
 }
 }

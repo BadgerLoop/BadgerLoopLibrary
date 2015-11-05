@@ -5,7 +5,7 @@
  * Created on October 30, 2015, 3:11 PM
  */
 
-#define _XTAL_FREQ 80000000
+#define _XTAL_FREQ 20000000
 #define ALL /* CAN ID = 1 */
 
 #include "pic18f458_badgerloop.c"
@@ -79,8 +79,12 @@ uint16_t CAN_Receive(void)
     return canId;
 }
 
+unsigned char Rxdata[25];
+unsigned char Txdata[9] = {'p', 'i', 'c', '1', '8', 'f', '4', '5', '8'};
+
 void main(void)
 {
+    initI2C_USART();
     setupCANTxRx();
     
     //Set RB0, RB1, RB4 to output
@@ -95,33 +99,35 @@ void main(void)
     while(1)
     {
        uint16_t canId = CAN_Receive();
+       while (BusyUSART());
+       putsUSART((char *) Txdata);
        
        if ( receivedData[0] == 0 )
        {
             LATBbits.LATB4 = 1;   // RB-4 to High
-            delayzz();
+            __delay_ms(25);
             LATBbits.LATB4 = 0;    // RB-4 to LOW
-            delayzz();
+            __delay_ms(25);
        } else if (receivedData[0] == 1 && receivedData[1] == 2)
        {
             LATBbits.LATB0 = 1;   // RB-0 to High  
             LATBbits.LATB1 = 1;   // RB-1 to High
             LATBbits.LATB4 = 0;   // RB-4 to LOW
 
-            delayzz();
+            __delay_ms(25);
 
             LATBbits.LATB0 = 0;    // RB-0 to LOW
             LATBbits.LATB1 = 0;    // RB-1 to LOW
             LATBbits.LATB4 = 0;   // RB-4 to LOW
 
-            delayzz();
+            __delay_ms(25);
        }
        else if (receivedData[0] == 1 && receivedData[1] == 1)
        {
             LATBbits.LATB0 = 1;   // RB-0 to High  
             LATBbits.LATB1 = 1;   // RB-1 to High
             LATBbits.LATB4 = 0;   // RB-4 to LOW
-            delayzz();
+            __delay_ms(25);
        }
     }
     

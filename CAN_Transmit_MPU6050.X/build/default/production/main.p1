@@ -43,6 +43,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _BRGCON1 `Vuc ~T0 @X0 0 e@3952 ]
 "10927
 [v _BRGCON2 `Vuc ~T0 @X0 0 e@3953 ]
+"10997
+[v _BRGCON3 `Vuc ~T0 @X0 0 e@3954 ]
 "3047
 [v _RXM0SIDH `Vuc ~T0 @X0 0 e@3864 ]
 "3179
@@ -80,6 +82,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISBbits `VS820 ~T0 @X0 0 e@3987 ]
 "37 /Applications/microchip/xc8/v1.32/include/plib/delays.h
 [v _Delay10KTCYx `(v ~T0 @X0 0 ef1`uc ]
+"13296 /Applications/microchip/xc8/v1.32/include/pic18f458.h
+[s S827 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S827 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"13306
+[s S828 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S828 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"13295
+[u S826 `S827 1 `S828 1 ]
+[n S826 . . . ]
+"13317
+[v _TRISCbits `VS826 ~T0 @X0 0 e@3988 ]
 "581 /Applications/microchip/xc8/v1.32/include/plib/usart.h
 [v _OpenUSART `(v ~T0 @X0 0 ef2`uc`ui ]
 "777 /Applications/microchip/xc8/v1.32/include/plib/i2c.h
@@ -163,6 +176,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 "12417
 [v _LATBbits `VS774 ~T0 @X0 0 e@3978 ]
 [p mainexit ]
+[v F9376 `(v ~T0 @X0 1 tf1`ul ]
+"147 /Applications/microchip/xc8/v1.32/include/pic18.h
+[v __delay `JF9376 ~T0 @X0 0 e ]
+[p i __delay ]
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -14623,261 +14640,271 @@ Version 3.2 HI-TECH Software Intermediate Code
 "315
 [e :UE 1506 ]
 }
-"21 ../pic18f458_badgerloop.c
-[p x OSC=HSPLL ]
-"22
+"22 ../pic18f458_badgerloop.c
+[p x OSC=HS ]
+"23
 [p x OSCS=OFF ]
-"25
-[p x PWRT=ON ]
 "26
-[p x BOR=ON ]
+[p x PWRT=ON ]
 "27
+[p x BOR=ON ]
+"28
 [p x BORV=25 ]
-"30
-[p x WDT=OFF ]
 "31
+[p x WDT=OFF ]
+"32
 [p x WDTPS=128 ]
-"34
-[p x STVR=OFF ]
 "35
+[p x STVR=OFF ]
+"36
 [p x LVP=OFF ]
-"38
-[p x CP0=OFF ]
 "39
-[p x CP1=OFF ]
+[p x CP0=OFF ]
 "40
-[p x CP2=OFF ]
+[p x CP1=OFF ]
 "41
+[p x CP2=OFF ]
+"42
 [p x CP3=OFF ]
-"44
-[p x CPB=OFF ]
 "45
+[p x CPB=OFF ]
+"46
 [p x CPD=OFF ]
-"48
-[p x WRT0=OFF ]
 "49
-[p x WRT1=OFF ]
+[p x WRT0=OFF ]
 "50
-[p x WRT2=OFF ]
+[p x WRT1=OFF ]
 "51
+[p x WRT2=OFF ]
+"52
 [p x WRT3=OFF ]
-"54
-[p x WRTC=OFF ]
 "55
-[p x WRTB=OFF ]
+[p x WRTC=OFF ]
 "56
+[p x WRTB=OFF ]
+"57
 [p x WRTD=OFF ]
-"59
-[p x EBTR0=OFF ]
 "60
-[p x EBTR1=OFF ]
+[p x EBTR0=OFF ]
 "61
-[p x EBTR2=OFF ]
+[p x EBTR1=OFF ]
 "62
+[p x EBTR2=OFF ]
+"63
 [p x EBTR3=OFF ]
-"65
+"66
 [p x EBTRB=OFF ]
-"125
+"126
 [v _delayzz `(v ~T0 @X0 1 ef ]
 {
-[; ;pic18f458_badgerloop.c: 125: void delayzz(void) {
+[; ;pic18f458_badgerloop.c: 126: void delayzz(void) {
 [e :U _delayzz ]
 [f ]
-"126
+"127
 [v _i `i ~T0 @X0 1 a ]
 [v _j `i ~T0 @X0 1 a ]
-[; ;pic18f458_badgerloop.c: 126: int i, j;
-[; ;pic18f458_badgerloop.c: 127: for(i=0;i<5000;i++)
-"127
+[; ;pic18f458_badgerloop.c: 127: int i, j;
+[; ;pic18f458_badgerloop.c: 128: for(i=0;i<5000;i++)
+"128
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 5000 `i 1521  ]
 [e $U 1522  ]
-"128
-[e :U 1521 ]
-[; ;pic18f458_badgerloop.c: 128: {
-{
-[; ;pic18f458_badgerloop.c: 129: for(j=0;j<2;j++)
 "129
+[e :U 1521 ]
+[; ;pic18f458_badgerloop.c: 129: {
+{
+[; ;pic18f458_badgerloop.c: 130: for(j=0;j<2;j++)
+"130
 {
 [e = _j -> 0 `i ]
 [e $ < _j -> 2 `i 1524  ]
 [e $U 1525  ]
-"130
+"131
 [e :U 1524 ]
-[; ;pic18f458_badgerloop.c: 130: {
+[; ;pic18f458_badgerloop.c: 131: {
 {
-"132
+"133
 }
-"129
+"130
 [e ++ _j -> 1 `i ]
 [e $ < _j -> 2 `i 1524  ]
 [e :U 1525 ]
-"132
-}
 "133
 }
-"127
+"134
+}
+"128
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 5000 `i 1521  ]
 [e :U 1522 ]
-"133
+"134
 }
-[; ;pic18f458_badgerloop.c: 132: }
 [; ;pic18f458_badgerloop.c: 133: }
 [; ;pic18f458_badgerloop.c: 134: }
-"134
+[; ;pic18f458_badgerloop.c: 135: }
+"135
 [e :UE 1520 ]
 }
-"136
+"137
 [v _CAN_SetMode `(v ~T0 @X0 1 ef1`uc ]
-"137
+"138
 {
-[; ;pic18f458_badgerloop.c: 136: void CAN_SetMode(uint8_t canMode)
-[; ;pic18f458_badgerloop.c: 137: {
+[; ;pic18f458_badgerloop.c: 137: void CAN_SetMode(uint8_t canMode)
+[; ;pic18f458_badgerloop.c: 138: {
 [e :U _CAN_SetMode ]
-"136
-[v _canMode `uc ~T0 @X0 1 r1 ]
 "137
+[v _canMode `uc ~T0 @X0 1 r1 ]
+"138
 [f ]
-[; ;pic18f458_badgerloop.c: 139: CANCON = canMode;
-"139
+[; ;pic18f458_badgerloop.c: 140: CANCON = canMode;
+"140
 [e = _CANCON _canMode ]
-[; ;pic18f458_badgerloop.c: 142: while((CANSTAT & 0xE0) != canMode);
-"142
+[; ;pic18f458_badgerloop.c: 143: while((CANSTAT & 0xE0) != canMode);
+"143
 [e $U 1528  ]
 [e :U 1529 ]
 [e :U 1528 ]
 [e $ != & -> _CANSTAT `i -> 224 `i -> _canMode `i 1529  ]
 [e :U 1530 ]
-[; ;pic18f458_badgerloop.c: 143: }
-"143
+[; ;pic18f458_badgerloop.c: 144: }
+"144
 [e :UE 1527 ]
 }
-"145
-[v _CAN_Init `(v ~T0 @X0 1 ef ]
 "146
+[v _CAN_Init `(v ~T0 @X0 1 ef ]
+"147
 {
-[; ;pic18f458_badgerloop.c: 145: void CAN_Init(void)
-[; ;pic18f458_badgerloop.c: 146: {
+[; ;pic18f458_badgerloop.c: 146: void CAN_Init(void)
+[; ;pic18f458_badgerloop.c: 147: {
 [e :U _CAN_Init ]
 [f ]
-[; ;pic18f458_badgerloop.c: 147: TRISB = (1<<3);
-"147
+[; ;pic18f458_badgerloop.c: 148: TRISB = (1<<3);
+"148
 [e = _TRISB -> << -> 1 `i -> 3 `i `uc ]
-[; ;pic18f458_badgerloop.c: 150: CAN_SetMode((0x80));
-"150
+[; ;pic18f458_badgerloop.c: 151: CAN_SetMode((0x80));
+"151
 [e ( _CAN_SetMode (1 -> -> 128 `i `uc ]
-[; ;pic18f458_badgerloop.c: 161: BRGCON1 = 0x43;
+[; ;pic18f458_badgerloop.c: 161: BRGCON1 = 0x00;
 "161
-[e = _BRGCON1 -> -> 67 `i `uc ]
-[; ;pic18f458_badgerloop.c: 163: BRGCON2 = 0xA1;
+[e = _BRGCON1 -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 163: BRGCON2 = 0xBA;
 "163
-[e = _BRGCON2 -> -> 161 `i `uc ]
-[; ;pic18f458_badgerloop.c: 167: BRGCON2 = 0x01;
-"167
-[e = _BRGCON2 -> -> 1 `i `uc ]
-[; ;pic18f458_badgerloop.c: 170: RXM0SIDH = 0; RXM0SIDL = 0;
-"170
+[e = _BRGCON2 -> -> 186 `i `uc ]
+[; ;pic18f458_badgerloop.c: 166: BRGCON3 = 0x07;
+"166
+[e = _BRGCON3 -> -> 7 `i `uc ]
+[; ;pic18f458_badgerloop.c: 171: RXM0SIDH = 0; RXM0SIDL = 0;
+"171
 [e = _RXM0SIDH -> -> 0 `i `uc ]
 [e = _RXM0SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 171: RXM1SIDH = 0; RXM1SIDL = 0;
-"171
+[; ;pic18f458_badgerloop.c: 172: RXM1SIDH = 0; RXM1SIDL = 0;
+"172
 [e = _RXM1SIDH -> -> 0 `i `uc ]
 [e = _RXM1SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 172: RXF0SIDL = 0;
-"172
-[e = _RXF0SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 173: RXF1SIDL = 0;
+[; ;pic18f458_badgerloop.c: 173: RXF0SIDL = 0;
 "173
-[e = _RXF1SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 174: RXF2SIDL = 0;
+[e = _RXF0SIDL -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 174: RXF1SIDL = 0;
 "174
-[e = _RXF2SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 175: RXF3SIDL = 0;
+[e = _RXF1SIDL -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 175: RXF2SIDL = 0;
 "175
-[e = _RXF3SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 176: RXF4SIDL = 0;
+[e = _RXF2SIDL -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 176: RXF3SIDL = 0;
 "176
-[e = _RXF4SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 177: RXF5SIDL = 0;
+[e = _RXF3SIDL -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 177: RXF4SIDL = 0;
 "177
+[e = _RXF4SIDL -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 178: RXF5SIDL = 0;
+"178
 [e = _RXF5SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 179: RXB0CON = 0;
-"179
-[e = _RXB0CON -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 180: RXB1CON = 0;
+[; ;pic18f458_badgerloop.c: 180: RXB0CON = 0;
 "180
+[e = _RXB0CON -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 181: RXB1CON = 0;
+"181
 [e = _RXB1CON -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 188: CAN_SetMode((0x00));
-"188
-[e ( _CAN_SetMode (1 -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 189: }
+[; ;pic18f458_badgerloop.c: 189: CAN_SetMode((0x00));
 "189
+[e ( _CAN_SetMode (1 -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 190: }
+"190
 [e :UE 1531 ]
 }
-"191
+"192
 [v _setupCANTxRx `(v ~T0 @X0 1 ef ]
 {
-[; ;pic18f458_badgerloop.c: 191: void setupCANTxRx(void) {
+[; ;pic18f458_badgerloop.c: 192: void setupCANTxRx(void) {
 [e :U _setupCANTxRx ]
 [f ]
-[; ;pic18f458_badgerloop.c: 194: TRISBbits.TRISB2 = 0;
-"194
+[; ;pic18f458_badgerloop.c: 195: TRISBbits.TRISB2 = 0;
+"195
 [e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 196: TRISBbits.TRISB3 = 1;
-"196
+[; ;pic18f458_badgerloop.c: 197: TRISBbits.TRISB3 = 1;
+"197
 [e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
-[; ;pic18f458_badgerloop.c: 199: CAN_Init();
-"199
+[; ;pic18f458_badgerloop.c: 200: CAN_Init();
+"200
 [e ( _CAN_Init ..  ]
-[; ;pic18f458_badgerloop.c: 202: Delay10KTCYx(50);
-"202
-[e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
-[; ;pic18f458_badgerloop.c: 203: }
+[; ;pic18f458_badgerloop.c: 203: Delay10KTCYx(50);
 "203
+[e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
+[; ;pic18f458_badgerloop.c: 204: }
+"204
 [e :UE 1532 ]
 }
-"209
-[v _initI2C `(v ~T0 @X0 1 ef ]
+"211
+[v _initI2C_USART `(v ~T0 @X0 1 ef ]
 {
-[; ;pic18f458_badgerloop.c: 209: void initI2C(void) {
-[e :U _initI2C ]
+[; ;pic18f458_badgerloop.c: 211: void initI2C_USART(void) {
+[e :U _initI2C_USART ]
 [f ]
-[; ;pic18f458_badgerloop.c: 212: OpenUSART(0b01111111 | 0b10111111 | 0b11111110 |
-[; ;pic18f458_badgerloop.c: 213: 0b11111101 | 0b11111111 | 0b11111111, 12);
+[; ;pic18f458_badgerloop.c: 213: TRISCbits.RC6 = 0;
 "213
-[e ( _OpenUSART (2 , -> | | | | | -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 12 `i `ui ]
-[; ;pic18f458_badgerloop.c: 216: OpenI2C(0b00001000, 0b10000000);
-"216
+[e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 214: TRISCbits.RC7 = 1;
+"214
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[; ;pic18f458_badgerloop.c: 220: OpenUSART (0b01111111 &
+[; ;pic18f458_badgerloop.c: 221: 0b10111111 &
+[; ;pic18f458_badgerloop.c: 222: 0b11111110 &
+[; ;pic18f458_badgerloop.c: 223: 0b11111101 &
+[; ;pic18f458_badgerloop.c: 224: 0b11111111 &
+[; ;pic18f458_badgerloop.c: 225: 0b11111111, 64);
+"225
+[e ( _OpenUSART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
+[; ;pic18f458_badgerloop.c: 228: OpenI2C(0b00001000, 0b10000000);
+"228
 [e ( _OpenI2C (2 , -> -> 8 `i `uc -> -> 128 `i `uc ]
-[; ;pic18f458_badgerloop.c: 217: SSPADD = ( ( 80000000 / ( 4 * 400000 ) ) - 1 );
-"217
-[e = _SSPADD -> - / -> 80000000 `l * -> -> 4 `i `l -> 400000 `l -> -> 1 `i `l `uc ]
-[; ;pic18f458_badgerloop.c: 220: Delay10KTCYx(50);
-"220
+[; ;pic18f458_badgerloop.c: 229: SSPADD = ( ( 20000000 / ( 4 * 400000 ) ) - 1 );
+"229
+[e = _SSPADD -> - / -> 20000000 `l * -> -> 4 `i `l -> 400000 `l -> -> 1 `i `l `uc ]
+[; ;pic18f458_badgerloop.c: 232: Delay10KTCYx(50);
+"232
 [e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
-[; ;pic18f458_badgerloop.c: 221: }
-"221
+[; ;pic18f458_badgerloop.c: 233: }
+"233
 [e :UE 1533 ]
 }
-"223
+"235
 [v _initMPU6050 `(v ~T0 @X0 1 ef ]
 {
-[; ;pic18f458_badgerloop.c: 223: void initMPU6050(void) {
+[; ;pic18f458_badgerloop.c: 235: void initMPU6050(void) {
 [e :U _initMPU6050 ]
 [f ]
-[; ;pic18f458_badgerloop.c: 225: MPU6050(0x68);
-"225
+[; ;pic18f458_badgerloop.c: 237: MPU6050(0x68);
+"237
 [e ( _MPU6050 (1 -> -> 104 `i `uc ]
-[; ;pic18f458_badgerloop.c: 227: MPU6050_initialize();
-"227
+[; ;pic18f458_badgerloop.c: 239: MPU6050_initialize();
+"239
 [e ( _MPU6050_initialize ..  ]
-[; ;pic18f458_badgerloop.c: 230: Delay10KTCYx(50);
-"230
+[; ;pic18f458_badgerloop.c: 242: Delay10KTCYx(50);
+"242
 [e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
-[; ;pic18f458_badgerloop.c: 231: }
-"231
+[; ;pic18f458_badgerloop.c: 243: }
+"243
 [e :UE 1534 ]
 }
 "13 main.c
@@ -15115,9 +15142,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _gy `i ~T0 @X0 1 a ]
 [v _gz `i ~T0 @X0 1 a ]
 [; ;main.c: 101: int16_t ax, ay, az, gx, gy, gz;
-[; ;main.c: 102: initI2C();
+[; ;main.c: 102: initI2C_USART();
 "102
-[e ( _initI2C ..  ]
+[e ( _initI2C_USART ..  ]
 [; ;main.c: 103: initMPU6050();
 "103
 [e ( _initMPU6050 ..  ]
@@ -15164,9 +15191,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 128: CAN_Transmit();
 "128
 [e ( _CAN_Transmit ..  ]
-[; ;main.c: 130: delayzz();
+[; ;main.c: 130: _delay((unsigned long)((25)*(20000000/4000.0)));
 "130
-[e ( _delayzz ..  ]
+[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "131
 }
 [e :U 1549 ]
