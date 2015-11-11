@@ -13473,6 +13473,23 @@ for(j=0;j<2;j++)
 }
 }
 
+uint16_t convertFrom8To16(uint8_t dataFirst, uint8_t dataSecond) {
+uint16_t dataBoth = 0x0000;
+
+dataBoth = dataFirst;
+dataBoth = dataBoth << 8;
+dataBoth |= dataSecond;
+return dataBoth;
+}
+
+uint8_t *convertFrom16To8(uint16_t dataAll) {
+static uint8_t arrayData[2] = { 0x00, 0x00 };
+
+*(arrayData) = (dataAll >> 8) & 0x00FF;
+arrayData[1] = dataAll & 0x00FF;
+return arrayData;
+}
+
 void CAN_SetMode(uint8_t canMode)
 {
 
@@ -13489,15 +13506,10 @@ TRISB = (1<<3);
 
 CAN_SetMode((0x80));
 
-# 161
+# 177
 BRGCON1 = 0x00;
-
 BRGCON2 = 0xBA;
-
-
 BRGCON3 = 0x07;
-
-
 
 
 RXM0SIDH = 0; RXM0SIDL = 0;
@@ -13512,7 +13524,7 @@ RXF5SIDL = 0;
 RXB0CON = 0;
 RXB1CON = 0;
 
-# 189
+# 200
 CAN_SetMode((0x00));
 }
 
@@ -13530,13 +13542,13 @@ CAN_Init();
 Delay10KTCYx(50);
 }
 
-# 211
+# 222
 void initI2C_USART(void) {
 
 TRISCbits.RC6 = 0;
 TRISCbits.RC7 = 1;
 
-# 220
+# 231
 OpenUSART (0b01111111 &
 0b10111111 &
 0b11111110 &
@@ -13652,6 +13664,7 @@ break;
 
 void main(void) {
 int16_t ax, ay, az, gx, gy, gz;
+uint8_t ay_unsigned_array[2];
 initI2C_USART();
 initMPU6050();
 setupCANTxRx();
@@ -13664,13 +13677,21 @@ while(1)
 
 MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
 
-# 121
+# 123
 sendData[0] = 1;
+if (ay >= 0)
+{
 sendData[1] = 1;
+} else {
+sendData[1] = 2;
+}
+ay_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
+ay_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
+sendData[2] = ay_unsigned_array[0];
+sendData[3] = ay_unsigned_array[1];
 if (ay > 10)
 {
 LATBbits.LATB0 ^= 1;
-sendData[1] = 2;
 }
 CAN_Transmit();
 

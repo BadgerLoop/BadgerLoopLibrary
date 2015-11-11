@@ -134,6 +134,23 @@ void delayzz(void) {
 	}   
 }
 
+uint16_t convertFrom8To16(uint8_t dataFirst, uint8_t dataSecond) {
+    uint16_t dataBoth = 0x0000;
+
+    dataBoth = dataFirst;
+    dataBoth = dataBoth << 8;
+    dataBoth |= dataSecond;
+    return dataBoth;
+}
+
+uint8_t *convertFrom16To8(uint16_t dataAll) {
+    static uint8_t arrayData[2] = { 0x00, 0x00 };
+
+    *(arrayData) = (dataAll >> 8) & 0x00FF;
+    arrayData[1] = dataAll & 0x00FF;
+    return arrayData;
+}
+
 void CAN_SetMode(uint8_t canMode)
 {
 	// put CAN in normal mode
@@ -216,7 +233,7 @@ void initI2C_USART(void) {
              USART_ASYNCH_MODE &
              USART_EIGHT_BIT &
              USART_CONT_RX &
-             USART_BRGH_HIGH, 64); //Baud Rate = 19.2 kbps
+             USART_BRGH_HIGH, 129); //Baud Rate = 19.2 kbps => 64 | Baud Rate = 9.6 kbps => 129
     
     // I2C (400 kHz)
     OpenI2C(MASTER, SLEW_OFF);

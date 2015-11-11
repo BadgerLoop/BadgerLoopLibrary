@@ -80,10 +80,18 @@ uint16_t CAN_Receive(void)
 }
 
 unsigned char Rxdata[25];
-unsigned char Txdata[9] = {'p', 'i', 'c', '1', '8', 'f', '4', '5', '8'};
+unsigned char Txdata[8] = {'a', 'y', '=', ' ', '1', '2', ' ', '\0'};
+unsigned char ayEquals[4] = {'a', 'y', '=', ' '};
+
+union {
+    int16_t num;
+    unsigned char ch[2];
+}  theValue;
 
 void main(void)
 {
+    int16_t ay;
+    uint8_t ay_unsigned_array[2];
     initI2C_USART();
     setupCANTxRx();
     
@@ -96,11 +104,16 @@ void main(void)
     LATBbits.LATB1 = 1;    // RB-1 to HIGH
     LATBbits.LATB4 = 1;    // RB-4 to HIGH
     
+    RCIF = 0; //reset RX pin flag
+    RCIP = 0; //Not high priority
+    RCIE = 1; //Enable RX interrupt
+    PEIE = 1; //Enable peripheral interrupt (serial port is a peripheral)
+    
+    ei();
+    
     while(1)
     {
        uint16_t canId = CAN_Receive();
-       while (BusyUSART());
-       putsUSART((char *) Txdata);
        
        if ( receivedData[0] == 0 )
        {
@@ -108,29 +121,61 @@ void main(void)
             __delay_ms(25);
             LATBbits.LATB4 = 0;    // RB-4 to LOW
             __delay_ms(25);
-       } else if (receivedData[0] == 1 && receivedData[1] == 2)
+       } else if (receivedData[0] == 1) // Sensor = MPU6050
        {
-            LATBbits.LATB0 = 1;   // RB-0 to High  
-            LATBbits.LATB1 = 1;   // RB-1 to High
-            LATBbits.LATB4 = 0;   // RB-4 to LOW
+           
+            ay_unsigned_array[0] = receivedData[2];
+            ay_unsigned_array[1] = receivedData[3];
+            ay = (int16_t) convertFrom8To16( ay_unsigned_array[0], ay_unsigned_array[1] );
+            if (sendData[1] == 2) // ay < 0
+            {
+                ay = ay * -1;
+            }
+            if (ay > 10) {
+                LATBbits.LATB0 = 1;   // RB-0 to High  
+                LATBbits.LATB1 = 1;   // RB-1 to High
+                LATBbits.LATB4 = 0;   // RB-4 to LOW
 
-            __delay_ms(25);
+                __delay_ms(25);
 
-            LATBbits.LATB0 = 0;    // RB-0 to LOW
-            LATBbits.LATB1 = 0;    // RB-1 to LOW
-            LATBbits.LATB4 = 0;   // RB-4 to LOW
+                LATBbits.LATB0 = 0;    // RB-0 to LOW
+                LATBbits.LATB1 = 0;    // RB-1 to LOW
+                LATBbits.LATB4 = 0;   // RB-4 to LOW
 
-            __delay_ms(25);
-       }
-       else if (receivedData[0] == 1 && receivedData[1] == 1)
-       {
-            LATBbits.LATB0 = 1;   // RB-0 to High  
-            LATBbits.LATB1 = 1;   // RB-1 to High
-            LATBbits.LATB4 = 0;   // RB-4 to LOW
-            __delay_ms(25);
+                __delay_ms(25);
+            
+            } else {
+                LATBbits.LATB0 = 1;   // RB-0 to High  
+                LATBbits.LATB1 = 1;   // RB-1 to High
+                LATBbits.LATB4 = 0;   // RB-4 to LOW
+
+                __delay_ms(25);
+            }
+            /* unsigned char ay_char_array[4];
+            sprintf(ay_char_array, "%d", ay);
+            //Put "ay = " to USART
+            while(BusyUSART()); 
+            //putsUSART((char *) ayEquals);
+            //Put ay value to USART with null char
+            //while(BusyUSART()); 
+            putsUSART((char *) ay_char_array);
+            __delay_ms(25); */
        }
     }
+}
     
-    
+
+unsigned char rx;
+
+void interrupt SerialRxPinInterrupt()
+{
+    //check if the interrupt is caused by RX pin
+    if(PIR1bits.RCIF == 1)
+    {
+        rx = ReadUSART(); //read the byte from rx register
+        putsUSART((char *) Txdata);
+        //WriteUSART(rx);
+        PIR1bits.RCIF = 0; // clear rx flag
+    }
 
 }

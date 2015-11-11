@@ -14747,165 +14747,224 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1520 ]
 }
 "137
-[v _CAN_SetMode `(v ~T0 @X0 1 ef1`uc ]
-"138
+[v _convertFrom8To16 `(ui ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;pic18f458_badgerloop.c: 137: void CAN_SetMode(uint8_t canMode)
-[; ;pic18f458_badgerloop.c: 138: {
-[e :U _CAN_SetMode ]
-"137
-[v _canMode `uc ~T0 @X0 1 r1 ]
-"138
+[; ;pic18f458_badgerloop.c: 137: uint16_t convertFrom8To16(uint8_t dataFirst, uint8_t dataSecond) {
+[e :U _convertFrom8To16 ]
+[v _dataFirst `uc ~T0 @X0 1 r1 ]
+[v _dataSecond `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;pic18f458_badgerloop.c: 140: CANCON = canMode;
+"138
+[v _dataBoth `ui ~T0 @X0 1 a ]
+[; ;pic18f458_badgerloop.c: 138: uint16_t dataBoth = 0x0000;
+[e = _dataBoth -> -> 0 `i `ui ]
+[; ;pic18f458_badgerloop.c: 140: dataBoth = dataFirst;
 "140
-[e = _CANCON _canMode ]
-[; ;pic18f458_badgerloop.c: 143: while((CANSTAT & 0xE0) != canMode);
+[e = _dataBoth -> _dataFirst `ui ]
+[; ;pic18f458_badgerloop.c: 141: dataBoth = dataBoth << 8;
+"141
+[e = _dataBoth << _dataBoth -> 8 `i ]
+[; ;pic18f458_badgerloop.c: 142: dataBoth |= dataSecond;
+"142
+[e =| _dataBoth -> _dataSecond `ui ]
+[; ;pic18f458_badgerloop.c: 143: return dataBoth;
 "143
-[e $U 1528  ]
-[e :U 1529 ]
-[e :U 1528 ]
-[e $ != & -> _CANSTAT `i -> 224 `i -> _canMode `i 1529  ]
-[e :U 1530 ]
+[e ) _dataBoth ]
+[e $UE 1527  ]
 [; ;pic18f458_badgerloop.c: 144: }
 "144
 [e :UE 1527 ]
 }
 "146
-[v _CAN_Init `(v ~T0 @X0 1 ef ]
-"147
+[v _convertFrom16To8 `(*uc ~T0 @X0 1 ef1`ui ]
 {
-[; ;pic18f458_badgerloop.c: 146: void CAN_Init(void)
-[; ;pic18f458_badgerloop.c: 147: {
+[; ;pic18f458_badgerloop.c: 146: uint8_t *convertFrom16To8(uint16_t dataAll) {
+[e :U _convertFrom16To8 ]
+[v _dataAll `ui ~T0 @X0 1 r1 ]
+[f ]
+"147
+[v F10294 `uc ~T0 @X0 -> 2 `i s arrayData ]
+[i F10294
+:U ..
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+[; ;pic18f458_badgerloop.c: 147: static uint8_t arrayData[2] = { 0x00, 0x00 };
+[; ;pic18f458_badgerloop.c: 149: *(arrayData) = (dataAll >> 8) & 0x00FF;
+"149
+[e = *U &U F10294 -> & >> _dataAll -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;pic18f458_badgerloop.c: 150: arrayData[1] = dataAll & 0x00FF;
+"150
+[e = *U + &U F10294 * -> -> -> 1 `i `ui `ux -> -> # *U &U F10294 `ui `ux -> & _dataAll -> -> 255 `i `ui `uc ]
+[; ;pic18f458_badgerloop.c: 151: return arrayData;
+"151
+[e ) &U F10294 ]
+[e $UE 1528  ]
+[; ;pic18f458_badgerloop.c: 152: }
+"152
+[e :UE 1528 ]
+}
+"154
+[v _CAN_SetMode `(v ~T0 @X0 1 ef1`uc ]
+"155
+{
+[; ;pic18f458_badgerloop.c: 154: void CAN_SetMode(uint8_t canMode)
+[; ;pic18f458_badgerloop.c: 155: {
+[e :U _CAN_SetMode ]
+"154
+[v _canMode `uc ~T0 @X0 1 r1 ]
+"155
+[f ]
+[; ;pic18f458_badgerloop.c: 157: CANCON = canMode;
+"157
+[e = _CANCON _canMode ]
+[; ;pic18f458_badgerloop.c: 160: while((CANSTAT & 0xE0) != canMode);
+"160
+[e $U 1530  ]
+[e :U 1531 ]
+[e :U 1530 ]
+[e $ != & -> _CANSTAT `i -> 224 `i -> _canMode `i 1531  ]
+[e :U 1532 ]
+[; ;pic18f458_badgerloop.c: 161: }
+"161
+[e :UE 1529 ]
+}
+"163
+[v _CAN_Init `(v ~T0 @X0 1 ef ]
+"164
+{
+[; ;pic18f458_badgerloop.c: 163: void CAN_Init(void)
+[; ;pic18f458_badgerloop.c: 164: {
 [e :U _CAN_Init ]
 [f ]
-[; ;pic18f458_badgerloop.c: 148: TRISB = (1<<3);
-"148
+[; ;pic18f458_badgerloop.c: 165: TRISB = (1<<3);
+"165
 [e = _TRISB -> << -> 1 `i -> 3 `i `uc ]
-[; ;pic18f458_badgerloop.c: 151: CAN_SetMode((0x80));
-"151
+[; ;pic18f458_badgerloop.c: 168: CAN_SetMode((0x80));
+"168
 [e ( _CAN_SetMode (1 -> -> 128 `i `uc ]
-[; ;pic18f458_badgerloop.c: 161: BRGCON1 = 0x00;
-"161
+[; ;pic18f458_badgerloop.c: 177: BRGCON1 = 0x00;
+"177
 [e = _BRGCON1 -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 163: BRGCON2 = 0xBA;
-"163
+[; ;pic18f458_badgerloop.c: 178: BRGCON2 = 0xBA;
+"178
 [e = _BRGCON2 -> -> 186 `i `uc ]
-[; ;pic18f458_badgerloop.c: 166: BRGCON3 = 0x07;
-"166
+[; ;pic18f458_badgerloop.c: 179: BRGCON3 = 0x07;
+"179
 [e = _BRGCON3 -> -> 7 `i `uc ]
-[; ;pic18f458_badgerloop.c: 171: RXM0SIDH = 0; RXM0SIDL = 0;
-"171
+[; ;pic18f458_badgerloop.c: 182: RXM0SIDH = 0; RXM0SIDL = 0;
+"182
 [e = _RXM0SIDH -> -> 0 `i `uc ]
 [e = _RXM0SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 172: RXM1SIDH = 0; RXM1SIDL = 0;
-"172
+[; ;pic18f458_badgerloop.c: 183: RXM1SIDH = 0; RXM1SIDL = 0;
+"183
 [e = _RXM1SIDH -> -> 0 `i `uc ]
 [e = _RXM1SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 173: RXF0SIDL = 0;
-"173
+[; ;pic18f458_badgerloop.c: 184: RXF0SIDL = 0;
+"184
 [e = _RXF0SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 174: RXF1SIDL = 0;
-"174
+[; ;pic18f458_badgerloop.c: 185: RXF1SIDL = 0;
+"185
 [e = _RXF1SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 175: RXF2SIDL = 0;
-"175
+[; ;pic18f458_badgerloop.c: 186: RXF2SIDL = 0;
+"186
 [e = _RXF2SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 176: RXF3SIDL = 0;
-"176
+[; ;pic18f458_badgerloop.c: 187: RXF3SIDL = 0;
+"187
 [e = _RXF3SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 177: RXF4SIDL = 0;
-"177
+[; ;pic18f458_badgerloop.c: 188: RXF4SIDL = 0;
+"188
 [e = _RXF4SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 178: RXF5SIDL = 0;
-"178
-[e = _RXF5SIDL -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 180: RXB0CON = 0;
-"180
-[e = _RXB0CON -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 181: RXB1CON = 0;
-"181
-[e = _RXB1CON -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 189: CAN_SetMode((0x00));
+[; ;pic18f458_badgerloop.c: 189: RXF5SIDL = 0;
 "189
-[e ( _CAN_SetMode (1 -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 190: }
-"190
-[e :UE 1531 ]
-}
+[e = _RXF5SIDL -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 191: RXB0CON = 0;
+"191
+[e = _RXB0CON -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 192: RXB1CON = 0;
 "192
-[v _setupCANTxRx `(v ~T0 @X0 1 ef ]
-{
-[; ;pic18f458_badgerloop.c: 192: void setupCANTxRx(void) {
-[e :U _setupCANTxRx ]
-[f ]
-[; ;pic18f458_badgerloop.c: 195: TRISBbits.TRISB2 = 0;
-"195
-[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 197: TRISBbits.TRISB3 = 1;
-"197
-[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
-[; ;pic18f458_badgerloop.c: 200: CAN_Init();
+[e = _RXB1CON -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 200: CAN_SetMode((0x00));
 "200
-[e ( _CAN_Init ..  ]
-[; ;pic18f458_badgerloop.c: 203: Delay10KTCYx(50);
-"203
-[e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
-[; ;pic18f458_badgerloop.c: 204: }
-"204
-[e :UE 1532 ]
-}
-"211
-[v _initI2C_USART `(v ~T0 @X0 1 ef ]
-{
-[; ;pic18f458_badgerloop.c: 211: void initI2C_USART(void) {
-[e :U _initI2C_USART ]
-[f ]
-[; ;pic18f458_badgerloop.c: 213: TRISCbits.RC6 = 0;
-"213
-[e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
-[; ;pic18f458_badgerloop.c: 214: TRISCbits.RC7 = 1;
-"214
-[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-[; ;pic18f458_badgerloop.c: 220: OpenUSART (0b01111111 &
-[; ;pic18f458_badgerloop.c: 221: 0b10111111 &
-[; ;pic18f458_badgerloop.c: 222: 0b11111110 &
-[; ;pic18f458_badgerloop.c: 223: 0b11111101 &
-[; ;pic18f458_badgerloop.c: 224: 0b11111111 &
-[; ;pic18f458_badgerloop.c: 225: 0b11111111, 64);
-"225
-[e ( _OpenUSART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
-[; ;pic18f458_badgerloop.c: 228: OpenI2C(0b00001000, 0b10000000);
-"228
-[e ( _OpenI2C (2 , -> -> 8 `i `uc -> -> 128 `i `uc ]
-[; ;pic18f458_badgerloop.c: 229: SSPADD = ( ( 20000000 / ( 4 * 400000 ) ) - 1 );
-"229
-[e = _SSPADD -> - / -> 20000000 `l * -> -> 4 `i `l -> 400000 `l -> -> 1 `i `l `uc ]
-[; ;pic18f458_badgerloop.c: 232: Delay10KTCYx(50);
-"232
-[e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
-[; ;pic18f458_badgerloop.c: 233: }
-"233
+[e ( _CAN_SetMode (1 -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 201: }
+"201
 [e :UE 1533 ]
 }
-"235
+"203
+[v _setupCANTxRx `(v ~T0 @X0 1 ef ]
+{
+[; ;pic18f458_badgerloop.c: 203: void setupCANTxRx(void) {
+[e :U _setupCANTxRx ]
+[f ]
+[; ;pic18f458_badgerloop.c: 206: TRISBbits.TRISB2 = 0;
+"206
+[e = . . _TRISBbits 0 2 -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 208: TRISBbits.TRISB3 = 1;
+"208
+[e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
+[; ;pic18f458_badgerloop.c: 211: CAN_Init();
+"211
+[e ( _CAN_Init ..  ]
+[; ;pic18f458_badgerloop.c: 214: Delay10KTCYx(50);
+"214
+[e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
+[; ;pic18f458_badgerloop.c: 215: }
+"215
+[e :UE 1534 ]
+}
+"222
+[v _initI2C_USART `(v ~T0 @X0 1 ef ]
+{
+[; ;pic18f458_badgerloop.c: 222: void initI2C_USART(void) {
+[e :U _initI2C_USART ]
+[f ]
+[; ;pic18f458_badgerloop.c: 224: TRISCbits.RC6 = 0;
+"224
+[e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
+[; ;pic18f458_badgerloop.c: 225: TRISCbits.RC7 = 1;
+"225
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+[; ;pic18f458_badgerloop.c: 231: OpenUSART (0b01111111 &
+[; ;pic18f458_badgerloop.c: 232: 0b10111111 &
+[; ;pic18f458_badgerloop.c: 233: 0b11111110 &
+[; ;pic18f458_badgerloop.c: 234: 0b11111101 &
+[; ;pic18f458_badgerloop.c: 235: 0b11111111 &
+[; ;pic18f458_badgerloop.c: 236: 0b11111111, 64);
+"236
+[e ( _OpenUSART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
+[; ;pic18f458_badgerloop.c: 239: OpenI2C(0b00001000, 0b10000000);
+"239
+[e ( _OpenI2C (2 , -> -> 8 `i `uc -> -> 128 `i `uc ]
+[; ;pic18f458_badgerloop.c: 240: SSPADD = ( ( 20000000 / ( 4 * 400000 ) ) - 1 );
+"240
+[e = _SSPADD -> - / -> 20000000 `l * -> -> 4 `i `l -> 400000 `l -> -> 1 `i `l `uc ]
+[; ;pic18f458_badgerloop.c: 243: Delay10KTCYx(50);
+"243
+[e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
+[; ;pic18f458_badgerloop.c: 244: }
+"244
+[e :UE 1535 ]
+}
+"246
 [v _initMPU6050 `(v ~T0 @X0 1 ef ]
 {
-[; ;pic18f458_badgerloop.c: 235: void initMPU6050(void) {
+[; ;pic18f458_badgerloop.c: 246: void initMPU6050(void) {
 [e :U _initMPU6050 ]
 [f ]
-[; ;pic18f458_badgerloop.c: 237: MPU6050(0x68);
-"237
+[; ;pic18f458_badgerloop.c: 248: MPU6050(0x68);
+"248
 [e ( _MPU6050 (1 -> -> 104 `i `uc ]
-[; ;pic18f458_badgerloop.c: 239: MPU6050_initialize();
-"239
+[; ;pic18f458_badgerloop.c: 250: MPU6050_initialize();
+"250
 [e ( _MPU6050_initialize ..  ]
-[; ;pic18f458_badgerloop.c: 242: Delay10KTCYx(50);
-"242
+[; ;pic18f458_badgerloop.c: 253: Delay10KTCYx(50);
+"253
 [e ( _Delay10KTCYx (1 -> -> 50 `i `uc ]
-[; ;pic18f458_badgerloop.c: 243: }
-"243
-[e :UE 1534 ]
+[; ;pic18f458_badgerloop.c: 254: }
+"254
+[e :UE 1536 ]
 }
 "13 main.c
 [v _receivedData `Vuc ~T0 @X0 -> 0 `x e ]
@@ -14954,11 +15013,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _canId << _canId -> 5 `i ]
 [; ;main.c: 24: while(TXB0CON & (1<<3));
 "24
-[e $U 1536  ]
-[e :U 1537 ]
-[e :U 1536 ]
-[e $ != & -> _TXB0CON `i << -> 1 `i -> 3 `i -> 0 `i 1537  ]
+[e $U 1538  ]
+[e :U 1539 ]
 [e :U 1538 ]
+[e $ != & -> _TXB0CON `i << -> 1 `i -> 3 `i -> 0 `i 1539  ]
+[e :U 1540 ]
 [; ;main.c: 26: TXB0SIDL = (uint8_t)(canId & 0x00E0);
 "26
 [e = _TXB0SIDL -> & _canId -> -> 224 `i `ui `uc ]
@@ -14997,7 +15056,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _TXB0CON -> << -> 1 `i -> 3 `i `uc ]
 [; ;main.c: 46: }
 "46
-[e :UE 1535 ]
+[e :UE 1537 ]
 }
 "48
 [v _CAN_Receive `(ui ~T0 @X0 1 ef ]
@@ -15021,11 +15080,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _canId -> -> 0 `i `ui ]
 [; ;main.c: 57: while(!(RXB0CON & (1<<7)));
 "57
-[e $U 1540  ]
-[e :U 1541 ]
-[e :U 1540 ]
-[e $ ! != & -> _RXB0CON `i << -> 1 `i -> 7 `i -> 0 `i 1541  ]
+[e $U 1542  ]
+[e :U 1543 ]
 [e :U 1542 ]
+[e $ ! != & -> _RXB0CON `i << -> 1 `i -> 7 `i -> 0 `i 1543  ]
+[e :U 1544 ]
 [; ;main.c: 60: canIdL = RXB0SIDL;
 "60
 [e = _canIdL _RXB0SIDL ]
@@ -15068,10 +15127,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 79: return canId;
 "79
 [e ) _canId ]
-[e $UE 1539  ]
+[e $UE 1541  ]
 [; ;main.c: 80: }
 "80
-[e :UE 1539 ]
+[e :UE 1541 ]
 }
 "84
 [v _flashLED `(v ~T0 @X0 1 ef ]
@@ -15087,7 +15146,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _count -> 10 `i ]
 [; ;main.c: 87: while(1) {
 "87
-[e :U 1545 ]
+[e :U 1547 ]
 {
 [; ;main.c: 88: LATBbits.LATB0 = 1;
 "88
@@ -15106,27 +15165,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e -- _count -> 1 `i ]
 [; ;main.c: 93: if (count == 0)
 "93
-[e $ ! == _count -> 0 `i 1547  ]
+[e $ ! == _count -> 0 `i 1549  ]
 [; ;main.c: 94: {
 "94
 {
 [; ;main.c: 95: break;
 "95
-[e $U 1546  ]
+[e $U 1548  ]
 "96
 }
-[e :U 1547 ]
+[e :U 1549 ]
 "97
 }
-[e :U 1544 ]
-"87
-[e $U 1545  ]
 [e :U 1546 ]
+"87
+[e $U 1547  ]
+[e :U 1548 ]
 [; ;main.c: 96: }
 [; ;main.c: 97: }
 [; ;main.c: 98: }
 "98
-[e :UE 1543 ]
+[e :UE 1545 ]
 }
 "100
 [v _main `(v ~T0 @X0 1 ef ]
@@ -15141,67 +15200,98 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _gx `i ~T0 @X0 1 a ]
 [v _gy `i ~T0 @X0 1 a ]
 [v _gz `i ~T0 @X0 1 a ]
-[; ;main.c: 101: int16_t ax, ay, az, gx, gy, gz;
-[; ;main.c: 102: initI2C_USART();
 "102
-[e ( _initI2C_USART ..  ]
-[; ;main.c: 103: initMPU6050();
+[v _ay_unsigned_array `uc ~T0 @X0 -> 2 `i a ]
+[; ;main.c: 101: int16_t ax, ay, az, gx, gy, gz;
+[; ;main.c: 102: uint8_t ay_unsigned_array[2];
+[; ;main.c: 103: initI2C_USART();
 "103
-[e ( _initMPU6050 ..  ]
-[; ;main.c: 104: setupCANTxRx();
+[e ( _initI2C_USART ..  ]
+[; ;main.c: 104: initMPU6050();
 "104
+[e ( _initMPU6050 ..  ]
+[; ;main.c: 105: setupCANTxRx();
+"105
 [e ( _setupCANTxRx ..  ]
-[; ;main.c: 107: TRISBbits.TRISB0 = 0;
-"107
-[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 108: flashLED();
+[; ;main.c: 108: TRISBbits.TRISB0 = 0;
 "108
-[e ( _flashLED ..  ]
-[; ;main.c: 109: while(1)
+[e = . . _TRISBbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 109: flashLED();
 "109
-[e :U 1550 ]
-[; ;main.c: 110: {
+[e ( _flashLED ..  ]
+[; ;main.c: 110: while(1)
 "110
+[e :U 1552 ]
+[; ;main.c: 111: {
+"111
 {
-[; ;main.c: 112: MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-"112
+[; ;main.c: 113: MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+"113
 [e ( _MPU6050_getMotion6 (4 , , , , , &U _ax &U _ay &U _az &U _gx &U _gy &U _gz ]
-[; ;main.c: 121: sendData[0] = 1;
-"121
-[e = *U + &U _sendData * -> -> -> 0 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 1 `i `uc ]
-[; ;main.c: 122: sendData[1] = 1;
-"122
-[e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 1 `i `uc ]
-[; ;main.c: 123: if (ay > 10)
+[; ;main.c: 123: sendData[0] = 1;
 "123
-[e $ ! > _ay -> 10 `i 1552  ]
-[; ;main.c: 124: {
+[e = *U + &U _sendData * -> -> -> 0 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 124: if (ay >= 0)
 "124
-{
-[; ;main.c: 125: LATBbits.LATB0 ^= 1;
+[e $ ! >= _ay -> 0 `i 1554  ]
+[; ;main.c: 125: {
 "125
-[e =^ . . _LATBbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 126: sendData[1] = 2;
+{
+[; ;main.c: 126: sendData[1] = 1;
 "126
-[e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 2 `i `uc ]
+[e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 1 `i `uc ]
 "127
 }
-[e :U 1552 ]
-[; ;main.c: 127: }
-[; ;main.c: 128: CAN_Transmit();
+[; ;main.c: 127: } else {
+[e $U 1555  ]
+[e :U 1554 ]
+{
+[; ;main.c: 128: sendData[1] = 2;
 "128
-[e ( _CAN_Transmit ..  ]
-[; ;main.c: 130: _delay((unsigned long)((25)*(20000000/4000.0)));
-"130
-[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"131
+[e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 2 `i `uc ]
+"129
 }
-[e :U 1549 ]
-"109
-[e $U 1550  ]
-[e :U 1551 ]
-[; ;main.c: 131: }
-[; ;main.c: 132: }
+[e :U 1555 ]
+[; ;main.c: 129: }
+[; ;main.c: 130: ay_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
+"130
+[e = *U + &U _ay_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _ay_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _ay `ui * -> -> 0 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _ay `ui `i `x ]
+[; ;main.c: 131: ay_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
+"131
+[e = *U + &U _ay_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _ay_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _ay `ui * -> -> 1 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _ay `ui `i `x ]
+[; ;main.c: 132: sendData[2] = ay_unsigned_array[0];
 "132
-[e :UE 1548 ]
+[e = *U + &U _sendData * -> -> -> 2 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _ay_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _ay_unsigned_array `ui `ux ]
+[; ;main.c: 133: sendData[3] = ay_unsigned_array[1];
+"133
+[e = *U + &U _sendData * -> -> -> 3 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _ay_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _ay_unsigned_array `ui `ux ]
+[; ;main.c: 134: if (ay > 10)
+"134
+[e $ ! > _ay -> 10 `i 1556  ]
+[; ;main.c: 135: {
+"135
+{
+[; ;main.c: 136: LATBbits.LATB0 ^= 1;
+"136
+[e =^ . . _LATBbits 0 0 -> -> 1 `i `uc ]
+"137
+}
+[e :U 1556 ]
+[; ;main.c: 137: }
+[; ;main.c: 138: CAN_Transmit();
+"138
+[e ( _CAN_Transmit ..  ]
+[; ;main.c: 140: _delay((unsigned long)((25)*(20000000/4000.0)));
+"140
+[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"141
+}
+[e :U 1551 ]
+"110
+[e $U 1552  ]
+[e :U 1553 ]
+[; ;main.c: 141: }
+[; ;main.c: 142: }
+"142
+[e :UE 1550 ]
 }

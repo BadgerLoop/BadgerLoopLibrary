@@ -99,6 +99,7 @@ void flashLED(void) {
 
 void main(void) {
     int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
+    uint8_t ay_unsigned_array[2];
     initI2C_USART();
     initMPU6050();
     setupCANTxRx();
@@ -110,20 +111,29 @@ void main(void) {
     {
         // Read raw accel/gyro measurements from device
         MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-        /* sendData[1] = ax
-         * sendData[2] = ay
-         * sendData[3] = az
-         * sendData[4] = gx
-         * sendData[5] = gy
-         * sendData[6] = gz
+        /* sendData[0] = 1 //Sensor 1 = MPU6050
+         * sendData[1] = ay >= 0 => 1 | ay < 0 => 0
+         * sendData[2] = ay_msbyte
+         * sendData[3] = ay_lsbyte
+         * sendData[4] = 0
+         * sendData[5] = 0
+         * sendData[6] = 0
          * sendData[7] = 0
          */
         sendData[0] = 1; //Sensor 1 = MPU6050
-        sendData[1] = 1; //ay < 10
+        if (ay >= 0)
+        {
+            sendData[1] = 1; // ay >= 0
+        } else {
+            sendData[1] = 2; // ay < 0
+        }
+        ay_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
+        ay_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
+        sendData[2] = ay_unsigned_array[0];
+        sendData[3] = ay_unsigned_array[1];
         if (ay > 10)
         {
             LED_PIN ^= 1;
-            sendData[1] = 2;
         }
         CAN_Transmit();
         
