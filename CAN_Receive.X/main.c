@@ -79,15 +79,6 @@ uint16_t CAN_Receive(void)
     return canId;
 }
 
-unsigned char Rxdata[25];
-unsigned char Txdata[8] = {'a', 'y', '=', ' ', '1', '2', ' ', '\0'};
-unsigned char ayEquals[4] = {'a', 'y', '=', ' '};
-
-union {
-    int16_t num;
-    unsigned char ch[2];
-}  theValue;
-
 void main(void)
 {
     int16_t ay;
@@ -151,31 +142,6 @@ void main(void)
 
                 __delay_ms(25);
             }
-            /* unsigned char ay_char_array[4];
-            sprintf(ay_char_array, "%d", ay);
-            //Put "ay = " to USART
-            while(BusyUSART()); 
-            //putsUSART((char *) ayEquals);
-            //Put ay value to USART with null char
-            //while(BusyUSART()); 
-            putsUSART((char *) ay_char_array);
-            __delay_ms(25); */
        }
     }
-}
-    
-
-unsigned char rx;
-
-void interrupt SerialRxPinInterrupt()
-{
-    //check if the interrupt is caused by RX pin
-    if(PIR1bits.RCIF == 1)
-    {
-        rx = ReadUSART(); //read the byte from rx register
-        putsUSART((char *) Txdata);
-        //WriteUSART(rx);
-        PIR1bits.RCIF = 0; // clear rx flag
-    }
-
 }
