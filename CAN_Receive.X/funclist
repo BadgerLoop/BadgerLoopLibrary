@@ -1,16 +1,12 @@
-_initI2C_USART: CODE, 898 0 50
-_SerialRxPinInterrupt: CODE, 8 0 146
-_OpenUSART: CODE, 556 0 112
-_main: CODE, 158 0 242
-_CAN_Init: CODE, 668 0 104
-_convertFrom8To16: CODE, 838 0 60
-__initialization: CODE, 772 0 56
-_putsUSART: CODE, 948 0 44
-_CAN_SetMode: CODE, 1102 0 28
-_setupCANTxRx: CODE, 1152 0 20
-_WriteUSART: CODE, 1130 0 22
-_CAN_Receive: CODE, 400 0 156
-_Delay10KTCYx: CODE, 1068 0 34
-_ReadUSART: CODE, 1032 0 34
-_OpenI2C: CODE, 992 0 40
-Total: 1148
+_initI2C_USART: CODE, 15700 0 44
+_OpenUSART: CODE, 15744 0 96
+_main: CODE, 16074 0 310
+_CAN_Init: CODE, 15840 0 104
+_convertFrom8To16: CODE, 15660 0 40
+__initialization: CODE, 15626 0 24
+_CAN_SetMode: CODE, 15540 0 24
+_setupCANTxRx: CODE, 15520 0 20
+_CAN_Receive: CODE, 15944 0 128
+_Delay10KTCYx: CODE, 15564 0 28
+_OpenI2C: CODE, 15592 0 34
+Total: 852

@@ -99,7 +99,7 @@ void flashLED(void) {
 
 void main(void) {
     int16_t ax, ay, az, gx, gy, gz; //MPU6050 values
-    uint8_t ay_unsigned_array[2];
+    uint8_t a_unsigned_array[2];
     initI2C_USART();
     initMPU6050();
     setupCANTxRx();
@@ -111,31 +111,50 @@ void main(void) {
     {
         // Read raw accel/gyro measurements from device
         MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-        /* sendData[0] = 1 //Sensor 1 = MPU6050
-         * sendData[1] = ay >= 0 => 1 | ay < 0 => 0
-         * sendData[2] = ay_msbyte
-         * sendData[3] = ay_lsbyte
-         * sendData[4] = 0
-         * sendData[5] = 0
-         * sendData[6] = 0
-         * sendData[7] = 0
+        uint8_t AFS_SEL = MPU6050_getFullScaleAccelRange();
+        /* AFS_SEL | Full Scale Range | LSB Sensitivity
+         * --------+------------------+----------------
+         * 0       | +/- 2g           | 8192 LSB/mg
+         * 1       | +/- 4g           | 4096 LSB/mg
+         * 2       | +/- 8g           | 2048 LSB/mg
+         * 3       | +/- 16g          | 1024 LSB/
          */
-        sendData[0] = 1; //Sensor 1 = MPU6050
-        if (ay >= 0)
-        {
-            sendData[1] = 1; // ay >= 0
-        } else {
-            sendData[1] = 2; // ay < 0
-        }
-        ay_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
-        ay_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
-        sendData[2] = ay_unsigned_array[0];
-        sendData[3] = ay_unsigned_array[1];
+        
+        /* sendData[0] = 1 //Sensor 1 -> MPU6050 (ax,ay)
+         * sendData[1] = AFS_SEL
+         * sendData[2] = ax_msbyte
+         * sendData[3] = ax_lsbyte
+         * sendData[4] = ay_msbyte
+         * sendData[5] = ay_lsbyte
+         * sendData[6] = az_msbyte
+         * sendData[7] = az_lsbyte
+         */
+        sendData[0] = 1;
+        sendData[1] = AFS_SEL;
+        //Sending ax, ay, az over CAN
+        //Convert ax for sending
+        a_unsigned_array[0] = convertFrom16To8( (uint16_t) ax )[0];
+        a_unsigned_array[1] = convertFrom16To8( (uint16_t) ax )[1];
+        sendData[2] = a_unsigned_array[0];
+        sendData[3] = a_unsigned_array[1];
+        //Convert ay for sending
+        a_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
+        a_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
+        sendData[4] = a_unsigned_array[0];
+        sendData[5] = a_unsigned_array[1];
+        
+        //Convert ax for sending
+        a_unsigned_array[0] = convertFrom16To8( (uint16_t) az )[0];
+        a_unsigned_array[1] = convertFrom16To8( (uint16_t) az )[1];
+        sendData[6] = a_unsigned_array[0];
+        sendData[7] = a_unsigned_array[1];
+        //Actually send message
+        CAN_Transmit();
+        
         if (ay > 10)
         {
             LED_PIN ^= 1;
         }
-        CAN_Transmit();
         
         __delay_ms(25);
     }

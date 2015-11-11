@@ -81,8 +81,11 @@ uint16_t CAN_Receive(void)
 
 void main(void)
 {
+    int16_t ax;
     int16_t ay;
-    uint8_t ay_unsigned_array[2];
+    int16_t az;
+    uint8_t a_unsigned_array[2];
+    uint8_t AFS_SEL;
     initI2C_USART();
     setupCANTxRx();
     
@@ -112,16 +115,22 @@ void main(void)
             __delay_ms(25);
             LATBbits.LATB4 = 0;    // RB-4 to LOW
             __delay_ms(25);
-       } else if (receivedData[0] == 1) // Sensor = MPU6050
+       } else if (receivedData[0] == 1) // Sensor = MPU6050 (ax,ay)
        {
-           
-            ay_unsigned_array[0] = receivedData[2];
-            ay_unsigned_array[1] = receivedData[3];
-            ay = (int16_t) convertFrom8To16( ay_unsigned_array[0], ay_unsigned_array[1] );
-            if (sendData[1] == 2) // ay < 0
-            {
-                ay = ay * -1;
-            }
+            
+            a_unsigned_array[0] = receivedData[2];
+            a_unsigned_array[1] = receivedData[3];
+            ax = (int16_t) convertFrom8To16( a_unsigned_array[0], a_unsigned_array[1] );
+            
+            a_unsigned_array[0] = receivedData[4];
+            a_unsigned_array[1] = receivedData[5];
+            ay = (int16_t) convertFrom8To16( a_unsigned_array[0], a_unsigned_array[1] );
+            
+            a_unsigned_array[0] = receivedData[6];
+            a_unsigned_array[1] = receivedData[7];
+            az = (int16_t) convertFrom8To16( a_unsigned_array[0], a_unsigned_array[1] );
+            
+            AFS_SEL = receivedData[1];
             if (ay > 10) {
                 LATBbits.LATB0 = 1;   // RB-0 to High  
                 LATBbits.LATB1 = 1;   // RB-1 to High
@@ -134,7 +143,6 @@ void main(void)
                 LATBbits.LATB4 = 0;   // RB-4 to LOW
 
                 __delay_ms(25);
-            
             } else {
                 LATBbits.LATB0 = 1;   // RB-0 to High  
                 LATBbits.LATB1 = 1;   // RB-1 to High
@@ -142,6 +150,7 @@ void main(void)
 
                 __delay_ms(25);
             }
-       }
+            
+        }
     }
 }

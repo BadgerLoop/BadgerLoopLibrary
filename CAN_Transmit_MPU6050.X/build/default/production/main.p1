@@ -14931,9 +14931,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18f458_badgerloop.c: 233: 0b11111110 &
 [; ;pic18f458_badgerloop.c: 234: 0b11111101 &
 [; ;pic18f458_badgerloop.c: 235: 0b11111111 &
-[; ;pic18f458_badgerloop.c: 236: 0b11111111, 64);
+[; ;pic18f458_badgerloop.c: 236: 0b11111111, 129);
 "236
-[e ( _OpenUSART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 64 `i `ui ]
+[e ( _OpenUSART (2 , -> & & & & & -> 127 `i -> 191 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 129 `i `ui ]
 [; ;pic18f458_badgerloop.c: 239: OpenI2C(0b00001000, 0b10000000);
 "239
 [e ( _OpenI2C (2 , -> -> 8 `i `uc -> -> 128 `i `uc ]
@@ -15201,9 +15201,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _gy `i ~T0 @X0 1 a ]
 [v _gz `i ~T0 @X0 1 a ]
 "102
-[v _ay_unsigned_array `uc ~T0 @X0 -> 2 `i a ]
+[v _a_unsigned_array `uc ~T0 @X0 -> 2 `i a ]
 [; ;main.c: 101: int16_t ax, ay, az, gx, gy, gz;
-[; ;main.c: 102: uint8_t ay_unsigned_array[2];
+[; ;main.c: 102: uint8_t a_unsigned_array[2];
 [; ;main.c: 103: initI2C_USART();
 "103
 [e ( _initI2C_USART ..  ]
@@ -15228,70 +15228,79 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 113: MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
 "113
 [e ( _MPU6050_getMotion6 (4 , , , , , &U _ax &U _ay &U _az &U _gx &U _gy &U _gz ]
-[; ;main.c: 123: sendData[0] = 1;
-"123
-[e = *U + &U _sendData * -> -> -> 0 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 1 `i `uc ]
-[; ;main.c: 124: if (ay >= 0)
-"124
-[e $ ! >= _ay -> 0 `i 1554  ]
-[; ;main.c: 125: {
-"125
-{
-[; ;main.c: 126: sendData[1] = 1;
-"126
-[e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 1 `i `uc ]
-"127
-}
-[; ;main.c: 127: } else {
-[e $U 1555  ]
-[e :U 1554 ]
-{
-[; ;main.c: 128: sendData[1] = 2;
-"128
-[e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 2 `i `uc ]
-"129
-}
-[e :U 1555 ]
-[; ;main.c: 129: }
-[; ;main.c: 130: ay_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
-"130
-[e = *U + &U _ay_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _ay_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _ay `ui * -> -> 0 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _ay `ui `i `x ]
-[; ;main.c: 131: ay_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
-"131
-[e = *U + &U _ay_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _ay_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _ay `ui * -> -> 1 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _ay `ui `i `x ]
-[; ;main.c: 132: sendData[2] = ay_unsigned_array[0];
+"114
+[v _AFS_SEL `uc ~T0 @X0 1 a ]
+[; ;main.c: 114: uint8_t AFS_SEL = MPU6050_getFullScaleAccelRange();
+[e = _AFS_SEL ( _MPU6050_getFullScaleAccelRange ..  ]
+[; ;main.c: 132: sendData[0] = 1;
 "132
-[e = *U + &U _sendData * -> -> -> 2 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _ay_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _ay_unsigned_array `ui `ux ]
-[; ;main.c: 133: sendData[3] = ay_unsigned_array[1];
+[e = *U + &U _sendData * -> -> -> 0 `i `ui `ux -> -> # *U &U _sendData `ui `ux -> -> 1 `i `uc ]
+[; ;main.c: 133: sendData[1] = AFS_SEL;
 "133
-[e = *U + &U _sendData * -> -> -> 3 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _ay_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _ay_unsigned_array `ui `ux ]
-[; ;main.c: 134: if (ay > 10)
-"134
-[e $ ! > _ay -> 10 `i 1556  ]
-[; ;main.c: 135: {
-"135
-{
-[; ;main.c: 136: LATBbits.LATB0 ^= 1;
+[e = *U + &U _sendData * -> -> -> 1 `i `ui `ux -> -> # *U &U _sendData `ui `ux _AFS_SEL ]
+[; ;main.c: 136: a_unsigned_array[0] = convertFrom16To8( (uint16_t) ax )[0];
 "136
-[e =^ . . _LATBbits 0 0 -> -> 1 `i `uc ]
+[e = *U + &U _a_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _ax `ui * -> -> 0 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _ax `ui `i `x ]
+[; ;main.c: 137: a_unsigned_array[1] = convertFrom16To8( (uint16_t) ax )[1];
 "137
-}
-[e :U 1556 ]
-[; ;main.c: 137: }
-[; ;main.c: 138: CAN_Transmit();
+[e = *U + &U _a_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _ax `ui * -> -> 1 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _ax `ui `i `x ]
+[; ;main.c: 138: sendData[2] = a_unsigned_array[0];
 "138
-[e ( _CAN_Transmit ..  ]
-[; ;main.c: 140: _delay((unsigned long)((25)*(20000000/4000.0)));
-"140
-[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[e = *U + &U _sendData * -> -> -> 2 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _a_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux ]
+[; ;main.c: 139: sendData[3] = a_unsigned_array[1];
+"139
+[e = *U + &U _sendData * -> -> -> 3 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _a_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux ]
+[; ;main.c: 141: a_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
 "141
+[e = *U + &U _a_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _ay `ui * -> -> 0 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _ay `ui `i `x ]
+[; ;main.c: 142: a_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
+"142
+[e = *U + &U _a_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _ay `ui * -> -> 1 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _ay `ui `i `x ]
+[; ;main.c: 143: sendData[4] = a_unsigned_array[0];
+"143
+[e = *U + &U _sendData * -> -> -> 4 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _a_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux ]
+[; ;main.c: 144: sendData[5] = a_unsigned_array[1];
+"144
+[e = *U + &U _sendData * -> -> -> 5 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _a_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux ]
+[; ;main.c: 147: a_unsigned_array[0] = convertFrom16To8( (uint16_t) az )[0];
+"147
+[e = *U + &U _a_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _az `ui * -> -> 0 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _az `ui `i `x ]
+[; ;main.c: 148: a_unsigned_array[1] = convertFrom16To8( (uint16_t) az )[1];
+"148
+[e = *U + &U _a_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux *U + ( _convertFrom16To8 (1 -> _az `ui * -> -> 1 `i `x -> -> # *U ( _convertFrom16To8 (1 -> _az `ui `i `x ]
+[; ;main.c: 149: sendData[6] = a_unsigned_array[0];
+"149
+[e = *U + &U _sendData * -> -> -> 6 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _a_unsigned_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux ]
+[; ;main.c: 150: sendData[7] = a_unsigned_array[1];
+"150
+[e = *U + &U _sendData * -> -> -> 7 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _a_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux ]
+[; ;main.c: 152: CAN_Transmit();
+"152
+[e ( _CAN_Transmit ..  ]
+[; ;main.c: 154: if (ay > 10)
+"154
+[e $ ! > _ay -> 10 `i 1554  ]
+[; ;main.c: 155: {
+"155
+{
+[; ;main.c: 156: LATBbits.LATB0 ^= 1;
+"156
+[e =^ . . _LATBbits 0 0 -> -> 1 `i `uc ]
+"157
+}
+[e :U 1554 ]
+[; ;main.c: 157: }
+[; ;main.c: 159: _delay((unsigned long)((25)*(20000000/4000.0)));
+"159
+[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"160
 }
 [e :U 1551 ]
 "110
 [e $U 1552  ]
 [e :U 1553 ]
-[; ;main.c: 141: }
-[; ;main.c: 142: }
-"142
+[; ;main.c: 160: }
+[; ;main.c: 161: }
+"161
 [e :UE 1550 ]
 }

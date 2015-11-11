@@ -13554,7 +13554,7 @@ OpenUSART (0b01111111 &
 0b11111110 &
 0b11111101 &
 0b11111111 &
-0b11111111, 64);
+0b11111111, 129);
 
 
 OpenI2C(0b00001000, 0b10000000);
@@ -13664,7 +13664,7 @@ break;
 
 void main(void) {
 int16_t ax, ay, az, gx, gy, gz;
-uint8_t ay_unsigned_array[2];
+uint8_t a_unsigned_array[2];
 initI2C_USART();
 initMPU6050();
 setupCANTxRx();
@@ -13676,24 +13676,35 @@ while(1)
 {
 
 MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+uint8_t AFS_SEL = MPU6050_getFullScaleAccelRange();
 
-# 123
+# 132
 sendData[0] = 1;
-if (ay >= 0)
-{
-sendData[1] = 1;
-} else {
-sendData[1] = 2;
-}
-ay_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
-ay_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
-sendData[2] = ay_unsigned_array[0];
-sendData[3] = ay_unsigned_array[1];
+sendData[1] = AFS_SEL;
+
+
+a_unsigned_array[0] = convertFrom16To8( (uint16_t) ax )[0];
+a_unsigned_array[1] = convertFrom16To8( (uint16_t) ax )[1];
+sendData[2] = a_unsigned_array[0];
+sendData[3] = a_unsigned_array[1];
+
+a_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
+a_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
+sendData[4] = a_unsigned_array[0];
+sendData[5] = a_unsigned_array[1];
+
+
+a_unsigned_array[0] = convertFrom16To8( (uint16_t) az )[0];
+a_unsigned_array[1] = convertFrom16To8( (uint16_t) az )[1];
+sendData[6] = a_unsigned_array[0];
+sendData[7] = a_unsigned_array[1];
+
+CAN_Transmit();
+
 if (ay > 10)
 {
 LATBbits.LATB0 ^= 1;
 }
-CAN_Transmit();
 
 _delay((unsigned long)((25)*(20000000/4000.0)));
 }
