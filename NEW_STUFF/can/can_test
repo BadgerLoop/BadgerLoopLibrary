@@ -1,9 +1,0 @@
-while true; do
-	#./cansend can0 001#0102081800000000;
-	#sleep 1;
-	./cansend can0 001#0101081800000000;
-	./cansend can0 001#0101081800000000;
-	./cansend can0 001#0101081800000000;
-	./cansend can0 001#0101081800000000;
-	./cansend can0 001#0101081800000000;
-done
