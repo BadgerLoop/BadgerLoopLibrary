@@ -1,0 +1,5 @@
+python poster.py --region us-west-2 --delete_stream badgerloop
+killall python 
+killall candump 
+killall can_parse
+ip link set can0 down

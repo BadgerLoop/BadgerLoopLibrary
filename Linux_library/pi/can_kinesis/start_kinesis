@@ -1,0 +1,5 @@
+ip link set can0 up type can bitrate 500000
+killall python 
+killall candump 
+killall can_parse
+python poster.py badgerloop --region us-west-2 --poster_count 1 --shard_count 1 --record_file badgerloop

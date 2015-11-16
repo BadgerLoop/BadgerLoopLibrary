@@ -1,0 +1,41 @@
+libbuspirate - a C library for the Bus Pirate
+=============================================
+
+* Features
+----------
+- easily drive the Bus Pirate from a C program
+- support for binary modes : I2C, SPI, ...
+- demo code provided for some devices : EEPROM (24c02), RF transceiver (mrf24j40), temperature sensor (ds1324), Ethernet controller (enc28j60), ...
+- can be compiled under linux, mac os x and windows (using mingw)
+- supports Bus Pirate v3.x
+
+
+* Getting started
+-----------------
+
+If you obtained these sources from the SVN repository, start by building the 'configure' script:
+
+	autoreconf
+
+Then, build the library and demo code:
+
+	make clean
+	make
+
+
+* Demonstration
+---------------
+
+Look at src/dev/README and src/dev/demo.c for demonstration source code. Simple examples can be run by using the following command :
+
+	cd src/dev
+	./buspirate-demo /dev/tty.usbserial 8
+
+where the first argument is the name of the serial device that corresponds to the Bus Pirate (typically /dev/ttysomething under UNIX and COMx under Windows).
+
+
+* Author
+--------
+
+Written by Bruno Quoitin, University of Mons, Belgium
+Contact : bruno.quoitin@umons.ac.be

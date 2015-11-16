@@ -1,0 +1,3 @@
+killall python 
+killall candump 
+killall can_parse

@@ -1,0 +1,34 @@
+//Open can0
+ip link set can0 up type can bitrate 500000
+
+//Start virtualenv
+source /opt/myenv/bin/activate
+
+// In directory can_kinesis
+
+	//Start worker (get data)
+
+	python worker.py badgerloop --worker_time 345600 --echo
+
+	//Start poster (push data)
+
+	python poster.py badgerloop --record_file badgerloop
+	./ds python poster.py badgerloop --record_file badgerloop
+	python poster.py badgerloop --poster-count 50 --record_file badgerloop
+	./ds python poster.py badgerloop --poster-count 50 --record_file badgerloop 
+
+// In directory can
+
+	//Start python webserver
+
+	source /opt/myenv/bin/activate && ./ds python webserver.py
+	killall python && source /opt/myenv/bin/activate && ./ds python webserver.py
+
+	//Start python webserver for visualizer
+	
+	source /opt/myenv/bin/activate && ./ds python webserver_raw.py
+	killall python && source /opt/myenv/bin/activate && ./ds python webserver_raw.py
+
+Raspberry Pi VNC Password: pi1234
+
+

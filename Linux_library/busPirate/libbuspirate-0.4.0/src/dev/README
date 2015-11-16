@@ -1,0 +1,198 @@
+How to use the demo program ?
+=============================
+Written by Bruno Quoitin (bruno.quoitin@umons.ac.be)
+
+
+Note : this document referes to the Bus Pirate connections as follows
+       BP.<pin> where <pin> can be CS, CLK, VPu, 5V, GND, MISO, MOSI,
+       AUX, ADC and 3V3.
+
+
+Demo bitbang
+------------
+
+This demo configures pins CS, CLK, MISO, MOSI and AUX as outputs and
+changes their state in a "chenillard" pattern. The output state will
+change approximately twice per second. The demo can be interrupted by
+pressing the Ctrl-C keys.
+
+You can wire LEDs with a proper current limitation resistor to each of
+these pins. Adapt the resistor value depending on the LED you use. As
+an example with a 20mA red LED (forward voltage appros. 2V), a
+suitable resistor is 220 ohms.
+
+Wire each of the CS, CLK, MISO, MOSI and AUX pins on a separate
+LED/resistor pair as follows. Shown for CS pin but similar for the
+other pins.
+
+  - Connect BP.CS and LED anode
+  - Connect LED cathode and resistor
+  - Connect other side of resistor to BP.GND
+
+
+Demo ADC
+--------
+
+This demo continuously reads the voltage on the ADC pin of the Bus
+Pirate. The voltage is then displayed in millivolts. The demo can be
+interrupted by pressing the Ctrl-C keys.
+
+To use this demo, connect as follows :
+
+  - Connect BP.GND and voltage source negative pole (V-)
+  - Connect BP.ADC and voltage source positive pole (V+)
+
+Warning :
+  - do not reverse polarity !
+  - the input voltage should not be higher than 6.6V (although the
+    PIC24 chip inside the Bus Pirate can tolerate 5V on the digital
+    pins, analog pins cannot accept more than 3.3V (+0.3V)).
+
+
+Demo EEPROM 24C02
+-----------------
+
+This demo first writes random values to the EEPROM, then reads the
+content of the EEPROM and compares the obtained values to the written
+values.
+
+The 24C02 EEPROM in DIP package has the following pinout
+
+             -------
+	A0 [1]     [8] VCC
+        A1 [2]     [7] not connected
+        A2 [3]     [6] SCL
+       VSS [4]     [5] SDA
+             -------
+
+Power can be obtained from the 3.3V or 5V supply provided by the Bus
+Pirate. The demo activates the power supply.
+
+In order to use this demo, you will need to wire the 24C02 chip and
+your Bus Pirate as follows :
+
+  - Tie A0, A1, A2 to VSS.
+  - Connect VSS and BP.GND
+  - Connect VDD and BP.3V3
+  - Connect BP.VPu and BP.3V3
+  - Connect SCL and BP.CLK
+  - Connect SDA and BP.MOSI
+
+
+Demo SPI
+--------
+
+This demo configures the Bus Pirate in SPI mode and continuously
+writes data 0x55 and 0xAA. The demo can be interrupted by pressing the
+Ctrl-C keys.
+
+
+Demo PCD8544 / Nokia 5110
+-------------------------
+
+This demo configures the Bus Pirate in SPI mode to talk to  the
+PCD8544 controller of a Nokia 5110 LCD display.
+
+The Bus Pirate and Nokia 5110 display are connected as follows (a
+breakout board from Chip Partners has been used, a different wiring
+diagram might be required with other modules).
+
+  - BP.CLK -> CLK
+  - BP.MOSI -> DIN
+  - BP.AUX -> DC (this pin is used to select between data and command bytes)
+  - BP.CS -> CE (chip select / enable)
+  - BP.Vpu -- BP.3V3
+  - BP.GND -> GND
+  - BP.3V3 -> VCC
+  - LIGHT can be connected to BP.GND to enable backlight
+  - RST pin is connected to a resistor / capacitor network as follows:
+      10k resistor from BP.3V3 to RST
+      100nF capacitor from RST to BP.GND
+
+
+Demo HT1632 / Sure Electronics's DP016 board
+--------------------------------------------
+
+This demo configures the Bus Pirate in RAW3WIRE mode to talk to the
+HT1632 display driver of a Sure Electronics LED display (model
+DP016).
+
+The Bus Pirate and DP016 board are connected as follows. The DP016
+board has 2 IDC 16-pins connectors. Both can be used for this
+demo. The IDC connector's pin numbers are written between parentheses
+in the list below.
+
+  - BP.CS -> CS1 (1)
+  - BP.CLK -> WR (5)
+  - BP.MOSI -> DATA (7)
+  - BP.GND -- GND (15)
+  - BP.5V -- 5V (16)
+  - BP.Vpu -- BP.5V
+
+
+Demo ENC28J60 - 10Mbps Ethernet Controller
+------------------------------------------
+
+This demo configures the Bus Pirate in SPI mode to talk to the
+ENC28J60 Ethernet 10Mbps controller from Microchip. I used a breakout
+board from Futurlec (ET-MINI ENC28J60). The connections described
+below are based on this board but it should be easy to adapt to any
+other board.
+
+Warning : the EN28J60 board is configured for use at 3.3V (see jumper
+JP1 on the board).
+
+The Bus Pirate and ENC28J60 board are connected as follows.
+
+  - BP.CS -> /CS
+  - BP.CLK -> SCK
+  - BP.MISO <- SDI
+  - BP.MOSI -> SDO
+  - BP.3V3 -- VCC
+  - BP.GND -- GND
+  - BP.VPu -- BP.3V3
+
+The Ethernet address configured in the controller is written at the
+beginning of the demonstration (it should be 12:34:56:89:AB:CD). The
+ENC28J60 revision is also written when the demo code starts (EREVID =
+0x04).
+
+The demo code will dump any received frame. It is possible to test
+frame reception by sending Ethernet frames using the scapy
+utility. Use the following example as a starter. Note that the
+Ethernet type field was chosen "at random"; it has no standardized
+meaning.
+
+  >>> sendp(Ether(dst='12:34:56:89:AB:CD',type=0x4000), iface="en0")
+  .
+  Sent 1 packets.
+  >>>
+
+The demo should then display the captured frame as follows:
+
+  Frame 6 received
+    status:00c00040
+      length:64
+      bit Length Out of Range
+      bit Received Ok
+    dst :12:34:56:89:ab:cd
+    src :00:00:00:00:00:00
+    type:4000 (?)
+
+It will also reply to a frame with Ethernet type 0x4000 with a frame
+sent in broadcast, the same ether type and with "BUS PIRATE" as
+payload.
+
+
+Note : the above demonstration has also been tested to work with a
+cheap chinese board produced by LC Studio (http://www.lcsoft.net). The
+ENC28J60 controller has a different revision (EREVID = 0x06). The
+connections are as follows :
+
+  - BP.CS -> CS
+  - BP.CLK -> SCK  (a 180 ohm resistor was added between BP.CLK and SCK)
+  - BP.MISO <- SO
+  - BP.MOSI -> SI
+  - BP.3V3 -- VCC
+  - BP.GND -- GND
+  - BP.VPu -- BP.3V3

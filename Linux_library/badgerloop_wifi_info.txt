@@ -1,0 +1,5 @@
+network={
+	ssid="badgerloop"
+	#psk="bloop15900"
+	psk=f8653f42759f6209c9a959d34df88c388b9f182e6c4d8b213062884432b0403e
+}

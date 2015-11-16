@@ -1,0 +1,10 @@
+gpio mode 14 input
+echo "set SCLK (GPIO 11 / wPi 11) as input"
+gpio mode 13 input
+echo "set MISO (GPIO 9 / wPi 13) as input"
+gpio mode 12 input
+echo "set MOSI (GPIO 10 / wPi 12) as input"
+gpio mode 11 input
+echo "set CE1 (GPIO 7 / wPi 11) as input"
+gpio mode 10 input
+echo "set CE0 (GPIO 8 / wPi 10) as input"

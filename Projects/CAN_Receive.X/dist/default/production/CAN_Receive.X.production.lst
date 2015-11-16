@@ -1,0 +1,1721 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.32 build 58300 
+                                                                                               Sun Nov 15 18:47:54 2015
+
+Microchip Technology Omniscient Code Generator (Lite mode) build 58300
+     1                           	processor	18F458
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    19                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    20                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    21  0000                     _BRGCON1	set	3952
+    22  0000                     _BRGCON2	set	3953
+    23  0000                     _BRGCON3	set	3954
+    24  0000                     _CANCON	set	3951
+    25  0000                     _CANSTAT	set	3950
+    26  0000                     _INTCONbits	set	4082
+    27  0000                     _LATBbits	set	3978
+    28  0000                     _PIE1bits	set	3997
+    29  0000                     _PIR1bits	set	3998
+    30  0000                     _RCSTA	set	4011
+    31  0000                     _RCSTAbits	set	4011
+    32  0000                     _RXB0CON	set	3936
+    33  0000                     _RXB0D0	set	3942
+    34  0000                     _RXB0D1	set	3943
+    35  0000                     _RXB0D2	set	3944
+    36  0000                     _RXB0D3	set	3945
+    37  0000                     _RXB0D4	set	3946
+    38  0000                     _RXB0D5	set	3947
+    39  0000                     _RXB0D6	set	3948
+    40  0000                     _RXB0D7	set	3949
+    41  0000                     _RXB0SIDH	set	3937
+    42  0000                     _RXB0SIDL	set	3938
+    43  0000                     _RXB1CON	set	3920
+    44  0000                     _RXF0SIDL	set	3841
+    45  0000                     _RXF1SIDL	set	3845
+    46  0000                     _RXF2SIDL	set	3849
+    47  0000                     _RXF3SIDL	set	3853
+    48  0000                     _RXF4SIDL	set	3857
+    49  0000                     _RXF5SIDL	set	3861
+    50  0000                     _RXM0SIDH	set	3864
+    51  0000                     _RXM0SIDL	set	3865
+    52  0000                     _RXM1SIDH	set	3868
+    53  0000                     _RXM1SIDL	set	3869
+    54  0000                     _SPBRG	set	4015
+    55  0000                     _SSPADD	set	4040
+    56  0000                     _SSPBUF	set	4041
+    57  0000                     _SSPCON1	set	4038
+    58  0000                     _SSPCON1bits	set	4038
+    59  0000                     _SSPCON2	set	4037
+    60  0000                     _SSPCON2bits	set	4037
+    61  0000                     _SSPSTAT	set	4039
+    62  0000                     _SSPSTATbits	set	4039
+    63  0000                     _TRISB	set	3987
+    64  0000                     _TRISBbits	set	3987
+    65  0000                     _TRISCbits	set	3988
+    66  0000                     _TXB0CON	set	3904
+    67  0000                     _TXB0D0	set	3910
+    68  0000                     _TXB0D1	set	3911
+    69  0000                     _TXB0D2	set	3912
+    70  0000                     _TXB0D3	set	3913
+    71  0000                     _TXB0D4	set	3914
+    72  0000                     _TXB0D5	set	3915
+    73  0000                     _TXB0D6	set	3916
+    74  0000                     _TXB0D7	set	3917
+    75  0000                     _TXB0DLC	set	3909
+    76  0000                     _TXB0SIDH	set	3905
+    77  0000                     _TXB0SIDL	set	3906
+    78  0000                     _TXSTA	set	4012
+    79  0000                     _TXSTAbits	set	4012
+    80  0000                     _PEIE	set	32662
+    81  0000                     _RCIE	set	31981
+    82  0000                     _RCIF	set	31989
+    83  0000                     _RCIP	set	31997
+    84                           
+    85 ;;
+    86 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+    87 ;;
+    88 ;; *************** function _main *****************
+    89 ;; Defined at:
+    90 ;;		line 82 in file "main.c"
+    91 ;; Parameters:    Size  Location     Type
+    92 ;;		None
+    93 ;; Auto vars:     Size  Location     Type
+    94 ;;  canId           2   13[COMRAM] unsigned int 
+    95 ;;  a_unsigned_a    2   18[COMRAM] unsigned char [2]
+    96 ;;  ay              2   16[COMRAM] int 
+    97 ;;  az              2   11[COMRAM] int 
+    98 ;;  ax              2    9[COMRAM] int 
+    99 ;;  AFS_SEL         1   15[COMRAM] unsigned char 
+   100 ;; Return value:  Size  Location     Type
+   101 ;;		None               void
+   102 ;; Registers used:
+   103 ;;		wreg, status,2, status,0, cstack
+   104 ;; Tracked objects:
+   105 ;;		On entry : 0/0
+   106 ;;		On exit  : 0/0
+   107 ;;		Unchanged: 0/0
+   108 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   109 ;;      Params:         0       0       0       0       0       0       0
+   110 ;;      Locals:        11       0       0       0       0       0       0
+   111 ;;      Temps:          1       0       0       0       0       0       0
+   112 ;;      Totals:        12       0       0       0       0       0       0
+   113 ;;Total ram usage:       12 bytes
+   114 ;; Hardware stack levels required when called:    3
+   115 ;; This function calls:
+   116 ;;		_CAN_Receive
+   117 ;;		_convertFrom8To16
+   118 ;;		_initI2C_USART
+   119 ;;		_setupCANTxRx
+   120 ;; This function is called by:
+   121 ;;		Startup code after reset
+   122 ;; This function uses a non-reentrant model
+   123 ;;
+   124                           
+   125                           	psect	text0
+   126  003F00                     __ptext0:
+   127                           	opt stack 0
+   128  003F00                     _main:
+   129                           	opt stack 28
+   130                           
+   131                           ;incstack = 0
+   132  003F00  FFFF               	dw	65535
+   133                           
+   134                           ;main.c: 84: int16_t ax;
+   135                           ;main.c: 85: int16_t ay;
+   136                           ;main.c: 86: int16_t az;
+   137                           ;main.c: 87: uint8_t a_unsigned_array[2];
+   138                           ;main.c: 88: uint8_t AFS_SEL;
+   139                           ;main.c: 89: initI2C_USART();
+   140  003F02  ECC5  F01E         	call	_initI2C_USART	;wreg free
+   141                           
+   142                           ;main.c: 90: setupCANTxRx();
+   143  003F06  EC6B  F01E         	call	_setupCANTxRx	;wreg free
+   144                           
+   145                           ;main.c: 93: TRISBbits.TRISB0 = 0;
+   146  003F0A  9093               	bcf	3987,0,c	;volatile
+   147                           
+   148                           ;main.c: 94: TRISBbits.TRISB1 = 0;
+   149  003F0C  9293               	bcf	3987,1,c	;volatile
+   150                           
+   151                           ;main.c: 95: TRISBbits.TRISB4 = 0;
+   152  003F0E  9893               	bcf	3987,4,c	;volatile
+   153                           
+   154                           ;main.c: 97: LATBbits.LATB0 = 1;
+   155  003F10  808A               	bsf	3978,0,c	;volatile
+   156                           
+   157                           ;main.c: 98: LATBbits.LATB1 = 1;
+   158  003F12  828A               	bsf	3978,1,c	;volatile
+   159                           
+   160                           ;main.c: 99: LATBbits.LATB4 = 1;
+   161  003F14  888A               	bsf	3978,4,c	;volatile
+   162                           
+   163                           ;main.c: 101: RCIF = 0;
+   164  003F16  9A9E               	bcf	3998,5,c	;volatile
+   165                           
+   166                           ;main.c: 102: RCIP = 0;
+   167  003F18  9A9F               	bcf	3999,5,c	;volatile
+   168                           
+   169                           ;main.c: 103: RCIE = 1;
+   170  003F1A  8A9D               	bsf	3997,5,c	;volatile
+   171                           
+   172                           ;main.c: 104: PEIE = 1;
+   173  003F1C  8CF2               	bsf	intcon,6,c	;volatile
+   174                           
+   175                           ;main.c: 106: (INTCONbits.GIE = 1);
+   176  003F1E  8EF2               	bsf	intcon,7,c	;volatile
+   177  003F20                     l1202:
+   178                           
+   179                           ;main.c: 109: {
+   180                           ;main.c: 110: uint16_t canId = CAN_Receive();
+   181  003F20  EC3F  F01F         	call	_CAN_Receive	;wreg free
+   182  003F24  C04A  F057         	movff	?_CAN_Receive,main@canId
+   183  003F28  C04B  F058         	movff	?_CAN_Receive+1,main@canId+1
+   184                           
+   185                           ;main.c: 112: if ( receivedData[0] == 0 )
+   186  003F2C  6601               	tstfsz	_receivedData,c	;volatile
+   187  003F2E  D012               	goto	l3423
+   188                           
+   189                           ;main.c: 113: {
+   190                           ;main.c: 114: LATBbits.LATB4 = 1;
+   191  003F30  888A               	bsf	3978,4,c	;volatile
+   192                           
+   193                           ;main.c: 115: _delay((unsigned long)((25)*(20000000/4000.0)));
+   194  003F32  0E7A               	movlw	122
+   195  003F34  6E52               	movwf	??_main& (0+255),c
+   196  003F36  0ED4               	movlw	212
+   197  003F38                     u2317:
+   198  003F38  2EE8               	decfsz	wreg,f,c
+   199  003F3A  D7FE               	goto	u2317
+   200  003F3C  2E52               	decfsz	??_main& (0+255),f,c
+   201  003F3E  D7FC               	goto	u2317
+   202  003F40  D000               	nop2	
+   203                           
+   204                           ;main.c: 116: LATBbits.LATB4 = 0;
+   205  003F42  988A               	bcf	3978,4,c	;volatile
+   206                           
+   207                           ;main.c: 117: _delay((unsigned long)((25)*(20000000/4000.0)));
+   208  003F44  0E7A               	movlw	122
+   209  003F46  6E52               	movwf	??_main& (0+255),c
+   210  003F48  0ED4               	movlw	212
+   211  003F4A                     u2327:
+   212  003F4A  2EE8               	decfsz	wreg,f,c
+   213  003F4C  D7FE               	goto	u2327
+   214  003F4E  2E52               	decfsz	??_main& (0+255),f,c
+   215  003F50  D7FC               	goto	u2327
+   216  003F52  D054               	goto	L2
+   217  003F54                     l3423:
+   218  003F54  0401               	decf	_receivedData,w,c	;volatile
+   219  003F56  A4D8               	btfss	status,2,c
+   220  003F58  D7E3               	goto	l1202
+   221                           
+   222                           ;main.c: 119: {
+   223                           ;main.c: 121: a_unsigned_array[0] = receivedData[2];
+   224  003F5A  C003  F05C         	movff	_receivedData+2,main@a_unsigned_array	;volatile
+   225                           
+   226                           ;main.c: 122: a_unsigned_array[1] = receivedData[3];
+   227  003F5E  C004  F05D         	movff	_receivedData+3,main@a_unsigned_array+1	;volatile
+   228                           
+   229                           ;main.c: 123: ax = (int16_t) convertFrom8To16( a_unsigned_array[0], a_unsigned_array[1] 
+      +                          );
+   230  003F62  C05D  F04A         	movff	main@a_unsigned_array+1,convertFrom8To16@dataSecond
+   231  003F66  505C               	movf	main@a_unsigned_array,w,c
+   232  003F68  ECB1  F01E         	call	_convertFrom8To16
+   233  003F6C  C04A  F053         	movff	?_convertFrom8To16,main@ax
+   234  003F70  C04B  F054         	movff	?_convertFrom8To16+1,main@ax+1
+   235                           
+   236                           ;main.c: 125: a_unsigned_array[0] = receivedData[4];
+   237  003F74  C005  F05C         	movff	_receivedData+4,main@a_unsigned_array	;volatile
+   238                           
+   239                           ;main.c: 126: a_unsigned_array[1] = receivedData[5];
+   240  003F78  C006  F05D         	movff	_receivedData+5,main@a_unsigned_array+1	;volatile
+   241                           
+   242                           ;main.c: 127: ay = (int16_t) convertFrom8To16( a_unsigned_array[0], a_unsigned_array[1] 
+      +                          );
+   243  003F7C  C05D  F04A         	movff	main@a_unsigned_array+1,convertFrom8To16@dataSecond
+   244  003F80  505C               	movf	main@a_unsigned_array,w,c
+   245  003F82  ECB1  F01E         	call	_convertFrom8To16
+   246  003F86  C04A  F05A         	movff	?_convertFrom8To16,main@ay
+   247  003F8A  C04B  F05B         	movff	?_convertFrom8To16+1,main@ay+1
+   248                           
+   249                           ;main.c: 129: a_unsigned_array[0] = receivedData[6];
+   250  003F8E  C007  F05C         	movff	_receivedData+6,main@a_unsigned_array	;volatile
+   251                           
+   252                           ;main.c: 130: a_unsigned_array[1] = receivedData[7];
+   253  003F92  C008  F05D         	movff	_receivedData+7,main@a_unsigned_array+1	;volatile
+   254                           
+   255                           ;main.c: 131: az = (int16_t) convertFrom8To16( a_unsigned_array[0], a_unsigned_array[1] 
+      +                          );
+   256  003F96  C05D  F04A         	movff	main@a_unsigned_array+1,convertFrom8To16@dataSecond
+   257  003F9A  505C               	movf	main@a_unsigned_array,w,c
+   258  003F9C  ECB1  F01E         	call	_convertFrom8To16
+   259  003FA0  C04A  F055         	movff	?_convertFrom8To16,main@az
+   260  003FA4  C04B  F056         	movff	?_convertFrom8To16+1,main@az+1
+   261                           
+   262                           ;main.c: 133: AFS_SEL = receivedData[1];
+   263  003FA8  C002  F059         	movff	_receivedData+1,main@AFS_SEL	;volatile
+   264                           
+   265                           ;main.c: 134: if (ay > 10) {
+   266  003FAC  505B               	movf	main@ay+1,w,c
+   267  003FAE  0A80               	xorlw	128
+   268  003FB0  0F80               	addlw	-128
+   269  003FB2  0E0B               	movlw	11
+   270  003FB4  B4D8               	btfsc	status,2,c
+   271  003FB6  5C5A               	subwf	main@ay,w,c
+   272  003FB8  A0D8               	btfss	status,0,c
+   273  003FBA  D016               	goto	l1206
+   274                           
+   275                           ;main.c: 135: LATBbits.LATB0 = 1;
+   276  003FBC  808A               	bsf	3978,0,c	;volatile
+   277                           
+   278                           ;main.c: 136: LATBbits.LATB1 = 1;
+   279  003FBE  828A               	bsf	3978,1,c	;volatile
+   280                           
+   281                           ;main.c: 137: LATBbits.LATB4 = 0;
+   282  003FC0  988A               	bcf	3978,4,c	;volatile
+   283                           
+   284                           ;main.c: 139: _delay((unsigned long)((25)*(20000000/4000.0)));
+   285  003FC2  0E7A               	movlw	122
+   286  003FC4  6E52               	movwf	??_main& (0+255),c
+   287  003FC6  0ED4               	movlw	212
+   288  003FC8                     u2337:
+   289  003FC8  2EE8               	decfsz	wreg,f,c
+   290  003FCA  D7FE               	goto	u2337
+   291  003FCC  2E52               	decfsz	??_main& (0+255),f,c
+   292  003FCE  D7FC               	goto	u2337
+   293  003FD0  D000               	nop2	
+   294                           
+   295                           ;main.c: 141: LATBbits.LATB0 = 0;
+   296  003FD2  908A               	bcf	3978,0,c	;volatile
+   297                           
+   298                           ;main.c: 142: LATBbits.LATB1 = 0;
+   299  003FD4  928A               	bcf	3978,1,c	;volatile
+   300                           
+   301                           ;main.c: 143: LATBbits.LATB4 = 0;
+   302  003FD6  988A               	bcf	3978,4,c	;volatile
+   303                           
+   304                           ;main.c: 145: _delay((unsigned long)((25)*(20000000/4000.0)));
+   305  003FD8  0E7A               	movlw	122
+   306  003FDA  6E52               	movwf	??_main& (0+255),c
+   307  003FDC  0ED4               	movlw	212
+   308  003FDE                     u2347:
+   309  003FDE  2EE8               	decfsz	wreg,f,c
+   310  003FE0  D7FE               	goto	u2347
+   311  003FE2  2E52               	decfsz	??_main& (0+255),f,c
+   312  003FE4  D7FC               	goto	u2347
+   313  003FE6  D00A               	goto	L2
+   314  003FE8                     l1206:
+   315                           
+   316                           ;main.c: 147: LATBbits.LATB0 = 1;
+   317  003FE8  808A               	bsf	3978,0,c	;volatile
+   318                           
+   319                           ;main.c: 148: LATBbits.LATB1 = 1;
+   320  003FEA  828A               	bsf	3978,1,c	;volatile
+   321                           
+   322                           ;main.c: 149: LATBbits.LATB4 = 0;
+   323  003FEC  988A               	bcf	3978,4,c	;volatile
+   324                           
+   325                           ;main.c: 151: _delay((unsigned long)((25)*(20000000/4000.0)));
+   326  003FEE  0E7A               	movlw	122
+   327  003FF0  6E52               	movwf	??_main& (0+255),c
+   328  003FF2  0ED4               	movlw	212
+   329  003FF4                     u2357:
+   330  003FF4  2EE8               	decfsz	wreg,f,c
+   331  003FF6  D7FE               	goto	u2357
+   332  003FF8  2E52               	decfsz	??_main& (0+255),f,c
+   333  003FFA  D7FC               	goto	u2357
+   334  003FFC                     L2:
+   335  003FFC  D000               	nop2	
+   336  003FFE  D790               	goto	l1202
+   337  004000                     __end_of_main:
+   338                           	opt stack 0
+   339                           intcon	equ	0xFF2
+   340                           wreg	equ	0xFE8
+   341                           status	equ	0xFD8
+   342                           
+   343                           	psect	cinit
+   344  003D40                     __pcinit:
+   345                           	opt stack 0
+   346  003D40                     start_initialization:
+   347                           	opt stack 0
+   348  003D40                     __initialization:
+   349                           	opt stack 0
+   350                           
+   351                           ; Clear objects allocated to BANK0 (30 bytes)
+   352  003D40  EE00  F060         	lfsr	0,__pbssBANK0
+   353  003D44  0E1E               	movlw	30
+   354  003D46                     clear_0:
+   355  003D46  6AEE               	clrf	postinc0,c
+   356  003D48  06E8               	decf	wreg,f,c
+   357  003D4A  E1FD               	bnz	clear_0
+   358                           
+   359                           ; Clear objects allocated to COMRAM (73 bytes)
+   360  003D4C  EE00  F001         	lfsr	0,__pbssCOMRAM
+   361  003D50  0E49               	movlw	73
+   362  003D52                     clear_1:
+   363  003D52  6AEE               	clrf	postinc0,c
+   364  003D54  06E8               	decf	wreg,f,c
+   365  003D56  E1FD               	bnz	clear_1
+   366  003D58                     end_of_initialization:
+   367                           	opt stack 0
+   368  003D58                     __end_of__initialization:
+   369                           	opt stack 0
+   370  003D58  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   371  003D5A  6EF8               	movwf	tblptru,c
+   372  003D5C  0100               	movlb	0
+   373  003D5E  EF80  F01F         	goto	_main	;jump to C main() function
+   374                           tblptru	equ	0xFF8
+   375                           intcon	equ	0xFF2
+   376                           postinc0	equ	0xFEE
+   377                           wreg	equ	0xFE8
+   378                           status	equ	0xFD8
+   379                           
+   380                           	psect	bssCOMRAM
+   381  000001                     __pbssCOMRAM:
+   382                           	opt stack 0
+   383  000001                     _receivedData:
+   384                           	opt stack 0
+   385  000001                     	ds	8
+   386  000009                     _sendData:
+   387                           	opt stack 0
+   388  000009                     	ds	8
+   389  000011                     _D1:
+   390                           	opt stack 0
+   391  000011                     	ds	4
+   392  000015                     _D2:
+   393                           	opt stack 0
+   394  000015                     	ds	4
+   395  000019                     _Offset:
+   396                           	opt stack 0
+   397  000019                     	ds	4
+   398  00001D                     _Sens2:
+   399                           	opt stack 0
+   400  00001D                     	ds	4
+   401  000021                     _Sensitivity:
+   402                           	opt stack 0
+   403  000021                     	ds	4
+   404  000025                     _dT:
+   405                           	opt stack 0
+   406  000025                     	ds	4
+   407  000029                     _mbarInt:
+   408                           	opt stack 0
+   409  000029                     	ds	4
+   410  00002D                     _Resolution:
+   411                           	opt stack 0
+   412  00002D                     	ds	2
+   413  00002F                     _HighByte:
+   414                           	opt stack 0
+   415  00002F                     	ds	1
+   416  000030                     _LowByte:
+   417                           	opt stack 0
+   418  000030                     	ds	1
+   419  000031                     _MidByte:
+   420                           	opt stack 0
+   421  000031                     	ds	1
+   422  000032                     _mpu6050:
+   423                           	opt stack 0
+   424  000032                     	ds	15
+   425  000041                     _TEMP:
+   426                           	opt stack 0
+   427  000041                     	ds	4
+   428  000045                     _I2C_Bytes:
+   429                           	opt stack 0
+   430  000045                     	ds	3
+   431  000048                     convertFrom16To8@arrayData:
+   432                           	opt stack 0
+   433  000048                     	ds	2
+   434                           tblptru	equ	0xFF8
+   435                           intcon	equ	0xFF2
+   436                           postinc0	equ	0xFEE
+   437                           wreg	equ	0xFE8
+   438                           status	equ	0xFD8
+   439                           
+   440                           	psect	bssBANK0
+   441  000060                     __pbssBANK0:
+   442                           	opt stack 0
+   443  000060                     _OFF2:
+   444                           	opt stack 0
+   445  000060                     	ds	4
+   446  000064                     _T2:
+   447                           	opt stack 0
+   448  000064                     	ds	4
+   449  000068                     _mbar:
+   450                           	opt stack 0
+   451  000068                     	ds	3
+   452  00006B                     _tempC:
+   453                           	opt stack 0
+   454  00006B                     	ds	3
+   455  00006E                     _sensorCoeffs:
+   456                           	opt stack 0
+   457  00006E                     	ds	16
+   458                           tblptru	equ	0xFF8
+   459                           intcon	equ	0xFF2
+   460                           postinc0	equ	0xFEE
+   461                           wreg	equ	0xFE8
+   462                           status	equ	0xFD8
+   463                           
+   464                           	psect	cstackCOMRAM
+   465  00004A                     __pcstackCOMRAM:
+   466                           	opt stack 0
+   467  00004A                     ??_Delay10KTCYx:
+   468  00004A                     ?_convertFrom8To16:
+   469                           	opt stack 0
+   470  00004A                     ?_CAN_Receive:
+   471                           	opt stack 0
+   472  00004A                     convertFrom8To16@dataSecond:
+   473                           	opt stack 0
+   474  00004A                     CAN_SetMode@canMode:
+   475                           	opt stack 0
+   476  00004A                     OpenI2C@slew:
+   477                           	opt stack 0
+   478  00004A                     OpenUSART@spbrg:
+   479                           	opt stack 0
+   480                           
+   481                           ; 2 bytes @ 0x0
+   482  00004A                     	ds	1
+   483  00004B                     OpenI2C@sync_mode:
+   484                           	opt stack 0
+   485  00004B                     Delay10KTCYx@unit:
+   486                           	opt stack 0
+   487                           
+   488                           ; 1 bytes @ 0x1
+   489  00004B                     	ds	1
+   490  00004C                     ??_CAN_Receive:
+   491  00004C                     convertFrom8To16@dataFirst:
+   492                           	opt stack 0
+   493  00004C                     OpenUSART@config:
+   494                           	opt stack 0
+   495                           
+   496                           ; 1 bytes @ 0x2
+   497  00004C                     	ds	1
+   498  00004D                     convertFrom8To16@dataBoth:
+   499                           	opt stack 0
+   500                           
+   501                           ; 2 bytes @ 0x3
+   502  00004D                     	ds	1
+   503  00004E                     CAN_Receive@canId:
+   504                           	opt stack 0
+   505                           
+   506                           ; 2 bytes @ 0x4
+   507  00004E                     	ds	2
+   508  000050                     CAN_Receive@canIdH:
+   509                           	opt stack 0
+   510                           
+   511                           ; 1 bytes @ 0x6
+   512  000050                     	ds	1
+   513  000051                     CAN_Receive@canIdL:
+   514                           	opt stack 0
+   515                           
+   516                           ; 1 bytes @ 0x7
+   517  000051                     	ds	1
+   518  000052                     ??_main:
+   519                           
+   520                           ; 0 bytes @ 0x8
+   521  000052                     	ds	1
+   522  000053                     main@ax:
+   523                           	opt stack 0
+   524                           
+   525                           ; 2 bytes @ 0x9
+   526  000053                     	ds	2
+   527  000055                     main@az:
+   528                           	opt stack 0
+   529                           
+   530                           ; 2 bytes @ 0xB
+   531  000055                     	ds	2
+   532  000057                     main@canId:
+   533                           	opt stack 0
+   534                           
+   535                           ; 2 bytes @ 0xD
+   536  000057                     	ds	2
+   537  000059                     main@AFS_SEL:
+   538                           	opt stack 0
+   539                           
+   540                           ; 1 bytes @ 0xF
+   541  000059                     	ds	1
+   542  00005A                     main@ay:
+   543                           	opt stack 0
+   544                           
+   545                           ; 2 bytes @ 0x10
+   546  00005A                     	ds	2
+   547  00005C                     main@a_unsigned_array:
+   548                           	opt stack 0
+   549                           
+   550                           ; 2 bytes @ 0x12
+   551  00005C                     	ds	2
+   552                           tblptru	equ	0xFF8
+   553                           intcon	equ	0xFF2
+   554                           postinc0	equ	0xFEE
+   555                           wreg	equ	0xFE8
+   556                           status	equ	0xFD8
+   557                           
+   558 ;; *************** function _setupCANTxRx *****************
+   559 ;; Defined at:
+   560 ;;		line 203 in file "../../C_Library/pic18f458_badgerloop.c"
+   561 ;; Parameters:    Size  Location     Type
+   562 ;;		None
+   563 ;; Auto vars:     Size  Location     Type
+   564 ;;		None
+   565 ;; Return value:  Size  Location     Type
+   566 ;;		None               void
+   567 ;; Registers used:
+   568 ;;		wreg, status,2, status,0, cstack
+   569 ;; Tracked objects:
+   570 ;;		On entry : 0/0
+   571 ;;		On exit  : 0/0
+   572 ;;		Unchanged: 0/0
+   573 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   574 ;;      Params:         0       0       0       0       0       0       0
+   575 ;;      Locals:         0       0       0       0       0       0       0
+   576 ;;      Temps:          0       0       0       0       0       0       0
+   577 ;;      Totals:         0       0       0       0       0       0       0
+   578 ;;Total ram usage:        0 bytes
+   579 ;; Hardware stack levels used:    1
+   580 ;; Hardware stack levels required when called:    2
+   581 ;; This function calls:
+   582 ;;		_CAN_Init
+   583 ;;		_Delay10KTCYx
+   584 ;; This function is called by:
+   585 ;;		_main
+   586 ;; This function uses a non-reentrant model
+   587 ;;
+   588                           
+   589                           	psect	text1
+   590  003CD6                     __ptext1:
+   591                           	opt stack 0
+   592  003CD6                     _setupCANTxRx:
+   593                           	opt stack 28
+   594                           
+   595                           ;incstack = 0
+   596  003CD6  FFFF               	dw	65535
+   597                           
+   598                           ;pic18f458_badgerloop.c: 206: TRISBbits.TRISB2 = 0;
+   599  003CD8  9493               	bcf	3987,2,c	;volatile
+   600                           
+   601                           ;pic18f458_badgerloop.c: 208: TRISBbits.TRISB3 = 1;
+   602  003CDA  8693               	bsf	3987,3,c	;volatile
+   603                           
+   604                           ;pic18f458_badgerloop.c: 211: CAN_Init();
+   605  003CDC  EC0B  F01F         	call	_CAN_Init	;wreg free
+   606                           
+   607                           ;pic18f458_badgerloop.c: 214: Delay10KTCYx(50);
+   608  003CE0  0E32               	movlw	50
+   609  003CE2  EC81  F01E         	call	_Delay10KTCYx
+   610  003CE6  0012               	return	
+   611  003CE8  FFFF               	dw	65535	; errata NOP
+   612  003CEA                     __end_of_setupCANTxRx:
+   613                           	opt stack 0
+   614                           tblptru	equ	0xFF8
+   615                           intcon	equ	0xFF2
+   616                           postinc0	equ	0xFEE
+   617                           wreg	equ	0xFE8
+   618                           status	equ	0xFD8
+   619                           
+   620 ;; *************** function _CAN_Init *****************
+   621 ;; Defined at:
+   622 ;;		line 163 in file "../../C_Library/pic18f458_badgerloop.c"
+   623 ;; Parameters:    Size  Location     Type
+   624 ;;		None
+   625 ;; Auto vars:     Size  Location     Type
+   626 ;;		None
+   627 ;; Return value:  Size  Location     Type
+   628 ;;		None               void
+   629 ;; Registers used:
+   630 ;;		wreg, status,2, status,0, cstack
+   631 ;; Tracked objects:
+   632 ;;		On entry : 0/0
+   633 ;;		On exit  : 0/0
+   634 ;;		Unchanged: 0/0
+   635 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   636 ;;      Params:         0       0       0       0       0       0       0
+   637 ;;      Locals:         0       0       0       0       0       0       0
+   638 ;;      Temps:          0       0       0       0       0       0       0
+   639 ;;      Totals:         0       0       0       0       0       0       0
+   640 ;;Total ram usage:        0 bytes
+   641 ;; Hardware stack levels used:    1
+   642 ;; Hardware stack levels required when called:    1
+   643 ;; This function calls:
+   644 ;;		_CAN_SetMode
+   645 ;; This function is called by:
+   646 ;;		_setupCANTxRx
+   647 ;; This function uses a non-reentrant model
+   648 ;;
+   649                           
+   650                           	psect	text2
+   651  003E16                     __ptext2:
+   652                           	opt stack 0
+   653  003E16                     _CAN_Init:
+   654                           	opt stack 28
+   655                           
+   656                           ;incstack = 0
+   657  003E16  FFFF               	dw	65535
+   658                           
+   659                           ;pic18f458_badgerloop.c: 165: TRISB = (1<<3);
+   660  003E18  0E08               	movlw	8
+   661  003E1A  6E93               	movwf	3987,c	;volatile
+   662                           
+   663                           ;pic18f458_badgerloop.c: 168: CAN_SetMode((0x80));
+   664  003E1C  0E80               	movlw	128
+   665  003E1E  EC75  F01E         	call	_CAN_SetMode
+   666                           
+   667                           ;pic18f458_badgerloop.c: 177: BRGCON1 = 0x00;
+   668  003E22  0E00               	movlw	0
+   669  003E24  6E70               	movwf	3952,c	;volatile
+   670                           
+   671                           ;pic18f458_badgerloop.c: 178: BRGCON2 = 0xBA;
+   672  003E26  0EBA               	movlw	186
+   673  003E28  6E71               	movwf	3953,c	;volatile
+   674                           
+   675                           ;pic18f458_badgerloop.c: 179: BRGCON3 = 0x07;
+   676  003E2A  0E07               	movlw	7
+   677  003E2C  6E72               	movwf	3954,c	;volatile
+   678                           
+   679                           ;pic18f458_badgerloop.c: 182: RXM0SIDH = 0; RXM0SIDL = 0;
+   680  003E2E  0E00               	movlw	0
+   681  003E30  CFE8 FF18          	movff	wreg,3864
+   682  003E34  0E00               	movlw	0
+   683  003E36  CFE8 FF19          	movff	wreg,3865
+   684                           
+   685                           ;pic18f458_badgerloop.c: 183: RXM1SIDH = 0; RXM1SIDL = 0;
+   686  003E3A  0E00               	movlw	0
+   687  003E3C  CFE8 FF1C          	movff	wreg,3868
+   688  003E40  0E00               	movlw	0
+   689  003E42  CFE8 FF1D          	movff	wreg,3869
+   690                           
+   691                           ;pic18f458_badgerloop.c: 184: RXF0SIDL = 0;
+   692  003E46  0E00               	movlw	0
+   693  003E48  CFE8 FF01          	movff	wreg,3841
+   694                           
+   695                           ;pic18f458_badgerloop.c: 185: RXF1SIDL = 0;
+   696  003E4C  0E00               	movlw	0
+   697  003E4E  CFE8 FF05          	movff	wreg,3845
+   698                           
+   699                           ;pic18f458_badgerloop.c: 186: RXF2SIDL = 0;
+   700  003E52  0E00               	movlw	0
+   701  003E54  CFE8 FF09          	movff	wreg,3849
+   702                           
+   703                           ;pic18f458_badgerloop.c: 187: RXF3SIDL = 0;
+   704  003E58  0E00               	movlw	0
+   705  003E5A  CFE8 FF0D          	movff	wreg,3853
+   706                           
+   707                           ;pic18f458_badgerloop.c: 188: RXF4SIDL = 0;
+   708  003E5E  0E00               	movlw	0
+   709  003E60  CFE8 FF11          	movff	wreg,3857
+   710                           
+   711                           ;pic18f458_badgerloop.c: 189: RXF5SIDL = 0;
+   712  003E64  0E00               	movlw	0
+   713  003E66  CFE8 FF15          	movff	wreg,3861
+   714                           
+   715                           ;pic18f458_badgerloop.c: 191: RXB0CON = 0;
+   716  003E6A  0E00               	movlw	0
+   717  003E6C  6E60               	movwf	3936,c	;volatile
+   718                           
+   719                           ;pic18f458_badgerloop.c: 192: RXB1CON = 0;
+   720  003E6E  0E00               	movlw	0
+   721  003E70  CFE8 FF50          	movff	wreg,3920
+   722                           
+   723                           ;pic18f458_badgerloop.c: 200: CAN_SetMode((0x00));
+   724  003E74  0E00               	movlw	0
+   725  003E76  EC75  F01E         	call	_CAN_SetMode
+   726  003E7A  0012               	return	
+   727  003E7C  FFFF               	dw	65535	; errata NOP
+   728  003E7E                     __end_of_CAN_Init:
+   729                           	opt stack 0
+   730                           tblptru	equ	0xFF8
+   731                           intcon	equ	0xFF2
+   732                           postinc0	equ	0xFEE
+   733                           wreg	equ	0xFE8
+   734                           status	equ	0xFD8
+   735                           
+   736 ;; *************** function _CAN_SetMode *****************
+   737 ;; Defined at:
+   738 ;;		line 154 in file "../../C_Library/pic18f458_badgerloop.c"
+   739 ;; Parameters:    Size  Location     Type
+   740 ;;  canMode         1    wreg     unsigned char 
+   741 ;; Auto vars:     Size  Location     Type
+   742 ;;  canMode         1    0[COMRAM] unsigned char 
+   743 ;; Return value:  Size  Location     Type
+   744 ;;		None               void
+   745 ;; Registers used:
+   746 ;;		wreg, status,2, status,0
+   747 ;; Tracked objects:
+   748 ;;		On entry : 0/0
+   749 ;;		On exit  : 0/0
+   750 ;;		Unchanged: 0/0
+   751 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   752 ;;      Params:         0       0       0       0       0       0       0
+   753 ;;      Locals:         1       0       0       0       0       0       0
+   754 ;;      Temps:          0       0       0       0       0       0       0
+   755 ;;      Totals:         1       0       0       0       0       0       0
+   756 ;;Total ram usage:        1 bytes
+   757 ;; Hardware stack levels used:    1
+   758 ;; This function calls:
+   759 ;;		Nothing
+   760 ;; This function is called by:
+   761 ;;		_CAN_Init
+   762 ;; This function uses a non-reentrant model
+   763 ;;
+   764                           
+   765                           	psect	text3
+   766  003CEA                     __ptext3:
+   767                           	opt stack 0
+   768  003CEA                     _CAN_SetMode:
+   769                           	opt stack 28
+   770                           
+   771                           ;incstack = 0
+   772  003CEA  FFFF               	dw	65535
+   773                           
+   774                           ;CAN_SetMode@canMode stored from wreg
+   775  003CEC  6E4A               	movwf	CAN_SetMode@canMode,c
+   776                           
+   777                           ;pic18f458_badgerloop.c: 157: CANCON = canMode;
+   778  003CEE  C04A  FF6F         	movff	CAN_SetMode@canMode,3951	;volatile
+   779  003CF2                     l2009:
+   780  003CF2  506E               	movf	3950,w,c	;volatile
+   781  003CF4  0BE0               	andlw	224
+   782  003CF6  184A               	xorwf	CAN_SetMode@canMode,w,c
+   783  003CF8  B4D8               	btfsc	status,2,c
+   784  003CFA  0012               	return	
+   785  003CFC  FFFF               	dw	65535	; assembler added errata NOP
+   786  003CFE  D7F9               	goto	l2009
+   787  003D00  FFFF               	dw	65535	; errata NOP
+   788  003D02                     __end_of_CAN_SetMode:
+   789                           	opt stack 0
+   790                           tblptru	equ	0xFF8
+   791                           intcon	equ	0xFF2
+   792                           postinc0	equ	0xFEE
+   793                           wreg	equ	0xFE8
+   794                           status	equ	0xFD8
+   795                           
+   796 ;; *************** function _initI2C_USART *****************
+   797 ;; Defined at:
+   798 ;;		line 222 in file "../../C_Library/pic18f458_badgerloop.c"
+   799 ;; Parameters:    Size  Location     Type
+   800 ;;		None
+   801 ;; Auto vars:     Size  Location     Type
+   802 ;;		None
+   803 ;; Return value:  Size  Location     Type
+   804 ;;		None               void
+   805 ;; Registers used:
+   806 ;;		wreg, status,2, status,0, cstack
+   807 ;; Tracked objects:
+   808 ;;		On entry : 0/0
+   809 ;;		On exit  : 0/0
+   810 ;;		Unchanged: 0/0
+   811 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   812 ;;      Params:         0       0       0       0       0       0       0
+   813 ;;      Locals:         0       0       0       0       0       0       0
+   814 ;;      Temps:          0       0       0       0       0       0       0
+   815 ;;      Totals:         0       0       0       0       0       0       0
+   816 ;;Total ram usage:        0 bytes
+   817 ;; Hardware stack levels used:    1
+   818 ;; Hardware stack levels required when called:    1
+   819 ;; This function calls:
+   820 ;;		_Delay10KTCYx
+   821 ;;		_OpenI2C
+   822 ;;		_OpenUSART
+   823 ;; This function is called by:
+   824 ;;		_main
+   825 ;; This function uses a non-reentrant model
+   826 ;;
+   827                           
+   828                           	psect	text4
+   829  003D8A                     __ptext4:
+   830                           	opt stack 0
+   831  003D8A                     _initI2C_USART:
+   832                           	opt stack 29
+   833                           
+   834                           ;incstack = 0
+   835  003D8A  FFFF               	dw	65535
+   836                           
+   837                           ;pic18f458_badgerloop.c: 224: TRISCbits.RC6 = 0;
+   838  003D8C  9C94               	bcf	3988,6,c	;volatile
+   839                           
+   840                           ;pic18f458_badgerloop.c: 225: TRISCbits.RC7 = 1;
+   841  003D8E  8E94               	bsf	3988,7,c	;volatile
+   842                           
+   843                           ;pic18f458_badgerloop.c: 231: OpenUSART (0b01111111 &
+   844                           ;pic18f458_badgerloop.c: 232: 0b10111111 &
+   845                           ;pic18f458_badgerloop.c: 233: 0b11111110 &
+   846                           ;pic18f458_badgerloop.c: 234: 0b11111101 &
+   847                           ;pic18f458_badgerloop.c: 235: 0b11111111 &
+   848                           ;pic18f458_badgerloop.c: 236: 0b11111111, 129);
+   849  003D90  0E00               	movlw	0
+   850  003D92  6E4B               	movwf	OpenUSART@spbrg+1,c
+   851  003D94  0E81               	movlw	129
+   852  003D96  6E4A               	movwf	OpenUSART@spbrg,c
+   853  003D98  0E3C               	movlw	60
+   854  003D9A  ECDB  F01E         	call	_OpenUSART
+   855                           
+   856                           ;pic18f458_badgerloop.c: 239: OpenI2C(0b00001000, 0b10000000);
+   857  003D9E  0E80               	movlw	128
+   858  003DA0  6E4A               	movwf	OpenI2C@slew,c
+   859  003DA2  0E08               	movlw	8
+   860  003DA4  EC8F  F01E         	call	_OpenI2C
+   861                           
+   862                           ;pic18f458_badgerloop.c: 240: SSPADD = ( ( 20000000 / ( 4 * 400000 ) ) - 1 );
+   863  003DA8  0E0B               	movlw	11
+   864  003DAA  6EC8               	movwf	4040,c	;volatile
+   865                           
+   866                           ;pic18f458_badgerloop.c: 243: Delay10KTCYx(50);
+   867  003DAC  0E32               	movlw	50
+   868  003DAE  EC81  F01E         	call	_Delay10KTCYx
+   869  003DB2  0012               	return	
+   870  003DB4  FFFF               	dw	65535	; errata NOP
+   871  003DB6                     __end_of_initI2C_USART:
+   872                           	opt stack 0
+   873                           tblptru	equ	0xFF8
+   874                           intcon	equ	0xFF2
+   875                           postinc0	equ	0xFEE
+   876                           wreg	equ	0xFE8
+   877                           status	equ	0xFD8
+   878                           
+   879 ;; *************** function _OpenUSART *****************
+   880 ;; Defined at:
+   881 ;;		line 21 in file "/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c"
+   882 ;; Parameters:    Size  Location     Type
+   883 ;;  config          1    wreg     unsigned char 
+   884 ;;  spbrg           2    0[COMRAM] unsigned int 
+   885 ;; Auto vars:     Size  Location     Type
+   886 ;;  config          1    2[COMRAM] unsigned char 
+   887 ;; Return value:  Size  Location     Type
+   888 ;;		None               void
+   889 ;; Registers used:
+   890 ;;		wreg, status,2
+   891 ;; Tracked objects:
+   892 ;;		On entry : 0/0
+   893 ;;		On exit  : 0/0
+   894 ;;		Unchanged: 0/0
+   895 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   896 ;;      Params:         2       0       0       0       0       0       0
+   897 ;;      Locals:         1       0       0       0       0       0       0
+   898 ;;      Temps:          0       0       0       0       0       0       0
+   899 ;;      Totals:         3       0       0       0       0       0       0
+   900 ;;Total ram usage:        3 bytes
+   901 ;; Hardware stack levels used:    1
+   902 ;; This function calls:
+   903 ;;		Nothing
+   904 ;; This function is called by:
+   905 ;;		_initI2C_USART
+   906 ;; This function uses a non-reentrant model
+   907 ;;
+   908                           
+   909                           	psect	text5
+   910  003DB6                     __ptext5:
+   911                           	opt stack 0
+   912  003DB6                     _OpenUSART:
+   913                           	opt stack 29
+   914                           
+   915                           ;incstack = 0
+   916  003DB6  FFFF               	dw	65535
+   917                           
+   918                           ;OpenUSART@config stored from wreg
+   919  003DB8  6E4C               	movwf	OpenUSART@config,c
+   920  003DBA  0E00               	movlw	0
+   921  003DBC  6EAC               	movwf	4012,c	;volatile
+   922  003DBE  0E00               	movlw	0
+   923  003DC0  6EAB               	movwf	4011,c	;volatile
+   924  003DC2  B04C               	btfsc	OpenUSART@config,0,c
+   925  003DC4  88AC               	bsf	4012,4,c	;volatile
+   926  003DC6  A24C               	btfss	OpenUSART@config,1,c
+   927  003DC8  D002               	goto	l2139
+   928  003DCA  8CAC               	bsf	4012,6,c	;volatile
+   929  003DCC  8CAB               	bsf	4011,6,c	;volatile
+   930  003DCE                     l2139:
+   931  003DCE  B44C               	btfsc	OpenUSART@config,2,c
+   932  003DD0  8EAC               	bsf	4012,7,c	;volatile
+   933  003DD2  A64C               	btfss	OpenUSART@config,3,c
+   934  003DD4  D002               	goto	l1232
+   935  003DD6  88AB               	bsf	4011,4,c	;volatile
+   936  003DD8  D001               	goto	l2147
+   937  003DDA                     l1232:
+   938  003DDA  8AAB               	bsf	4011,5,c	;volatile
+   939  003DDC                     l2147:
+   940  003DDC  A84C               	btfss	OpenUSART@config,4,c
+   941  003DDE  D002               	goto	l1234
+   942  003DE0  84AC               	bsf	4012,2,c	;volatile
+   943  003DE2  D001               	goto	l1235
+   944  003DE4                     l1234:
+   945  003DE4  94AC               	bcf	4012,2,c	;volatile
+   946  003DE6                     l1235:
+   947  003DE6  989E               	bcf	3998,4,c	;volatile
+   948  003DE8  AC4C               	btfss	OpenUSART@config,6,c
+   949  003DEA  D002               	goto	l1236
+   950  003DEC  8A9D               	bsf	3997,5,c	;volatile
+   951  003DEE  D001               	goto	l1237
+   952  003DF0                     l1236:
+   953  003DF0  9A9D               	bcf	3997,5,c	;volatile
+   954  003DF2                     l1237:
+   955  003DF2  9A9E               	bcf	3998,5,c	;volatile
+   956  003DF4  AE4C               	btfss	OpenUSART@config,7,c
+   957  003DF6  D002               	goto	l1238
+   958  003DF8  889D               	bsf	3997,4,c	;volatile
+   959  003DFA  D001               	goto	l1239
+   960  003DFC                     l1238:
+   961  003DFC  989D               	bcf	3997,4,c	;volatile
+   962  003DFE                     l1239:
+   963  003DFE  C04A  FFAF         	movff	OpenUSART@spbrg,4015	;volatile
+   964  003E02  8AAC               	bsf	4012,5,c	;volatile
+   965  003E04  8EAB               	bsf	4011,7,c	;volatile
+   966  003E06  9C94               	bcf	3988,6,c	;volatile
+   967  003E08  8E94               	bsf	3988,7,c	;volatile
+   968  003E0A  B8AC               	btfsc	4012,4,c	;volatile
+   969  003E0C  BEAC               	btfsc	4012,7,c	;volatile
+   970  003E0E  D001               	goto	l1241
+   971  003E10  8C94               	bsf	3988,6,c	;volatile
+   972  003E12                     l1241:
+   973  003E12  0012               	return	
+   974  003E14  FFFF               	dw	65535	; errata NOP
+   975  003E16                     __end_of_OpenUSART:
+   976                           	opt stack 0
+   977                           tblptru	equ	0xFF8
+   978                           intcon	equ	0xFF2
+   979                           postinc0	equ	0xFEE
+   980                           wreg	equ	0xFE8
+   981                           status	equ	0xFD8
+   982                           
+   983 ;; *************** function _OpenI2C *****************
+   984 ;; Defined at:
+   985 ;;		line 14 in file "/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c"
+   986 ;; Parameters:    Size  Location     Type
+   987 ;;  sync_mode       1    wreg     unsigned char 
+   988 ;;  slew            1    0[COMRAM] unsigned char 
+   989 ;; Auto vars:     Size  Location     Type
+   990 ;;  sync_mode       1    1[COMRAM] unsigned char 
+   991 ;; Return value:  Size  Location     Type
+   992 ;;		None               void
+   993 ;; Registers used:
+   994 ;;		wreg, status,2, status,0
+   995 ;; Tracked objects:
+   996 ;;		On entry : 0/0
+   997 ;;		On exit  : 0/0
+   998 ;;		Unchanged: 0/0
+   999 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1000 ;;      Params:         1       0       0       0       0       0       0
+  1001 ;;      Locals:         1       0       0       0       0       0       0
+  1002 ;;      Temps:          0       0       0       0       0       0       0
+  1003 ;;      Totals:         2       0       0       0       0       0       0
+  1004 ;;Total ram usage:        2 bytes
+  1005 ;; Hardware stack levels used:    1
+  1006 ;; This function calls:
+  1007 ;;		Nothing
+  1008 ;; This function is called by:
+  1009 ;;		_initI2C_USART
+  1010 ;; This function uses a non-reentrant model
+  1011 ;;
+  1012                           
+  1013                           	psect	text6
+  1014  003D1E                     __ptext6:
+  1015                           	opt stack 0
+  1016  003D1E                     _OpenI2C:
+  1017                           	opt stack 29
+  1018                           
+  1019                           ;incstack = 0
+  1020  003D1E  FFFF               	dw	65535
+  1021                           
+  1022                           ;OpenI2C@sync_mode stored from wreg
+  1023  003D20  6E4B               	movwf	OpenI2C@sync_mode,c
+  1024  003D22  0E3F               	movlw	63
+  1025  003D24  16C7               	andwf	4039,f,c	;volatile
+  1026  003D26  0E00               	movlw	0
+  1027  003D28  6EC6               	movwf	4038,c	;volatile
+  1028  003D2A  0E00               	movlw	0
+  1029  003D2C  6EC5               	movwf	4037,c	;volatile
+  1030  003D2E  504B               	movf	OpenI2C@sync_mode,w,c
+  1031  003D30  12C6               	iorwf	4038,f,c	;volatile
+  1032  003D32  504A               	movf	OpenI2C@slew,w,c
+  1033  003D34  12C7               	iorwf	4039,f,c	;volatile
+  1034  003D36  8694               	bsf	3988,3,c	;volatile
+  1035  003D38  8894               	bsf	3988,4,c	;volatile
+  1036  003D3A  8AC6               	bsf	4038,5,c	;volatile
+  1037  003D3C  0012               	return	
+  1038  003D3E  FFFF               	dw	65535	; errata NOP
+  1039  003D40                     __end_of_OpenI2C:
+  1040                           	opt stack 0
+  1041                           tblptru	equ	0xFF8
+  1042                           intcon	equ	0xFF2
+  1043                           postinc0	equ	0xFEE
+  1044                           wreg	equ	0xFE8
+  1045                           status	equ	0xFD8
+  1046                           
+  1047 ;; *************** function _Delay10KTCYx *****************
+  1048 ;; Defined at:
+  1049 ;;		line 8 in file "/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c"
+  1050 ;; Parameters:    Size  Location     Type
+  1051 ;;  unit            1    wreg     unsigned char 
+  1052 ;; Auto vars:     Size  Location     Type
+  1053 ;;  unit            1    1[COMRAM] unsigned char 
+  1054 ;; Return value:  Size  Location     Type
+  1055 ;;		None               void
+  1056 ;; Registers used:
+  1057 ;;		wreg
+  1058 ;; Tracked objects:
+  1059 ;;		On entry : 0/0
+  1060 ;;		On exit  : 0/0
+  1061 ;;		Unchanged: 0/0
+  1062 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1063 ;;      Params:         0       0       0       0       0       0       0
+  1064 ;;      Locals:         1       0       0       0       0       0       0
+  1065 ;;      Temps:          1       0       0       0       0       0       0
+  1066 ;;      Totals:         2       0       0       0       0       0       0
+  1067 ;;Total ram usage:        2 bytes
+  1068 ;; Hardware stack levels used:    1
+  1069 ;; This function calls:
+  1070 ;;		Nothing
+  1071 ;; This function is called by:
+  1072 ;;		_setupCANTxRx
+  1073 ;;		_initI2C_USART
+  1074 ;;		_initMPU6050
+  1075 ;; This function uses a non-reentrant model
+  1076 ;;
+  1077                           
+  1078                           	psect	text7
+  1079  003D02                     __ptext7:
+  1080                           	opt stack 0
+  1081  003D02                     _Delay10KTCYx:
+  1082                           	opt stack 29
+  1083                           
+  1084                           ;incstack = 0
+  1085  003D02  FFFF               	dw	65535
+  1086                           
+  1087                           ;Delay10KTCYx@unit stored from wreg
+  1088  003D04  6E4B               	movwf	Delay10KTCYx@unit,c
+  1089  003D06                     l1546:
+  1090  003D06  0E0A               	movlw	10
+  1091  003D08  6E4A               	movwf	??_Delay10KTCYx& (0+255),c
+  1092  003D0A  0EBE               	movlw	190
+  1093  003D0C                     u2367:
+  1094  003D0C  2EE8               	decfsz	wreg,f,c
+  1095  003D0E  D7FE               	goto	u2367
+  1096  003D10  2E4A               	decfsz	??_Delay10KTCYx& (0+255),f,c
+  1097  003D12  D7FC               	goto	u2367
+  1098  003D14  D000               	nop2	
+  1099  003D16  2E4B               	decfsz	Delay10KTCYx@unit,f,c
+  1100  003D18  D7F6               	goto	l1546
+  1101  003D1A  0012               	return	
+  1102  003D1C  FFFF               	dw	65535	; errata NOP
+  1103  003D1E                     __end_of_Delay10KTCYx:
+  1104                           	opt stack 0
+  1105                           tblptru	equ	0xFF8
+  1106                           intcon	equ	0xFF2
+  1107                           postinc0	equ	0xFEE
+  1108                           wreg	equ	0xFE8
+  1109                           status	equ	0xFD8
+  1110                           
+  1111 ;; *************** function _convertFrom8To16 *****************
+  1112 ;; Defined at:
+  1113 ;;		line 137 in file "../../C_Library/pic18f458_badgerloop.c"
+  1114 ;; Parameters:    Size  Location     Type
+  1115 ;;  dataFirst       1    wreg     unsigned char 
+  1116 ;;  dataSecond      1    0[COMRAM] unsigned char 
+  1117 ;; Auto vars:     Size  Location     Type
+  1118 ;;  dataFirst       1    2[COMRAM] unsigned char 
+  1119 ;;  dataBoth        2    3[COMRAM] unsigned int 
+  1120 ;; Return value:  Size  Location     Type
+  1121 ;;                  2    0[COMRAM] unsigned int 
+  1122 ;; Registers used:
+  1123 ;;		wreg, status,2, status,0
+  1124 ;; Tracked objects:
+  1125 ;;		On entry : 0/0
+  1126 ;;		On exit  : 0/0
+  1127 ;;		Unchanged: 0/0
+  1128 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1129 ;;      Params:         2       0       0       0       0       0       0
+  1130 ;;      Locals:         3       0       0       0       0       0       0
+  1131 ;;      Temps:          0       0       0       0       0       0       0
+  1132 ;;      Totals:         5       0       0       0       0       0       0
+  1133 ;;Total ram usage:        5 bytes
+  1134 ;; Hardware stack levels used:    1
+  1135 ;; This function calls:
+  1136 ;;		Nothing
+  1137 ;; This function is called by:
+  1138 ;;		_main
+  1139 ;; This function uses a non-reentrant model
+  1140 ;;
+  1141                           
+  1142                           	psect	text8
+  1143  003D62                     __ptext8:
+  1144                           	opt stack 0
+  1145  003D62                     _convertFrom8To16:
+  1146                           	opt stack 30
+  1147                           
+  1148                           ;incstack = 0
+  1149  003D62  FFFF               	dw	65535
+  1150                           
+  1151                           ;convertFrom8To16@dataFirst stored from wreg
+  1152  003D64  6E4C               	movwf	convertFrom8To16@dataFirst,c
+  1153                           
+  1154                           ;pic18f458_badgerloop.c: 138: uint16_t dataBoth = 0x0000;
+  1155  003D66  0E00               	movlw	0
+  1156  003D68  6E4E               	movwf	convertFrom8To16@dataBoth+1,c
+  1157  003D6A  0E00               	movlw	0
+  1158  003D6C  6E4D               	movwf	convertFrom8To16@dataBoth,c
+  1159                           
+  1160                           ;pic18f458_badgerloop.c: 140: dataBoth = dataFirst;
+  1161  003D6E  C04C  F04D         	movff	convertFrom8To16@dataFirst,convertFrom8To16@dataBoth
+  1162  003D72  6A4E               	clrf	convertFrom8To16@dataBoth+1,c
+  1163                           
+  1164                           ;pic18f458_badgerloop.c: 141: dataBoth = dataBoth << 8;
+  1165  003D74  504D               	movf	convertFrom8To16@dataBoth,w,c
+  1166  003D76  6E4E               	movwf	convertFrom8To16@dataBoth+1,c
+  1167  003D78  6A4D               	clrf	convertFrom8To16@dataBoth,c
+  1168                           
+  1169                           ;pic18f458_badgerloop.c: 142: dataBoth |= dataSecond;
+  1170  003D7A  504A               	movf	convertFrom8To16@dataSecond,w,c
+  1171  003D7C  124D               	iorwf	convertFrom8To16@dataBoth,f,c
+  1172                           
+  1173                           ;pic18f458_badgerloop.c: 143: return dataBoth;
+  1174  003D7E  C04D  F04A         	movff	convertFrom8To16@dataBoth,?_convertFrom8To16
+  1175  003D82  C04E  F04B         	movff	convertFrom8To16@dataBoth+1,?_convertFrom8To16+1
+  1176  003D86  0012               	return	
+  1177  003D88  FFFF               	dw	65535	; errata NOP
+  1178  003D8A                     __end_of_convertFrom8To16:
+  1179                           	opt stack 0
+  1180                           tblptru	equ	0xFF8
+  1181                           intcon	equ	0xFF2
+  1182                           postinc0	equ	0xFEE
+  1183                           wreg	equ	0xFE8
+  1184                           status	equ	0xFD8
+  1185                           
+  1186 ;; *************** function _CAN_Receive *****************
+  1187 ;; Defined at:
+  1188 ;;		line 48 in file "main.c"
+  1189 ;; Parameters:    Size  Location     Type
+  1190 ;;		None
+  1191 ;; Auto vars:     Size  Location     Type
+  1192 ;;  canId           2    4[COMRAM] unsigned int 
+  1193 ;;  canIdL          1    7[COMRAM] unsigned char 
+  1194 ;;  canIdH          1    6[COMRAM] unsigned char 
+  1195 ;; Return value:  Size  Location     Type
+  1196 ;;                  2    0[COMRAM] unsigned int 
+  1197 ;; Registers used:
+  1198 ;;		wreg, status,2, status,0
+  1199 ;; Tracked objects:
+  1200 ;;		On entry : 0/0
+  1201 ;;		On exit  : 0/0
+  1202 ;;		Unchanged: 0/0
+  1203 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+  1204 ;;      Params:         2       0       0       0       0       0       0
+  1205 ;;      Locals:         4       0       0       0       0       0       0
+  1206 ;;      Temps:          2       0       0       0       0       0       0
+  1207 ;;      Totals:         8       0       0       0       0       0       0
+  1208 ;;Total ram usage:        8 bytes
+  1209 ;; Hardware stack levels used:    1
+  1210 ;; This function calls:
+  1211 ;;		Nothing
+  1212 ;; This function is called by:
+  1213 ;;		_main
+  1214 ;; This function uses a non-reentrant model
+  1215 ;;
+  1216                           
+  1217                           	psect	text9
+  1218  003E7E                     __ptext9:
+  1219                           	opt stack 0
+  1220  003E7E                     _CAN_Receive:
+  1221                           	opt stack 30
+  1222                           
+  1223                           ;incstack = 0
+  1224  003E7E  FFFF               	dw	65535
+  1225                           
+  1226                           ;main.c: 52: uint8_t canIdH=0;
+  1227  003E80  0E00               	movlw	0
+  1228  003E82  6E50               	movwf	CAN_Receive@canIdH,c
+  1229                           
+  1230                           ;main.c: 53: uint8_t canIdL=0;
+  1231  003E84  0E00               	movlw	0
+  1232  003E86  6E51               	movwf	CAN_Receive@canIdL,c
+  1233                           
+  1234                           ;main.c: 54: uint16_t canId=0;
+  1235  003E88  0E00               	movlw	0
+  1236  003E8A  6E4F               	movwf	CAN_Receive@canId+1,c
+  1237  003E8C  0E00               	movlw	0
+  1238  003E8E  6E4E               	movwf	CAN_Receive@canId,c
+  1239  003E90                     l1196:
+  1240  003E90  AE60               	btfss	3936,7,c	;volatile
+  1241  003E92  D7FE               	goto	l1196
+  1242                           
+  1243                           ;main.c: 60: canIdL = RXB0SIDL;
+  1244  003E94  CF62 F051          	movff	3938,CAN_Receive@canIdL	;volatile
+  1245                           
+  1246                           ;main.c: 61: canIdH = RXB0SIDH;
+  1247  003E98  CF61 F050          	movff	3937,CAN_Receive@canIdH	;volatile
+  1248                           
+  1249                           ;main.c: 64: receivedData[0] = RXB0D0;
+  1250  003E9C  CF66 F001          	movff	3942,_receivedData	;volatile
+  1251                           
+  1252                           ;main.c: 65: receivedData[1] = RXB0D1;
+  1253  003EA0  CF67 F002          	movff	3943,_receivedData+1	;volatile
+  1254                           
+  1255                           ;main.c: 66: receivedData[2] = RXB0D2;
+  1256  003EA4  CF68 F003          	movff	3944,_receivedData+2	;volatile
+  1257                           
+  1258                           ;main.c: 67: receivedData[3] = RXB0D3;
+  1259  003EA8  CF69 F004          	movff	3945,_receivedData+3	;volatile
+  1260                           
+  1261                           ;main.c: 68: receivedData[4] = RXB0D4;
+  1262  003EAC  CF6A F005          	movff	3946,_receivedData+4	;volatile
+  1263                           
+  1264                           ;main.c: 69: receivedData[5] = RXB0D5;
+  1265  003EB0  CF6B F006          	movff	3947,_receivedData+5	;volatile
+  1266                           
+  1267                           ;main.c: 70: receivedData[6] = RXB0D6;
+  1268  003EB4  CF6C F007          	movff	3948,_receivedData+6	;volatile
+  1269                           
+  1270                           ;main.c: 71: receivedData[7] = RXB0D7;
+  1271  003EB8  CF6D F008          	movff	3949,_receivedData+7	;volatile
+  1272                           
+  1273                           ;main.c: 74: RXB0CON &= ~(1<<7);
+  1274  003EBC  9E60               	bcf	3936,7,c	;volatile
+  1275                           
+  1276                           ;main.c: 76: canId = canIdH<<3;
+  1277  003EBE  5050               	movf	CAN_Receive@canIdH,w,c
+  1278  003EC0  6E4C               	movwf	??_CAN_Receive& (0+255),c
+  1279  003EC2  6A4D               	clrf	(??_CAN_Receive+1)& (0+255),c
+  1280  003EC4  90D8               	bcf	status,0,c
+  1281  003EC6  364C               	rlcf	??_CAN_Receive,f,c
+  1282  003EC8  364D               	rlcf	??_CAN_Receive+1,f,c
+  1283  003ECA  90D8               	bcf	status,0,c
+  1284  003ECC  364C               	rlcf	??_CAN_Receive,f,c
+  1285  003ECE  364D               	rlcf	??_CAN_Receive+1,f,c
+  1286  003ED0  90D8               	bcf	status,0,c
+  1287  003ED2  364C               	rlcf	??_CAN_Receive,f,c
+  1288  003ED4  364D               	rlcf	??_CAN_Receive+1,f,c
+  1289  003ED6  C04C  F04E         	movff	??_CAN_Receive,CAN_Receive@canId
+  1290  003EDA  C04D  F04F         	movff	??_CAN_Receive+1,CAN_Receive@canId+1
+  1291                           
+  1292                           ;main.c: 77: canId |= canIdL>>5;
+  1293  003EDE  C051  F04C         	movff	CAN_Receive@canIdL,??_CAN_Receive
+  1294  003EE2  0E05               	movlw	5
+  1295  003EE4  6E4D               	movwf	(??_CAN_Receive+1)& (0+255),c
+  1296  003EE6                     u535:
+  1297  003EE6  90D8               	bcf	status,0,c
+  1298  003EE8  324C               	rrcf	??_CAN_Receive,f,c
+  1299  003EEA  2E4D               	decfsz	(??_CAN_Receive+1)& (0+255),f,c
+  1300  003EEC  D7FC               	goto	u535
+  1301  003EEE  504C               	movf	??_CAN_Receive,w,c
+  1302  003EF0  124E               	iorwf	CAN_Receive@canId,f,c
+  1303                           
+  1304                           ;main.c: 79: return canId;
+  1305  003EF2  C04E  F04A         	movff	CAN_Receive@canId,?_CAN_Receive
+  1306  003EF6  C04F  F04B         	movff	CAN_Receive@canId+1,?_CAN_Receive+1
+  1307  003EFA  0012               	return	
+  1308  003EFC  FFFF               	dw	65535	; errata NOP
+  1309  003EFE                     __end_of_CAN_Receive:
+  1310                           	opt stack 0
+  1311  003EFE  FFFF               	dw	65535	; assembler added errata NOP
+  1312                           tblptru	equ	0xFF8
+  1313                           intcon	equ	0xFF2
+  1314                           postinc0	equ	0xFEE
+  1315                           wreg	equ	0xFE8
+  1316                           status	equ	0xFD8
+  1317                           tblptru	equ	0xFF8
+  1318                           intcon	equ	0xFF2
+  1319                           postinc0	equ	0xFEE
+  1320                           wreg	equ	0xFE8
+  1321                           status	equ	0xFD8
+  1322                           
+  1323                           	psect	rparam
+  1324  0000                     tblptru	equ	0xFF8
+  1325                           intcon	equ	0xFF2
+  1326                           postinc0	equ	0xFEE
+  1327                           wreg	equ	0xFE8
+  1328                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         103
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     20      93
+    BANK0           160      0      30
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    sp__convertFrom16To8	PTR unsigned char  size(2) Largest target is 2
+		 -> convertFrom16To8@arrayData(COMRAM[2]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_CAN_Receive
+    _setupCANTxRx->_Delay10KTCYx
+    _CAN_Init->_CAN_SetMode
+    _initI2C_USART->_OpenUSART
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                12    12      0     680
+                                              8 COMRAM    12    12      0
+                        _CAN_Receive
+                   _convertFrom8To16
+                      _initI2C_USART
+                       _setupCANTxRx
+ ---------------------------------------------------------------------------------
+ (1) _setupCANTxRx                                         0     0      0      45
+                           _CAN_Init
+                       _Delay10KTCYx
+ ---------------------------------------------------------------------------------
+ (2) _CAN_Init                                             0     0      0      30
+                        _CAN_SetMode
+ ---------------------------------------------------------------------------------
+ (3) _CAN_SetMode                                          1     1      0      30
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _initI2C_USART                                        0     0      0     251
+                       _Delay10KTCYx
+                            _OpenI2C
+                          _OpenUSART
+ ---------------------------------------------------------------------------------
+ (2) _OpenUSART                                            3     1      2     163
+                                              0 COMRAM     3     1      2
+ ---------------------------------------------------------------------------------
+ (2) _OpenI2C                                              2     1      1      73
+                                              0 COMRAM     2     1      1
+ ---------------------------------------------------------------------------------
+ (2) _Delay10KTCYx                                         2     2      0      15
+                                              0 COMRAM     2     2      0
+ ---------------------------------------------------------------------------------
+ (1) _convertFrom8To16                                     5     3      2     189
+                                              0 COMRAM     5     3      2
+ ---------------------------------------------------------------------------------
+ (1) _CAN_Receive                                          8     6      2      45
+                                              0 COMRAM     8     6      2
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _CAN_Receive
+   _convertFrom8To16
+   _initI2C_USART
+     _Delay10KTCYx
+     _OpenI2C
+     _OpenUSART
+   _setupCANTxRx
+     _CAN_Init
+       _CAN_SetMode
+     _Delay10KTCYx
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             5FF      0       0      16        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       7        0.0%
+BANK2              100      0       0       8        0.0%
+BITBANK1           100      0       0       5        0.0%
+BANK1              100      0       0       6        0.0%
+BITBANK0            A0      0       0       3        0.0%
+BANK0               A0      0      1E       4       18.8%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F     14      5D       1       97.9%
+BITSFR_1             0      0       0      40        0.0%
+SFR_1                0      0       0      40        0.0%
+BITSFR               0      0       0      40        0.0%
+SFR                  0      0       0      40        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      7B       9        0.0%
+DATA                 0      0      7B      17        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.32 build 58300 
+Symbol Table                                                                                   Sun Nov 15 18:47:54 2015
+
+                                                       _SSPSTATbits 000FC7  
+                                                                _D1 0011  
+                                                                _D2 0015  
+                                                                _T2 0064  
+                                                                _dT 0025  
+                                                       __CFG_BOR$ON 000000  
+                                                      __CFG_CP0$OFF 000000  
+                                                      __CFG_CP1$OFF 000000  
+                                                      __CFG_CP2$OFF 000000  
+                                                      __CFG_CP3$OFF 000000  
+                                                       __CFG_OSC$HS 000000  
+                                                      __CFG_CPB$OFF 000000  
+                                                      __CFG_CPD$OFF 000000  
+                                                               u535 3EE6  
+                                                      __CFG_BORV$25 000000  
+                                                               wreg 000FE8  
+                                                     _initI2C_USART 3D8A  
+                                                      __CFG_LVP$OFF 000000  
+                                                      __CFG_WDT$OFF 000000  
+                                                              l1202 3F20  
+                                                              l1206 3FE8  
+                                                              l1232 3DDA  
+                                                              l1241 3E12  
+                                                              l2009 3CF2  
+                                                              l1234 3DE4  
+                                                              l1235 3DE6  
+                                                              l1236 3DF0  
+                                                              l1237 3DF2  
+                                                              l1238 3DFC  
+                                                              l1239 3DFE  
+                                                              l2147 3DDC  
+                                                              l2139 3DCE  
+                                                              l1196 3E90  
+                                                              l1546 3D06  
+                                                              l3423 3F54  
+                                                              _OFF2 0060  
+                                                              u2317 3F38  
+                                                              u2327 3F4A  
+                                                              u2337 3FC8  
+                                                              u2347 3FDE  
+                                                              u2357 3FF4  
+                                                              u2367 3D0C  
+                                                              _PEIE 007F96  
+                                                              _RCIE 007CED  
+                                                              _RCIF 007CF5  
+                                                              _RCIP 007CFD  
+                                                              _TEMP 0041  
+                                                      __CFG_PWRT$ON 000000  
+                                                              _mbar 0068  
+                                                              _main 3F00  
+                                                              start 0002  
+                                                  __end_of_CAN_Init 3E7E  
+                                                   __end_of_OpenI2C 3D40  
+                                                 ?_convertFrom8To16 004A  
+                                                     __CFG_OSCS$OFF 000000  
+                                                             ?_main 004A  
+                                                ??_convertFrom8To16 004C  
+                                                             _RCSTA 000FAB  
+                                                             _SPBRG 000FAF  
+                                                             _TRISB 000F93  
+                                             __size_of_Delay10KTCYx 001C  
+                                                             _TXSTA 000FAC  
+                                                     __CFG_WRT0$OFF 000000  
+                                                     __CFG_WRT1$OFF 000000  
+                                                     __CFG_WRT2$OFF 000000  
+                                                     __CFG_WRT3$OFF 000000  
+                                                    __CFG_EBTR0$OFF 000000  
+                                                             _Sens2 001D  
+                                                    __CFG_EBTR1$OFF 000000  
+                                                    __CFG_EBTR2$OFF 000000  
+                                                    __CFG_EBTR3$OFF 000000  
+                                                    ?_initI2C_USART 004A  
+                                                     __CFG_STVR$OFF 000000  
+                                              __size_of_CAN_Receive 0080  
+                                                     __CFG_WRTB$OFF 000000  
+                                                     __CFG_WRTC$OFF 000000  
+                                                     __CFG_WRTD$OFF 000000  
+                                              __size_of_CAN_SetMode 0018  
+                                                    __CFG_EBTRB$OFF 000000  
+                                                             _tempC 006B  
+                                                             status 000FD8  
+                                                   __initialization 3D40  
+                                                      __end_of_main 4000  
+                                                      _Delay10KTCYx 3D02  
+                                                            ??_main 0052  
+                                                     __activetblptr 000002  
+                                                            _CANCON 000F6F  
+                                                  CAN_Receive@canId 004E  
+                                                       OpenI2C@slew 004A  
+                                                            _RXB0D0 000F66  
+                                                            _RXB0D1 000F67  
+                                                            _RXB0D2 000F68  
+                                                            _RXB0D3 000F69  
+                                                            _RXB0D4 000F6A  
+                                                            _RXB0D5 000F6B  
+                                                            _RXB0D6 000F6C  
+                                                            _RXB0D7 000F6D  
+                                                    __CFG_WDTPS$128 000000  
+                                                            _TXB0D0 000F46  
+                                                            _TXB0D1 000F47  
+                                                            _TXB0D2 000F48  
+                                                            _TXB0D3 000F49  
+                                                            _TXB0D4 000F4A  
+                                                            _TXB0D5 000F4B  
+                                                            _TXB0D6 000F4C  
+                                                            _TXB0D7 000F4D  
+                                                            _SSPADD 000FC8  
+                                                            _SSPBUF 000FC9  
+                                          convertFrom8To16@dataBoth 004D  
+                                                         ??_OpenI2C 004B  
+                                                            _Offset 0019  
+                                                __size_of_OpenUSART 0060  
+                                                        _Resolution 002D  
+                                                            clear_0 3D46  
+                                                            clear_1 3D52  
+                                                            main@ax 0053  
+                                                            main@ay 005A  
+                                                            main@az 0055  
+                                                   ??_initI2C_USART 004D  
+                                                            tblptru 000FF8  
+                                                         ?_CAN_Init 004A  
+                                                        __accesstop 0060  
+                                           __end_of__initialization 3D58  
+                                                CAN_SetMode@canMode 004A  
+                                                    __pcstackCOMRAM 004A  
+                                                        ??_CAN_Init 004B  
+                                                 __end_of_OpenUSART 3E16  
+                                                        __pbssBANK0 0060  
+                                                 CAN_Receive@canIdH 0050  
+                                                 CAN_Receive@canIdL 0051  
+                                         convertFrom16To8@arrayData 0048  
+                                                           _CANSTAT 000F6E  
+                                                           _BRGCON1 000F70  
+                                                           _BRGCON2 000F71  
+                                                           _BRGCON3 000F72  
+                                                           _RXB0CON 000F60  
+                                                           _RXB1CON 000F50  
+                                                           _TXB0DLC 000F45  
+                                                           _TXB0CON 000F40  
+                                                           _SSPCON1 000FC6  
+                                                           _SSPCON2 000FC5  
+                                                           _SSPSTAT 000FC7  
+                                         __size_of_convertFrom8To16 0028  
+                                                         _I2C_Bytes 0045  
+                                                           _MidByte 0031  
+                                                           _OpenI2C 3D1E  
+                                                           _LowByte 0030  
+                                                           __Hparam 0000  
+                                                           __Lparam 0000  
+                                                           __pcinit 3D40  
+                                                       _Sensitivity 0021  
+                                                           __ramtop 0600  
+                                                           __ptext0 3F00  
+                                                           __ptext1 3CD6  
+                                                           __ptext2 3E16  
+                                                           __ptext3 3CEA  
+                                                           __ptext4 3D8A  
+                                                           __ptext5 3DB6  
+                                                           __ptext6 3D1E  
+                                                           __ptext7 3D02  
+                                                           __ptext8 3D62  
+                                                           __ptext9 3E7E  
+                                                           _mbarInt 0029  
+                                                           _mpu6050 0032  
+                                                     ??_CAN_Receive 004C  
+                                                     ??_CAN_SetMode 004A  
+                                                     ?_setupCANTxRx 004A  
+                                              end_of_initialization 3D58  
+                                                     __Lmediumconst 0000  
+                                                         _RCSTAbits 000FAB  
+                                                           postinc0 000FEE  
+                                                    ??_setupCANTxRx 004C  
+                                                         _TRISBbits 000F93  
+                                                         _TRISCbits 000F94  
+                                               __end_of_CAN_Receive 3EFE  
+                                               __end_of_CAN_SetMode 3D02  
+                                                 __size_of_CAN_Init 0068  
+                                                         _TXSTAbits 000FAC  
+                                        convertFrom8To16@dataSecond 004A  
+                                               start_initialization 3D40  
+                                             __end_of_initI2C_USART 3DB6  
+                                                  _convertFrom8To16 3D62  
+                                                         _OpenUSART 3DB6  
+                                                       _CAN_Receive 3E7E  
+                                                       _CAN_SetMode 3CEA  
+                                                       __pbssCOMRAM 0001  
+                                                        ?_OpenUSART 004A  
+                                                          ?_OpenI2C 004A  
+                                              __end_of_setupCANTxRx 3CEA  
+                                                     ?_Delay10KTCYx 004A  
+                                                          _CAN_Init 3E16  
+                                                      _receivedData 0001  
+                                                          _LATBbits 000F8A  
+                                                          _PIE1bits 000F9D  
+                                                          _PIR1bits 000F9E  
+                                                          _RXB0SIDH 000F61  
+                                                          _RXB0SIDL 000F62  
+                                                    ??_Delay10KTCYx 004A  
+                                                          _RXF0SIDL 000F01  
+                                                          _RXF1SIDL 000F05  
+                                                          _RXF2SIDL 000F09  
+                                                          _RXF3SIDL 000F0D  
+                                                          _RXF4SIDL 000F11  
+                                                          _RXF5SIDL 000F15  
+                                                          _TXB0SIDH 000F41  
+                                                          _TXB0SIDL 000F42  
+                                                          _RXM0SIDH 000F18  
+                                                          _RXM0SIDL 000F19  
+                                                          _RXM1SIDH 000F1C  
+                                                          _RXM1SIDL 000F1D  
+                                                         main@canId 0057  
+                                                  Delay10KTCYx@unit 004B  
+                                              main@a_unsigned_array 005C  
+                                                          _HighByte 002F  
+                                                  OpenI2C@sync_mode 004B  
+                                                       ??_OpenUSART 004C  
+                                                   OpenUSART@config 004C  
+                                                          __Hrparam 0000  
+                                                  __size_of_OpenI2C 0022  
+                                                          __Lrparam 0000  
+                                          __end_of_convertFrom8To16 3D8A  
+                                             __size_of_setupCANTxRx 0014  
+                                                     __size_of_main 0100  
+                                                          _sendData 0009  
+                                                      ?_CAN_Receive 004A  
+                                                      ?_CAN_SetMode 004A  
+                                                        _INTCONbits 000FF2  
+                                                    OpenUSART@spbrg 004A  
+                                                      _sensorCoeffs 006E  
+                                                      _setupCANTxRx 3CD6  
+                                              __end_of_Delay10KTCYx 3D1E  
+                                            __size_of_initI2C_USART 002C  
+                                                       _SSPCON1bits 000FC6  
+                                                       _SSPCON2bits 000FC5  
+                                                       main@AFS_SEL 0059  
+                                         convertFrom8To16@dataFirst 004C  
