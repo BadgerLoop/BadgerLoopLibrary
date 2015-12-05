@@ -29,7 +29,7 @@ from boto.kinesis.exceptions import ProvisionedThroughputExceededException
 import poster
 
 import threading
-import Queue
+import queue
 
 #For pygame/OpenGL install
 #apt-get install python-virtualenv
