@@ -174,7 +174,7 @@ def run():
         #except:
             #print(values)
 
-        values = subprocess.check_output("./can_parse_single", shell=True).split(' ')
+        values = subprocess.check_output("./can_parse_single", shell=True).decode('utf-8').split(' ')
         print(values)
         x_angle = get_x_rotation(float(values[0]),float(values[1]),float(values[2]))
         y_angle = get_y_rotation(float(values[0]),float(values[1]),float(values[2]))
