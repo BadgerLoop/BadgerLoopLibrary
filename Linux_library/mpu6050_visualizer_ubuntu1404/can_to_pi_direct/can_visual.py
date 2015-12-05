@@ -59,7 +59,7 @@ class readCAN(threading.Thread):
     def __init__(self, workQueue):
         super(readCAN, self).__init__()
         self.workQueue = workQueue
-        self.proc = subprocess.Popen(['can_parse', 'raw', '300'], stdout=subprocess.PIPE, bufsize=1, shell=True)
+        self.proc = subprocess.Popen(['./can_parse', 'raw', '300'], stdout=subprocess.PIPE, bufsize=1, shell=True)
 
     def run(self):
         #for line in iter(self.proc.stdout.readline, b''):
