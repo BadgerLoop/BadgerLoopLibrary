@@ -174,7 +174,7 @@ def run():
         #except:
             #print(values)
 
-        values = subprocess.check_output("./can_parse_single", shell=True)
+        values = subprocess.check_output("./can_parse_single", shell=True).split(" ")
         print(values)
         x_angle = get_x_rotation(float(values[0]),float(values[1]),float(values[2]))
         y_angle = get_y_rotation(float(values[0]),float(values[1]),float(values[2]))
@@ -281,10 +281,10 @@ if __name__ == "__main__":
     threads = []
     work_q = queue.Queue()
 
-    read_can = readCAN(
-        workQueue = work_q
-        )
-    threads.append(read_can)
-    read_can.start()
+    #read_can = readCAN(
+        #workQueue = work_q
+        #)
+    #threads.append(read_can)
+    #read_can.start()
 
     run()
