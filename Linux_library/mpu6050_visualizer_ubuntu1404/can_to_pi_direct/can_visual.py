@@ -59,7 +59,7 @@ class readCAN(threading.Thread):
     def __init__(self, workQueue):
         super(readCAN, self).__init__()
         self.workQueue = workQueue
-        self.proc = subprocess.Popen(['./can_parse', 'raw', '300'], stdout=subprocess.PIPE, bufsize=1, shell=True)
+        self.proc = subprocess.Popen(['./can_parse_single', 'raw', '300'], stdout=subprocess.PIPE, bufsize=1, shell=True)
 
     def run(self):
         #for line in iter(self.proc.stdout.readline, b''):
@@ -68,7 +68,7 @@ class readCAN(threading.Thread):
             #self.workQueue.put(line)
         line = self.proc.stdout.readline()
         while True:
-            if not line.startswith('WAIT'):
+            if not line.startswith(b'WAIT'):
                 self.workQueue.put(line)
             line = self.proc.stdout.readline()
 
@@ -165,14 +165,19 @@ def run():
             if event.type == KEYUP and event.key == K_ESCAPE:
                 return
 
-        try:
-            if not work_q.empty():
-                values = work_q.get()
-                print(values)
-                x_angle = get_x_rotation(float(values[0]),float(values[1]),float(values[2]))
-                y_angle = get_y_rotation(float(values[0]),float(values[1]),float(values[2]))
-        except:
-            print(values)
+        #try:
+            #if not work_q.empty():
+                #values = subprocess.check_output("../can/can_parse_single", shell=True)
+                #print(values)
+                #x_angle = get_x_rotation(float(values[0]),float(values[1]),float(values[2]))
+                #y_angle = get_y_rotation(float(values[0]),float(values[1]),float(values[2]))
+        #except:
+            #print(values)
+
+        values = subprocess.check_output("./can_parse_single", shell=True)
+        print(values)
+        x_angle = get_x_rotation(float(values[0]),float(values[1]),float(values[2]))
+        y_angle = get_y_rotation(float(values[0]),float(values[1]),float(values[2]))
 
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
