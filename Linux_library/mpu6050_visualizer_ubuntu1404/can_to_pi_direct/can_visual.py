@@ -262,7 +262,7 @@ class Cube(object):
         # Draw all 6 faces of the cube
         glBegin(GL_QUADS)
 
-        for face_no in xrange(self.num_faces):
+        for face_no in range(self.num_faces):
             glNormal3dv(self.normals[face_no])
             v1, v2, v3, v4 = self.vertex_indices[face_no]
             glVertex(vertices[v1])
