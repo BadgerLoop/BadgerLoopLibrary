@@ -97,10 +97,9 @@ def init():
     glLightfv(GL_LIGHT0, GL_AMBIENT, (0.3, 0.3, 0.3, 1.0));
 
 class readValues(threading.Thread):
-	def __init__(self, workQueue, queueLock):
+	def __init__(self, workQueue):
 		super(readValues, self).__init__()
 		self.workQueue = workQueue
-		self.queueLock= queueLock
 		#self.proc = subprocess.Popen(['python', '../pi/can_kinesis/worker.py', 'badgerloop', '--region', 'us-west-2', '--worker_time', '345600', '--sleep_interval', '3', '--echo'], stdout=subprocess.PIPE, bufsize=1)
 
 	def run(self):
