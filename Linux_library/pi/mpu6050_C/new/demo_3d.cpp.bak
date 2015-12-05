@@ -313,18 +313,18 @@ void setup() {
 #else
     // initialize device
     printf("Initializing I2C devices...\n");
-    //mpu.initialize();
+    mpu.initialize();
 
     // verify connection
     printf("Testing device connections...\n");
-    //printf(mpu.testConnection() ? "MPU6050 connection successful\n" : "MPU6050 connection failed\n");
+    printf(mpu.testConnection() ? "MPU6050 connection successful\n" : "MPU6050 connection failed\n");
 
     // load and configure the DMP
     printf("Initializing DMP...\n");
-    //devStatus = mpu.dmpInitialize();
+    devStatus = mpu.dmpInitialize();
 
     // make sure it worked (returns 0 if so)
-    /*if (devStatus == 0) {
+    if (devStatus == 0) {
         // turn on the DMP, now that it's ready
         printf("Enabling DMP...\n");
         mpu.setDMPEnabled(true);
@@ -346,7 +346,7 @@ void setup() {
         // 2 = DMP configuration updates failed
         // (if it's going to break, usually the code will be 1)
         printf("DMP Initialization failed (code %d)\n", devStatus);
-    } */
+    }
 
     // configure LED for output
     //pinMode(LED_PIN, OUTPUT);
@@ -452,7 +452,7 @@ bool Cube::on_timeout()
         }
     }
 #else
-    /*int pkts = 0;
+    int pkts = 0;
 
     fifoCount = mpu.getFIFOCount();
     if (fifoCount > 900) {
@@ -467,13 +467,9 @@ bool Cube::on_timeout()
     }
     if (pkts > 5)
         printf("Found %d packets, running slowly\n", pkts);
-    mpu.dmpGetQuaternion(&q, fifoBuffer); */
+    mpu.dmpGetQuaternion(&q, fifoBuffer);
 //    mpu.dmpGetGravity(&gravity, &q);
 //    mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
-    q->x = 
-    q->y = 
-    q->z = 
-    q->w = 
 	quaternion_to_ypr(ypr, &q);
 #endif
 

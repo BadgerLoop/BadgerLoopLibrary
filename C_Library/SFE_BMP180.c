@@ -150,6 +150,7 @@ char BMP180_readInt(char address, int16_t &value)
 	unsigned char data[2];
 
 	data[0] = address;
+	//I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)value);
 	if (readBytes(data,2))
 	{
 		value = (int16_t)((data[0]<<8)|data[1]);
