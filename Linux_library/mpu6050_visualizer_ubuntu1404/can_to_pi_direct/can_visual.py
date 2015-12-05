@@ -169,8 +169,8 @@ def run():
 
         try:
         	if not work_q.empty():
-        		values = work_q.get()
-        		print(values)
+                values = work_q.get()
+                print(values)
                 x_angle = get_x_rotation(float(values[0]),float(values[1]),float(values[2]))
                 y_angle = get_y_rotation(float(values[0]),float(values[1]),float(values[2]))
         except:
