@@ -30,6 +30,7 @@ from argparse import RawTextHelpFormatter
 
 import threading
 import queue
+from queue import Queue
 
 #For pygame/OpenGL install
 #apt-get install python-virtualenv
