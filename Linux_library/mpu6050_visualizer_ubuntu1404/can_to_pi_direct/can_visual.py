@@ -30,7 +30,6 @@ from argparse import RawTextHelpFormatter
 
 import threading
 import queue
-from queue import Queue
 
 #For pygame/OpenGL install
 #apt-get install python-virtualenv
@@ -277,7 +276,7 @@ class Cube(object):
 if __name__ == "__main__":
 
     threads = []
-    work_q = Queue.Queue()
+    work_q = queue.Queue()
 
     read_can = readCAN(
         workQueue = work_q
