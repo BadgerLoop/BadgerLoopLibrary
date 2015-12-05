@@ -68,7 +68,7 @@ class readCAN(threading.Thread):
             #self.workQueue.put(line)
         line = self.proc.stdout.readline()
         while True:
-            if not line.startswith('WAIT'):
+            if not line.startswith(b'WAIT'):
                 self.workQueue.append(line)
             line = self.proc.stdout.readline()
 
