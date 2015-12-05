@@ -69,7 +69,7 @@ class readCAN(threading.Thread):
         line = self.proc.stdout.readline()
         while True:
             if not line.startswith(b'WAIT'):
-                self.workQueue.append(line)
+                self.workQueue.put(line)
             line = self.proc.stdout.readline()
 
 def resize(width, height):
