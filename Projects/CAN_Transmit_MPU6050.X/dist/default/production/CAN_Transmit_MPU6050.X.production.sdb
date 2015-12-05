@@ -909,7 +909,7 @@ TRUE 1
 [v _TRISBbits TRISBbits `VES136  1 e 1 @3987 ]
 "13317
 [v _TRISCbits TRISCbits `VES136  1 e 1 @3988 ]
-[s S1120 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S1119 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -919,19 +919,19 @@ TRUE 1
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "13943
-[s S1129 . 1 `uc 1 . 1 0 :5:0 
+[s S1128 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[s S1132 . 1 `uc 1 . 1 0 :4:0 
+[s S1131 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 ]
-[u S1135 . 1 `S1120 1 . 1 0 `S1129 1 . 1 0 `S1132 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES1135  1 e 1 @3997 ]
+[u S1134 . 1 `S1119 1 . 1 0 `S1128 1 . 1 0 `S1131 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES1134  1 e 1 @3997 ]
 "14022
-[v _PIR1bits PIR1bits `VES1135  1 e 1 @3998 ]
+[v _PIR1bits PIR1bits `VES1134  1 e 1 @3998 ]
 "14712
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S1062 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1061 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -941,27 +941,27 @@ TRUE 1
 `uc 1 SPEN 1 0 :1:7 
 ]
 "14755
-[s S1071 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S1070 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S1075 . 1 `uc 1 . 1 0 :6:0 
+[s S1074 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S1078 . 1 `uc 1 . 1 0 :6:0 
+[s S1077 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S1081 . 1 `uc 1 . 1 0 :6:0 
+[s S1080 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S1084 . 1 `uc 1 . 1 0 :5:0 
+[s S1083 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S1087 . 1 `S1062 1 . 1 0 `S1071 1 . 1 0 `S1075 1 . 1 0 `S1078 1 . 1 0 `S1081 1 . 1 0 `S1084 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES1087  1 e 1 @4011 ]
+[u S1086 . 1 `S1061 1 . 1 0 `S1070 1 . 1 0 `S1074 1 . 1 0 `S1077 1 . 1 0 `S1080 1 . 1 0 `S1083 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES1086  1 e 1 @4011 ]
 "14935
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S971 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S970 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -971,38 +971,38 @@ TRUE 1
 `uc 1 CSRC 1 0 :1:7 
 ]
 "14997
-[s S980 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S979 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S984 . 1 `uc 1 . 1 0 :6:0 
+[s S983 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_TX8 1 0 :1:6 
 ]
-[s S987 . 1 `uc 1 . 1 0 :6:0 
+[s S986 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S990 . 1 `uc 1 . 1 0 :2:0 
+[s S989 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 BRGH1 1 0 :1:2 
 ]
-[s S993 . 1 `uc 1 . 1 0 :7:0 
+[s S992 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S996 . 1 `uc 1 . 1 0 :4:0 
+[s S995 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SYNC1 1 0 :1:4 
 ]
-[s S999 . 1 `uc 1 . 1 0 :1:0 
+[s S998 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 ]
-[s S1002 . 1 `uc 1 . 1 0 :6:0 
+[s S1001 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX91 1 0 :1:6 
 ]
-[s S1005 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S1004 . 1 `uc 1 TX9D1 1 0 :1:0 
 ]
-[s S1007 . 1 `uc 1 . 1 0 :5:0 
+[s S1006 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 TXEN1 1 0 :1:5 
 ]
-[u S1010 . 1 `S971 1 . 1 0 `S980 1 . 1 0 `S984 1 . 1 0 `S987 1 . 1 0 `S990 1 . 1 0 `S993 1 . 1 0 `S996 1 . 1 0 `S999 1 . 1 0 `S1002 1 . 1 0 `S1005 1 . 1 0 `S1007 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES1010  1 e 1 @4012 ]
+[u S1009 . 1 `S970 1 . 1 0 `S979 1 . 1 0 `S983 1 . 1 0 `S986 1 . 1 0 `S989 1 . 1 0 `S992 1 . 1 0 `S995 1 . 1 0 `S998 1 . 1 0 `S1001 1 . 1 0 `S1004 1 . 1 0 `S1006 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES1009  1 e 1 @4012 ]
 "15258
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "16171
@@ -1021,30 +1021,30 @@ TRUE 1
 [v _SSPCON2bits SSPCON2bits `VES34  1 e 1 @4037 ]
 "16232
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
-[s S1595 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S1594 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "16252
-[s S1601 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S1600 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S1606 . 1 `S1595 1 . 1 0 `S1601 1 . 1 0 ]
-[v _SSPCON1bits SSPCON1bits `VES1606  1 e 1 @4038 ]
+[u S1605 . 1 `S1594 1 . 1 0 `S1600 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES1605  1 e 1 @4038 ]
 "16301
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
-[s S1257 . 1 `uc 1 . 1 0 :2:0 
+[s S1256 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "16407
-[s S1260 . 1 `uc 1 . 1 0 :5:0 
+[s S1259 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S1263 . 1 `uc 1 BF 1 0 :1:0 
+[s S1262 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -1053,66 +1053,66 @@ TRUE 1
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S1278 . 1 `uc 1 . 1 0 :2:0 
+[s S1277 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S1284 . 1 `uc 1 . 1 0 :2:0 
+[s S1283 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S1289 . 1 `uc 1 . 1 0 :2:0 
+[s S1288 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S1294 . 1 `uc 1 . 1 0 :2:0 
+[s S1293 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S1297 . 1 `uc 1 . 1 0 :5:0 
+[s S1296 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S1300 . 1 `uc 1 . 1 0 :2:0 
+[s S1299 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S1305 . 1 `uc 1 . 1 0 :2:0 
+[s S1304 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S1310 . 1 `uc 1 . 1 0 :2:0 
+[s S1309 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S1315 . 1 `uc 1 . 1 0 :5:0 
+[s S1314 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S1318 . 1 `uc 1 . 1 0 :5:0 
+[s S1317 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S1321 . 1 `uc 1 . 1 0 :2:0 
+[s S1320 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 ]
-[s S1324 . 1 `uc 1 . 1 0 :3:0 
+[s S1323 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 START 1 0 :1:3 
 ]
-[s S1327 . 1 `uc 1 . 1 0 :4:0 
+[s S1326 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 STOP 1 0 :1:4 
 ]
-[s S1330 . 1 `uc 1 . 1 0 :2:0 
+[s S1329 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 ]
-[s S1333 . 1 `uc 1 . 1 0 :5:0 
+[s S1332 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S1336 . 1 `S1257 1 . 1 0 `S1260 1 . 1 0 `S1263 1 . 1 0 `S1257 1 . 1 0 `S1260 1 . 1 0 `S1278 1 . 1 0 `S1284 1 . 1 0 `S1289 1 . 1 0 `S1294 1 . 1 0 `S1297 1 . 1 0 `S1300 1 . 1 0 `S1305 1 . 1 0 `S1310 1 . 1 0 `S1315 1 . 1 0 `S1318 1 . 1 0 `S1321 1 . 1 0 `S1324 1 . 1 0 `S1327 1 . 1 0 `S1330 1 . 1 0 `S1333 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES1336  1 e 1 @4039 ]
+[u S1335 . 1 `S1256 1 . 1 0 `S1259 1 . 1 0 `S1262 1 . 1 0 `S1256 1 . 1 0 `S1259 1 . 1 0 `S1277 1 . 1 0 `S1283 1 . 1 0 `S1288 1 . 1 0 `S1293 1 . 1 0 `S1296 1 . 1 0 `S1299 1 . 1 0 `S1304 1 . 1 0 `S1309 1 . 1 0 `S1314 1 . 1 0 `S1317 1 . 1 0 `S1320 1 . 1 0 `S1323 1 . 1 0 `S1326 1 . 1 0 `S1329 1 . 1 0 `S1332 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES1335  1 e 1 @4039 ]
 "16576
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "16582
@@ -1407,11 +1407,4 @@ TRUE 1
 [v _ReadI2C ReadI2C `(uc  1 e 1 0 ]
 {
 "17
-} 0
-"18 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c
-[v _CAN_Transmit CAN_Transmit `(v  1 e 0 0 ]
-{
-"20
-[v CAN_Transmit@canId canId `ui  1 a 2 3 ]
-"46
 } 0

@@ -13,7 +13,6 @@ __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _Sensitivity 21 0 COMRAM 1
 _OFF2 60 0 BANK0 1
-__cntErrataNOP_/tmp/cgt9iCiWK.obj 1 0 ABS 0
 _RCIE 7CED 0 ABS 0
 _PEIE 7F96 0 ABS 0
 _RCIF 7CF5 0 ABS 0
@@ -325,6 +324,7 @@ __CFG_WRTB$OFF 0 0 ABS 0
 intlevel2 3CD4 0 CODE 0
 intlevel3 3CD4 0 CODE 0
 __CFG_WRTC$OFF 0 0 ABS 0
+__cntErrataNOP_/tmp/cgtlqnI1h.obj 1 0 ABS 0
 __CFG_WRTD$OFF 0 0 ABS 0
 _initI2C_USART 3D8A 0 CODE 0
 __CFG_CPB$OFF 0 0 ABS 0
@@ -406,7 +406,7 @@ main.c
 148 3FEA 0 CODE 0
 149 3FEC 0 CODE 0
 151 3FEE 0 CODE 0
-/tmp/cgtEMtJXA
+/tmp/cgtQFqekB
 868 3D40 0 CODE 0
 870 3D40 0 CODE 0
 873 3D40 0 CODE 0

@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <plib/usart.h>
+#include <plib/adc.h>
 
 #include "I2Cdev.c" /* I2Cdev library */
 #include "MPU6050.c" /* MPU6050 drivers */
@@ -132,6 +133,12 @@ void delayzz(void) {
 			/* Well its Just a Timer */
 		}    
 	}   
+}
+
+//Function to Initialise the ADC Module
+void ADCInit(void)
+{
+   OpenADC(ADC_FOSC_2 & ADC_RIGHT_JUST & ADC_8ANA_0REF, ADC_CH0 & ADC_INT_ON);
 }
 
 uint16_t convertFrom8To16(uint8_t dataFirst, uint8_t dataSecond) {

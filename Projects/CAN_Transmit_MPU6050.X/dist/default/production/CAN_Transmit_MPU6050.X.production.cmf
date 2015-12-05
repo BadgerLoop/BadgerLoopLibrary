@@ -11,49 +11,48 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtz4aMBJ.obj
+$/tmp/cgtI8RYIk.obj
 end_init CODE 0 2 2 4 1
-text CODE 0 3696 3696 2 1
+text CODE 0 3712 3712 2 1
 reset_vec CODE 0 0 0 2 1
 idloc IDLOC 0 200000 200000 8 1
 config CONFIG 0 300000 300000 E 1
 $dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-text31 CODE 0 3AEC 3AEC 7A 1
-text30 CODE 0 38C4 38C4 2C 1
-text29 CODE 0 36A4 36A4 14 1
-text28 CODE 0 3A1C 3A1C 68 1
-text27 CODE 0 3870 3870 2A 1
-text26 CODE 0 3CEE 3CEE EE 1
-text25 CODE 0 3730 3730 1E 1
-text24 CODE 0 3BE4 3BE4 80 1
-text23 CODE 0 37E4 37E4 22 1
-text22 CODE 0 3DDC 3DDC F4 1
-text21 CODE 0 384A 384A 26 1
-text20 CODE 0 391C 391C 42 1
-text19 CODE 0 389A 389A 2A 1
-text18 CODE 0 3714 3714 1C 1
-text17 CODE 0 3806 3806 22 1
-text16 CODE 0 39BC 39BC 60 1
-text15 CODE 0 38F0 38F0 2C 1
-text14 CODE 0 3698 3698 C 1
-text13 CODE 0 395E 395E 5E 1
-text12 CODE 0 374E 374E 1E 1
-text11 CODE 0 3C64 3C64 8A 1
-text10 CODE 0 376C 376C 1E 1
-text9 CODE 0 378A 378A 1E 1
-text8 CODE 0 37A8 37A8 1E 1
-text7 CODE 0 3B66 3B66 7E 1
-text6 CODE 0 36FA 36FA 1A 1
-text5 CODE 0 37C6 37C6 1E 1
-text4 CODE 0 36CC 36CC 16 1
-text3 CODE 0 36E2 36E2 18 1
-text2 CODE 0 3A84 3A84 68 1
-text1 CODE 0 36B8 36B8 14 1
+text30 CODE 0 396C 396C 2E 1
+text29 CODE 0 3720 3720 14 1
+text28 CODE 0 3A9A 3A9A 68 1
+text27 CODE 0 38EC 38EC 2A 1
+text26 CODE 0 3CF2 3CF2 EE 1
+text25 CODE 0 37AC 37AC 1E 1
+text24 CODE 0 3BE8 3BE8 80 1
+text23 CODE 0 3860 3860 22 1
+text22 CODE 0 3DE0 3DE0 F4 1
+text21 CODE 0 38C6 38C6 26 1
+text20 CODE 0 399A 399A 42 1
+text19 CODE 0 3916 3916 2A 1
+text18 CODE 0 3790 3790 1C 1
+text17 CODE 0 3882 3882 22 1
+text16 CODE 0 3A3A 3A3A 60 1
+text15 CODE 0 3940 3940 2C 1
+text14 CODE 0 3714 3714 C 1
+text13 CODE 0 39DC 39DC 5E 1
+text12 CODE 0 37CA 37CA 1E 1
+text11 CODE 0 3C68 3C68 8A 1
+text10 CODE 0 37E8 37E8 1E 1
+text9 CODE 0 3806 3806 1E 1
+text8 CODE 0 3824 3824 1E 1
+text7 CODE 0 3B6A 3B6A 7E 1
+text6 CODE 0 3776 3776 1A 1
+text5 CODE 0 3842 3842 1E 1
+text4 CODE 0 3748 3748 16 1
+text3 CODE 0 375E 375E 18 1
+text2 CODE 0 3B02 3B02 68 1
+text1 CODE 0 3734 3734 14 1
 cstackCOMRAM COMRAM 1 1 1 33 1
 bssBANK0 BANK0 1 60 60 3C 1
 bssCOMRAM COMRAM 1 34 34 2B 1
-cinit CODE 0 3828 3828 22 1
-text0 CODE 0 3ED0 3ED0 130 1
+cinit CODE 0 38A4 38A4 22 1
+text0 CODE 0 3ED4 3ED4 12C 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
@@ -68,17 +67,17 @@ BANK4 000400-0004FF 1
 BANK5 000500-0005FF 1
 BIGRAM 00005F-00005F 1
 BIGRAM 00009C-0005FF 1
-CODE 000006-003695 1
+CODE 000006-003711 1
 CODE 004000-007FFF 1
 COMRAM 00005F-00005F 1
-CONST 000006-003695 1
+CONST 000006-003711 1
 CONST 004000-007FFF 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST 000600-003695 1
+MEDIUMCONST 000600-003711 1
 MEDIUMCONST 004000-007FFF 1
 RAM 00009C-0005FF 1
 SFR 000F00-000FFF 1
-SMALLCONST 000600-003695 1
+SMALLCONST 000600-003711 1
 SMALLCONST 004000-007FFF 1
 STACK 00009C-0005FF 1
 # %LINETAB Section
@@ -95,309 +94,291 @@ STACK 00009C-0005FF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":51 3698 text14 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":52 369C text14 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":53 36A0 text14 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_idle.c":24 36A4 text29 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_idle.c":26 36A6 text29 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_idle.c":28 36B4 text29 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":203 36B8 text1 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":206 36BA text1 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":208 36BC text1 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":211 36BE text1 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":214 36C2 text1 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":215 36C8 text1 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":246 36CC text4 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":248 36CE text4 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":250 36D4 text4 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":253 36D8 text4 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":254 36DE text4 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":154 36E2 text3 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":157 36E6 text3 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":160 36EA text3 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":161 36F2 text3 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":160 36F6 text3 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":161 36F8 text3 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2382 36FA text6 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2383 36FE text6 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2384 3710 text6 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":8 3714 text18 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":10 3718 text18 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":11 3718 text18 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":12 3728 text18 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":13 372C text18 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":95 3730 text25 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":96 3734 text25 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":97 374A text25 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":286 374E text12 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":287 3752 text12 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":288 3768 text12 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2475 376C text10 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2476 3770 text10 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2477 3786 text10 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":327 378A text9 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":328 378E text9 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":329 37A4 text9 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":251 37A8 text8 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":252 37AC text8 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":253 37C2 text8 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":62 37C6 text5 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":63 37C8 text5 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":64 37CE text5 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":65 37D4 text5 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":66 37DA text5 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":67 37E0 text5 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":319 37E4 text23 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":320 37E6 text23 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":321 3800 text23 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":322 3802 text23 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":14 3806 text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":16 380A text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":17 380E text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":18 3812 text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":19 3816 text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":20 381A text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":22 381E text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":23 3820 text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":24 3822 text17 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":26 3824 text17 CODE
-"/tmp/cgtDWblRw":890 3828 cinit CODE
-"/tmp/cgtDWblRw":892 3828 cinit CODE
-"/tmp/cgtDWblRw":895 3828 cinit CODE
-"/tmp/cgtDWblRw":953 3828 cinit CODE
-"/tmp/cgtDWblRw":954 382C cinit CODE
-"/tmp/cgtDWblRw":955 382E cinit CODE
-"/tmp/cgtDWblRw":956 382E cinit CODE
-"/tmp/cgtDWblRw":957 3830 cinit CODE
-"/tmp/cgtDWblRw":958 3832 cinit CODE
-"/tmp/cgtDWblRw":961 3834 cinit CODE
-"/tmp/cgtDWblRw":962 3838 cinit CODE
-"/tmp/cgtDWblRw":963 383A cinit CODE
-"/tmp/cgtDWblRw":964 383A cinit CODE
-"/tmp/cgtDWblRw":965 383C cinit CODE
-"/tmp/cgtDWblRw":966 383E cinit CODE
-"/tmp/cgtDWblRw":972 3840 cinit CODE
-"/tmp/cgtDWblRw":974 3840 cinit CODE
-"/tmp/cgtDWblRw":975 3842 cinit CODE
-"/tmp/cgtDWblRw":976 3844 cinit CODE
-"/tmp/cgtDWblRw":977 3846 cinit CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":146 384A text21 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":149 384C text21 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":150 385C text21 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":151 3860 text21 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":152 386C text21 CODE
-"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":15 3870 text27 CODE
-"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":37 3872 text27 CODE
-"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":38 387E text27 CODE
-"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":39 3886 text27 CODE
-"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":52 388E text27 CODE
-"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":53 3896 text27 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":84 389A text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":86 389C text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":88 38A4 text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":89 38A6 text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":90 38AA text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":91 38AC text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":92 38B0 text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":93 38B6 text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":98 38BC text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":93 38C0 text19 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":98 38C2 text19 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":11 38C4 text30 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":13 38C6 text30 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":14 38E4 text30 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":15 38E6 text30 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":16 38EA text30 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":17 38EC text30 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":222 38F0 text15 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":224 38F2 text15 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":225 38F4 text15 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":236 38F6 text15 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":239 3904 text15 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":240 390E text15 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":243 3912 text15 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":244 3918 text15 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":126 391C text20 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":128 391E text20 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":130 3936 text20 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":128 3954 text20 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":135 395A text20 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":254 395E text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":256 3962 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":257 3966 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":260 396C text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":261 3970 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":264 3978 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":265 397C text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":267 3982 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":269 3988 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":270 398C text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":267 39A2 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":274 39AC text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":275 39B0 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":277 39B6 text13 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":278 39B8 text13 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":21 39BC text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":23 39C0 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":24 39C4 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":26 39C8 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":27 39CA text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":29 39CC text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":31 39D0 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":32 39D2 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":35 39D4 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":36 39D6 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":38 39D8 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":39 39DC text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":40 39E0 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":41 39E0 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":43 39E2 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":44 39E6 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":45 39EA text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":46 39EA text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":48 39EC text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":50 39EE text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":51 39F2 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":52 39F6 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":53 39F6 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":55 39F8 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":57 39FA text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":58 39FE text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":59 3A02 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":60 3A02 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":62 3A04 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":63 3A08 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":64 3A0A text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":66 3A0C text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":67 3A10 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":68 3A16 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":69 3A18 text16 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":12 3A1C text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":14 3A20 text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":15 3A24 text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":19 3A28 text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":21 3A48 text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":22 3A4A text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":24 3A4E text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":33 3A56 text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":35 3A76 text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":36 3A7A text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":37 3A7E text28 CODE
-"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":43 3A80 text28 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":163 3A84 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":165 3A86 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":168 3A8A text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":177 3A90 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":178 3A94 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":179 3A98 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":182 3A9C text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":183 3AA8 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":184 3AB4 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":185 3ABA text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":186 3AC0 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":187 3AC6 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":188 3ACC text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":189 3AD2 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":191 3AD8 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":192 3ADC text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":200 3AE2 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":201 3AE8 text2 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":18 3AEC text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":20 3AEE text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":21 3AF6 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":24 3B12 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":26 3B1A text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":27 3B26 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":31 3B34 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":34 3B3A text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":35 3B3E text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":36 3B42 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":37 3B46 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":38 3B4A text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":39 3B4E text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":40 3B52 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":41 3B56 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":44 3B5A text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":46 3B60 text31 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":344 3B66 text7 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":346 3B6A text7 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":347 3B7C text7 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":348 3BD2 text7 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":349 3BE0 text7 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":206 3BE4 text24 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":213 3BE8 text24 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":214 3C02 text24 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":215 3C36 text24 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":216 3C3A text24 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":217 3C54 text24 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":220 3C60 text24 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":373 3C64 text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":382 3C68 text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":383 3C80 text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":384 3CB4 text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":385 3CCE text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":386 3CD2 text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":387 3CD8 text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":388 3CDC text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":392 3CEA text11 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":43 3CEE text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":44 3CF2 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":47 3CF6 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":48 3CFA text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":51 3D00 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":52 3D04 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":55 3D0C text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":56 3D10 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":59 3D16 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":60 3D1A text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":63 3D20 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":64 3D24 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":66 3D2C text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":68 3D32 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":69 3D36 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":71 3D5E text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":73 3D8C text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":74 3D90 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":77 3D9A text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":78 3D9E text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":66 3DA6 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":83 3DCC text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":84 3DD0 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":86 3DD6 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":87 3DD8 text26 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1733 3DDC text22 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1734 3DDE text22 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1735 3DF4 text22 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1736 3E18 text22 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1737 3E3C text22 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1738 3E60 text22 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1739 3E84 text22 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1740 3EA8 text22 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1741 3ECC text22 CODE
-"/Applications/microchip/xc8/v1.32/include/pic18f458.h":14997 3ED0 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":100 3ED0 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":103 3ED2 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":104 3ED6 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":105 3EDA text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":108 3EDE text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":109 3EE0 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":113 3EE4 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":114 3F18 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":132 3F1E text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":133 3F22 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":136 3F26 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":137 3F3E text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":138 3F5A text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":139 3F5E text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":141 3F62 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":142 3F7A text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":143 3F96 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":144 3F9A text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":147 3F9E text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":148 3FB6 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":149 3FD2 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":150 3FD6 text0 CODE
-"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":152 3FDA text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":51 3714 text14 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":52 3718 text14 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":53 371C text14 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_idle.c":24 3720 text29 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_idle.c":26 3722 text29 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_idle.c":28 3730 text29 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":203 3734 text1 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":206 3736 text1 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":208 3738 text1 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":211 373A text1 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":214 373E text1 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":215 3744 text1 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":246 3748 text4 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":248 374A text4 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":250 3750 text4 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":253 3754 text4 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":254 375A text4 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":154 375E text3 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":157 3762 text3 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":160 3766 text3 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":161 376E text3 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":160 3772 text3 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":161 3774 text3 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2382 3776 text6 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2383 377A text6 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2384 378C text6 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":8 3790 text18 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":10 3794 text18 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":11 3794 text18 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":12 37A4 text18 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/d10ktcyx.c":13 37A8 text18 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":95 37AC text25 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":96 37B0 text25 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":97 37C6 text25 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":286 37CA text12 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":287 37CE text12 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":288 37E4 text12 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2475 37E8 text10 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2476 37EC text10 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":2477 3802 text10 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":327 3806 text9 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":328 380A text9 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":329 3820 text9 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":251 3824 text8 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":252 3828 text8 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":253 383E text8 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":62 3842 text5 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":63 3844 text5 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":64 384A text5 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":65 3850 text5 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":66 3856 text5 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":67 385C text5 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":319 3860 text23 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":320 3862 text23 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":321 387C text23 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":322 387E text23 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":14 3882 text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":16 3886 text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":17 388A text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":18 388E text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":19 3892 text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":20 3896 text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":22 389A text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":23 389C text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":24 389E text17 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_open.c":26 38A0 text17 CODE
+"/tmp/cgtxb7MN6":889 38A4 cinit CODE
+"/tmp/cgtxb7MN6":891 38A4 cinit CODE
+"/tmp/cgtxb7MN6":894 38A4 cinit CODE
+"/tmp/cgtxb7MN6":952 38A4 cinit CODE
+"/tmp/cgtxb7MN6":953 38A8 cinit CODE
+"/tmp/cgtxb7MN6":954 38AA cinit CODE
+"/tmp/cgtxb7MN6":955 38AA cinit CODE
+"/tmp/cgtxb7MN6":956 38AC cinit CODE
+"/tmp/cgtxb7MN6":957 38AE cinit CODE
+"/tmp/cgtxb7MN6":960 38B0 cinit CODE
+"/tmp/cgtxb7MN6":961 38B4 cinit CODE
+"/tmp/cgtxb7MN6":962 38B6 cinit CODE
+"/tmp/cgtxb7MN6":963 38B6 cinit CODE
+"/tmp/cgtxb7MN6":964 38B8 cinit CODE
+"/tmp/cgtxb7MN6":965 38BA cinit CODE
+"/tmp/cgtxb7MN6":971 38BC cinit CODE
+"/tmp/cgtxb7MN6":973 38BC cinit CODE
+"/tmp/cgtxb7MN6":974 38BE cinit CODE
+"/tmp/cgtxb7MN6":975 38C0 cinit CODE
+"/tmp/cgtxb7MN6":976 38C2 cinit CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":146 38C6 text21 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":149 38C8 text21 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":150 38D8 text21 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":151 38DC text21 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":152 38E8 text21 CODE
+"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":15 38EC text27 CODE
+"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":37 38EE text27 CODE
+"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":38 38FA text27 CODE
+"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":39 3902 text27 CODE
+"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":52 390A text27 CODE
+"/Applications/microchip/xc8/v1.32/sources/common/Umul16.c":53 3912 text27 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":84 3916 text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":86 3918 text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":88 3920 text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":89 3922 text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":90 3926 text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":91 3928 text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":92 392C text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":93 3932 text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":98 3938 text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":93 393C text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":98 393E text19 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":222 3940 text15 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":224 3942 text15 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":225 3944 text15 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":236 3946 text15 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":239 3954 text15 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":240 395E text15 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":243 3962 text15 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":244 3968 text15 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":11 396C text30 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":13 396E text30 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":14 398C text30 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":15 398E text30 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":16 3992 text30 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_read.c":17 3994 text30 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":126 399A text20 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":128 399C text20 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":130 39B4 text20 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":128 39D2 text20 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":135 39D8 text20 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":254 39DC text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":256 39E0 text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":257 39E4 text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":260 39EA text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":261 39EE text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":264 39F6 text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":265 39FA text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":267 3A00 text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":269 3A06 text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":270 3A0A text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":267 3A20 text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":274 3A2A text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":275 3A2E text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":277 3A34 text13 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":278 3A36 text13 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":21 3A3A text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":23 3A3E text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":24 3A42 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":26 3A46 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":27 3A48 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":29 3A4A text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":31 3A4E text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":32 3A50 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":35 3A52 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":36 3A54 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":38 3A56 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":39 3A5A text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":40 3A5E text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":41 3A5E text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":43 3A60 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":44 3A64 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":45 3A68 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":46 3A68 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":48 3A6A text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":50 3A6C text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":51 3A70 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":52 3A74 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":53 3A74 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":55 3A76 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":57 3A78 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":58 3A7C text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":59 3A80 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":60 3A80 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":62 3A82 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":63 3A86 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":64 3A88 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":66 3A8A text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":67 3A8E text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":68 3A94 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c":69 3A96 text16 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":12 3A9A text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":14 3A9E text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":15 3AA2 text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":19 3AA6 text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":21 3AC6 text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":22 3AC8 text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":24 3ACC text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":33 3AD4 text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":35 3AF4 text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":36 3AF8 text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":37 3AFC text28 CODE
+"/Applications/microchip/xc8/v1.32/sources/pic18/plib/i2c/i2c_writ.c":43 3AFE text28 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":163 3B02 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":165 3B04 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":168 3B08 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":177 3B0E text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":178 3B12 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":179 3B16 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":182 3B1A text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":183 3B26 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":184 3B32 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":185 3B38 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":186 3B3E text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":187 3B44 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":188 3B4A text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":189 3B50 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":191 3B56 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":192 3B5A text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":200 3B60 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c":201 3B66 text2 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":344 3B6A text7 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":346 3B6E text7 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":347 3B80 text7 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":348 3BD6 text7 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":349 3BE4 text7 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":206 3BE8 text24 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":213 3BEC text24 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":214 3C06 text24 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":215 3C3A text24 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":216 3C3E text24 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":217 3C58 text24 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":220 3C64 text24 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":373 3C68 text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":382 3C6C text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":383 3C84 text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":384 3CB8 text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":385 3CD2 text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":386 3CD6 text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":387 3CDC text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":388 3CE0 text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":392 3CEE text11 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":43 3CF2 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":44 3CF6 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":47 3CFA text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":48 3CFE text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":51 3D04 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":52 3D08 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":55 3D10 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":56 3D14 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":59 3D1A text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":60 3D1E text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":63 3D24 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":64 3D28 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":66 3D30 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":68 3D36 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":69 3D3A text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":71 3D62 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":73 3D90 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":74 3D94 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":77 3D9E text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":78 3DA2 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":66 3DAA text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":83 3DD0 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":84 3DD4 text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":86 3DDA text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c":87 3DDC text26 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1733 3DE0 text22 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1734 3DE2 text22 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1735 3DF8 text22 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1736 3E1C text22 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1737 3E40 text22 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1738 3E64 text22 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1739 3E88 text22 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1740 3EAC text22 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c":1741 3ED0 text22 CODE
+"/Applications/microchip/xc8/v1.32/include/pic18f458.h":14997 3ED4 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":100 3ED4 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":103 3ED6 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":104 3EDA text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":105 3EDE text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":108 3EE2 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":109 3EE4 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":113 3EE8 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":114 3F1C text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":132 3F22 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":133 3F26 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":136 3F2A text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":137 3F42 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":138 3F5E text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":139 3F62 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":141 3F66 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":142 3F7E text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":143 3F9A text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":144 3F9E text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":147 3FA2 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":148 3FBA text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":149 3FD6 text0 CODE
+"/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":150 3FDA text0 CODE
 "/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":154 3FDE text0 CODE
 "/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":156 3FEC text0 CODE
 "/Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c":159 3FEE text0 CODE
@@ -414,15 +395,15 @@ $dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 MPU6050_setFullScaleAccelRange@range 21 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_initI2C_USART 391C 0 CODE 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_initI2C_USART 396C 0 CODE 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_I2Cdev_writeByte 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _D1 68 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_delayzz 395E 0 CODE 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_delayzz 39DC 0 CODE 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _D2 6C 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _T2 7C 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _dT 40 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 MPU6050_setFullScaleGyroRange@range 21 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_OpenUSART 3A1C 0 CODE 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_OpenUSART 3A9A 0 CODE 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __S0 30000E 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __S1 9C 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __S2 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -430,22 +411,22 @@ __CFG_STVR$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.produc
 __Hintentry 0 0 ABS 0 intentry dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_MPU6050_initialize 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_MPU6050_initialize 37E4 0 CODE 0 text5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_MPU6050_initialize 3860 0 CODE 0 text5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _Sensitivity 78 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _OFF2 70 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_convertFrom16To8 384A 0 CODE 0 text21 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_flashLED 38C4 0 CODE 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_convertFrom16To8 38C6 0 CODE 0 text21 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_flashLED 3940 0 CODE 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TEMP 58 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 delayzz@i 1 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBytes@i 9 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 delayzz@j 3 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_main 3ED0 0 CODE 0 text0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_main 3ED4 0 CODE 0 text0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _mbar 84 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtz4aMBJ.obj
-start 2 0 CODE 0 init /tmp/cgtz4aMBJ.obj
+___sp 0 0 STACK 2 stack /tmp/cgtI8RYIk.obj
+start 2 0 CODE 0 init /tmp/cgtI8RYIk.obj
 _sendData 34 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_MPU6050_setClockSource 376C 0 CODE 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_I2Cdev_writeBytes 39BC 0 CODE 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_MPU6050_setClockSource 37E8 0 CODE 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_I2Cdev_writeBytes 3A3A 0 CODE 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 convertFrom16To8@dataAll 1 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RCSTA FAB 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TRISB F93 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -462,11 +443,11 @@ I2Cdev_writeByte@data B 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Tran
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lconfig 300000 0 CONFIG 0 config dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBit@regAddr 17 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_I2Cdev_writeByte 374E 0 CODE 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_I2Cdev_writeByte 37CA 0 CODE 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_I2Cdev_writeBits 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBit@devAddr 21 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _tempC 87 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_I2Cdev_writeBytes 395E 0 CODE 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_I2Cdev_writeBytes 39DC 0 CODE 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBits@bitStart 18 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _HighByte 46 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_WDTPS$128 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -498,30 +479,27 @@ _RXB0D4 F6A 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.
 _TXB0D4 F4A 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RXB0D5 F6B 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TXB0D5 F4B 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_CAN_Init 3A84 0 CODE 0 text2 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_CAN_Init 3B02 0 CODE 0 text2 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RXB0D6 F6C 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TXB0D6 F4C 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RXB0D7 F6D 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TXB0D7 F4D 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_delayzz 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_setupCANTxRx 36B8 0 CODE 0 text1 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_setupCANTxRx 3734 0 CODE 0 text1 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_flashLED 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBytes@regAddr 4 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBytes@devAddr 8 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-CAN_Transmit@canId 4 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_CAN_Transmit 3B64 0 CODE 0 text31 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBytes@data 6 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _PIE1bits F9D 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_IdleI2C 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _PIR1bits F9E 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_IdleI2C 36B8 0 CODE 0 text29 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_IdleI2C 3734 0 CODE 0 text29 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _LATBbits F8A 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _SSPADD FC8 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_CAN_Transmit 3AEC 0 CODE 0 text31 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hintret 0 0 ABS 0 intret dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -551,36 +529,36 @@ WriteI2C@data_out 3 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_Delay10KTCYx 3714 0 CODE 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_Delay10KTCYx 3790 0 CODE 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _receivedData 60 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_BORV$25 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hdata 0 0 ABS 0 data dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_MPU6050 3698 0 CODE 0 text14 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-stackhi 5FF 0 ABS 0 - /tmp/cgtz4aMBJ.obj
+_MPU6050 3714 0 CODE 0 text14 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+stackhi 5FF 0 ABS 0 - /tmp/cgtI8RYIk.obj
 main@ax 2C 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 main@ay 30 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 main@az 2E 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 main@gx 25 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _mpu6050 49 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 main@gy 27 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_I2Cdev_readByte 374E 0 CODE 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_I2Cdev_readByte 37CA 0 CODE 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 main@gz 29 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-stacklo 9C 0 ABS 0 - /tmp/cgtz4aMBJ.obj
+stacklo 9C 0 ABS 0 - /tmp/cgtI8RYIk.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_BOR$ON 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_I2Cdev_writeBit 3BE4 0 CODE 0 text7 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_I2Cdev_writeBit 3BE8 0 CODE 0 text7 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hinit 2 0 CODE 0 init dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _Offset 74 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Linit 2 0 CODE 0 init dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hintcodelo 2 0 CODE 0 intcodelo dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lintcodelo 2 0 CODE 0 intcodelo dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-___wmul 3870 0 CODE 0 text27 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+___wmul 38EC 0 CODE 0 text27 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hrbss 0 0 COMRAM 1 rbss dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __end_of_main 4000 0 CODE 0 text0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lrbss 0 0 COMRAM 1 rbss dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -589,13 +567,13 @@ MPU6050_setClockSource@source 21 0 COMRAM 1 cstackCOMRAM dist/default/production
 __Htext 0 0 ABS 0 text dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext 0 0 ABS 0 text dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_OSC$HS 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_initMPU6050 36E2 0 CODE 0 text4 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_initMPU6050 375E 0 CODE 0 text4 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 ___wmul@multiplier 1 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readByte@data 14 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_I2Cdev_readBits 3C64 0 CODE 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_I2Cdev_readBits 3C68 0 CODE 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBits@bitStart 18 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-end_of_initialization 3840 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_MPU6050_setFullScaleGyroRange 37C6 0 CODE 0 text8 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+end_of_initialization 38BC 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_MPU6050_setFullScaleGyroRange 3842 0 CODE 0 text8 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 OpenUSART@spbrg 1 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 Delay10KTCYx@unit 2 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 ___wmul@multiplicand 3 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -604,20 +582,20 @@ _SSPCON1 FC6 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production
 _BRGCON2 F71 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _SSPCON2 FC5 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _BRGCON3 F72 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_CAN_Init 3AEC 0 CODE 0 text2 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_CAN_Init 3B6A 0 CODE 0 text2 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _I2C_Bytes 5C 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_ReadI2C 38C4 0 CODE 0 text30 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_IdleI2C 36A4 0 CODE 0 text29 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_ReadI2C 396C 0 CODE 0 text30 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_IdleI2C 3720 0 CODE 0 text29 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 ?_convertFrom16To8 1 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_OpenI2C 3806 0 CODE 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_OpenI2C 3882 0 CODE 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TXB0DLC F45 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RCSTAbits FAB 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TRISBbits F93 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TRISCbits F94 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _TXSTAbits FAC 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_I2Cdev_readBits 3BE4 0 CODE 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_I2Cdev_readBits 3BE8 0 CODE 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_Delay10KTCYx 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_MPU6050_setSleepEnabled 3714 0 CODE 0 text6 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_MPU6050_setSleepEnabled 3790 0 CODE 0 text6 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RXB0CON F60 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -638,64 +616,64 @@ __Lbank4 0 0 ABS 0 bank4 dist/default/production/CAN_Transmit_MPU6050.X.producti
 _CANSTAT F6E 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 OpenI2C@slew 1 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hbank5 0 0 ABS 0 bank5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_MPU6050 36A4 0 CODE 0 text14 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_MPU6050 3720 0 CODE 0 text14 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lbank5 0 0 ABS 0 bank5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hpowerup 2 0 CODE 0 powerup dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _SSPSTAT FC7 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lpowerup 2 0 CODE 0 powerup dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_MPU6050_setClockSource 378A 0 CODE 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_MPU6050_setClockSource 3806 0 CODE 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext0 0 0 ABS 0 text0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBytes@data 9 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext0 0 0 ABS 0 text0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _SSPCON1bits FC6 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext1 0 0 ABS 0 text1 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext1 0 0 ABS 0 text1 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext0 3ED0 0 CODE 0 text0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext0 3ED4 0 CODE 0 text0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _SSPCON2bits FC5 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext2 0 0 ABS 0 text2 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext2 0 0 ABS 0 text2 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext1 36B8 0 CODE 0 text1 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext1 3734 0 CODE 0 text1 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext3 0 0 ABS 0 text3 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext3 0 0 ABS 0 text3 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext2 3A84 0 CODE 0 text2 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext2 3B02 0 CODE 0 text2 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext4 0 0 ABS 0 text4 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext4 0 0 ABS 0 text4 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext3 36E2 0 CODE 0 text3 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext3 375E 0 CODE 0 text3 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext5 0 0 ABS 0 text5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext5 0 0 ABS 0 text5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext4 36CC 0 CODE 0 text4 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext4 3748 0 CODE 0 text4 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext6 0 0 ABS 0 text6 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext6 0 0 ABS 0 text6 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext5 37C6 0 CODE 0 text5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext5 3842 0 CODE 0 text5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext7 0 0 ABS 0 text7 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext7 0 0 ABS 0 text7 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext6 36FA 0 CODE 0 text6 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext6 3776 0 CODE 0 text6 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 OpenUSART@config 3 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext8 0 0 ABS 0 text8 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext8 0 0 ABS 0 text8 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext7 3B66 0 CODE 0 text7 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext7 3B6A 0 CODE 0 text7 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __pbssCOMRAM 34 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext9 0 0 ABS 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext9 0 0 ABS 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext8 37A8 0 CODE 0 text8 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext9 378A 0 CODE 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext8 3824 0 CODE 0 text8 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext9 3806 0 CODE 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_initMPU6050 36CC 0 CODE 0 text4 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_initMPU6050 3748 0 CODE 0 text4 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_I2Cdev_writeBytes 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBits@regAddr 17 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBits@devAddr 1E 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of__initialization 3840 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_I2Cdev_readByte 3730 0 CODE 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_I2Cdev_readBytes 3CEE 0 CODE 0 text26 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of__initialization 38BC 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_I2Cdev_readByte 37AC 0 CODE 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_I2Cdev_readBytes 3CF2 0 CODE 0 text26 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBytes@count 12 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_MPU6050_initialize 37C6 0 CODE 0 text5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_MPU6050_initialize 3842 0 CODE 0 text5 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _SSPSTATbits FC7 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_CAN_SetMode 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_MPU6050_getFullScaleAccelRange 3806 0 CODE 0 text23 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_MPU6050_setFullScaleAccelRange 37A8 0 CODE 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_MPU6050_getFullScaleAccelRange 3882 0 CODE 0 text23 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_MPU6050_setFullScaleAccelRange 3824 0 CODE 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hidata 0 0 CODE 0 idata dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lidata 0 0 CODE 0 idata dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hrdata 0 0 COMRAM 1 rdata dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -707,7 +685,7 @@ __Lstack 0 0 STACK 2 stack dist/default/production/CAN_Transmit_MPU6050.X.produc
 I2Cdev_readByte@regAddr 13 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readByte@devAddr 16 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _MidByte 48 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_CAN_SetMode 36FA 0 CODE 0 text3 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_CAN_SetMode 3776 0 CODE 0 text3 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hparam 0 0 ABS 0 rparam dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lparam 0 0 ABS 0 rparam dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hspace_0 30000E 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -723,7 +701,7 @@ __Lspace_1 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production
 _mbarInt 80 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_convertFrom16To8 3870 0 CODE 0 text21 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_convertFrom16To8 38EC 0 CODE 0 text21 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hspace_2 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lspace_2 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -731,33 +709,32 @@ __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production/CAN_Transmit_MPU6050.X.produ
 ?___wmul 1 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hcinit 0 0 ABS 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__pcinit 3828 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__pcinit 38A4 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ramtop 600 0 RAM 0 ramtop /tmp/cgtz4aMBJ.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtz4aMBJ.obj
+__ramtop 600 0 RAM 0 ramtop /tmp/cgtI8RYIk.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtI8RYIk.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeByte@regAddr A 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeByte@devAddr C 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lconst 0 0 CODE 0 const dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_I2Cdev_writeBit 3B66 0 CODE 0 text7 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_I2Cdev_writeBit 3B6A 0 CODE 0 text7 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_OpenUSART 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_I2Cdev_writeBits 3C64 0 CODE 0 text11 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_I2Cdev_writeBits 3C68 0 CODE 0 text11 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBytes@length 5 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_setupCANTxRx 36CC 0 CODE 0 text1 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_setupCANTxRx 3748 0 CODE 0 text1 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _I2Cdev_writeBit$411 1F 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _sensorCoeffs 8A 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 flashLED@count 5 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_delayzz 391C 0 CODE 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_delayzz 399A 0 CODE 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBytes@length 8 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_CAN_SetMode 36E2 0 CODE 0 text3 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__cntErrataNOP_/tmp/cgtz4aMBJ.obj 1 0 ABS 0 - /tmp/cgtz4aMBJ.obj
+_CAN_SetMode 375E 0 CODE 0 text3 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_initMPU6050 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_MPU6050_setSleepEnabled 36FA 0 CODE 0 text6 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_MPU6050_setSleepEnabled 3776 0 CODE 0 text6 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_PWRT$ON 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -766,82 +743,79 @@ __Htext10 0 0 ABS 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.produc
 __Ltext10 0 0 ABS 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext20 0 0 ABS 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext20 0 0 ABS 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext10 376C 0 CODE 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext10 37E8 0 CODE 0 text10 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext30 0 0 ABS 0 text30 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext11 0 0 ABS 0 text11 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext30 0 0 ABS 0 text30 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext11 0 0 ABS 0 text11 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext20 391C 0 CODE 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext20 399A 0 CODE 0 text20 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext21 0 0 ABS 0 text21 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext21 0 0 ABS 0 text21 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext11 3C64 0 CODE 0 text11 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext30 38C4 0 CODE 0 text30 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__Htext31 0 0 ABS 0 text31 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext11 3C68 0 CODE 0 text11 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext30 396C 0 CODE 0 text30 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext12 0 0 ABS 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__Ltext31 0 0 ABS 0 text31 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext12 0 0 ABS 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext21 384A 0 CODE 0 text21 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext21 38C6 0 CODE 0 text21 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext22 0 0 ABS 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext22 0 0 ABS 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext12 374E 0 CODE 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext31 3AEC 0 CODE 0 text31 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext12 37CA 0 CODE 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext13 0 0 ABS 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext13 0 0 ABS 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext22 3DDC 0 CODE 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_Delay10KTCYx 3730 0 CODE 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext22 3DE0 0 CODE 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_Delay10KTCYx 37AC 0 CODE 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext23 0 0 ABS 0 text23 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext23 0 0 ABS 0 text23 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext13 395E 0 CODE 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext13 39DC 0 CODE 0 text13 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext14 0 0 ABS 0 text14 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext14 0 0 ABS 0 text14 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext23 37E4 0 CODE 0 text23 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext23 3860 0 CODE 0 text23 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 convertFrom16To8@arrayData 9A 0 BANK0 1 bssBANK0 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext24 0 0 ABS 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_MPU6050_getFullScaleAccelRange 37E4 0 CODE 0 text23 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_MPU6050_getFullScaleAccelRange 3860 0 CODE 0 text23 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext24 0 0 ABS 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext14 3698 0 CODE 0 text14 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext14 3714 0 CODE 0 text14 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext15 0 0 ABS 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext15 0 0 ABS 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext24 3BE4 0 CODE 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext24 3BE8 0 CODE 0 text24 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBits@b 22 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext25 0 0 ABS 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext25 0 0 ABS 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext15 38F0 0 CODE 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgtz4aMBJ.obj
+__ptext15 3940 0 CODE 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgtI8RYIk.obj
 __Htext16 0 0 ABS 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext16 0 0 ABS 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext25 3730 0 CODE 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext25 37AC 0 CODE 0 text25 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext26 0 0 ABS 0 text26 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext26 0 0 ABS 0 text26 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext16 39BC 0 CODE 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext16 3A3A 0 CODE 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext17 0 0 ABS 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext17 0 0 ABS 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext26 3CEE 0 CODE 0 text26 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext26 3CF2 0 CODE 0 text26 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext27 0 0 ABS 0 text27 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_WriteI2C 3A1C 0 CODE 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_WriteI2C 3A9A 0 CODE 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext27 0 0 ABS 0 text27 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext17 3806 0 CODE 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext17 3882 0 CODE 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _Resolution 44 0 COMRAM 1 bssCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext18 0 0 ABS 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext18 0 0 ABS 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext27 3870 0 CODE 0 text27 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext27 38EC 0 CODE 0 text27 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext28 0 0 ABS 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext28 0 0 ABS 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext18 3714 0 CODE 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_ReadI2C 38F0 0 CODE 0 text30 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext18 3790 0 CODE 0 text18 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_ReadI2C 3998 0 CODE 0 text30 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 main@a_unsigned_array 32 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext19 0 0 ABS 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext19 0 0 ABS 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext28 3A1C 0 CODE 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext28 3A9A 0 CODE 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Htext29 0 0 ABS 0 text29 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Ltext29 0 0 ABS 0 text29 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__ptext19 389A 0 CODE 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__ptext19 3916 0 CODE 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_MPU6050_setFullScaleGyroRange 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgtz4aMBJ.obj
-__ptext29 36A4 0 CODE 0 text29 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgtI8RYIk.obj
+__ptext29 3720 0 CODE 0 text29 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBits@data 1A 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBits@mask 21 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_OpenUSART 39BC 0 CODE 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_OpenUSART 3A3A 0 CODE 0 text16 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Hend_init 6 0 CODE 0 end_init dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lend_init 2 0 CODE 0 end_init dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RXB0SIDH F61 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -859,10 +833,11 @@ _RXM0SIDL F19 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.productio
 _RXF4SIDL F11 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RXM1SIDL F1D 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 _RXF5SIDL F15 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__cntErrataNOP_/tmp/cgtI8RYIk.obj 1 0 ABS 0 - /tmp/cgtI8RYIk.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtz4aMBJ.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtI8RYIk.obj
 I2Cdev_readBits@count 1F 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_flashLED 389A 0 CODE 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_flashLED 3916 0 CODE 0 text19 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_CP1$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 OpenI2C@sync_mode 2 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of___wmul 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -875,30 +850,30 @@ __size_of_setupCANTxRx 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.
 __size_of_MPU6050_setClockSource 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_MPU6050_getFullScaleAccelRange 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_MPU6050_setFullScaleAccelRange 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__accesstop 60 0 ABS 0 - /tmp/cgtz4aMBJ.obj
+__accesstop 60 0 ABS 0 - /tmp/cgtI8RYIk.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_WriteI2C 3A84 0 CODE 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-intlevel0 3696 0 CODE 0 text /tmp/cgtz4aMBJ.obj
+__end_of_WriteI2C 3B02 0 CODE 0 text28 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+intlevel0 3712 0 CODE 0 text /tmp/cgtI8RYIk.obj
 __size_of_MPU6050_getMotion6 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_initI2C_USART 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBit@b 22 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-intlevel1 3696 0 CODE 0 text /tmp/cgtz4aMBJ.obj
+intlevel1 3712 0 CODE 0 text /tmp/cgtI8RYIk.obj
 __CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-intlevel2 3696 0 CODE 0 text /tmp/cgtz4aMBJ.obj
-_MPU6050_setFullScaleAccelRange 378A 0 CODE 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-intlevel3 3696 0 CODE 0 text /tmp/cgtz4aMBJ.obj
+intlevel2 3712 0 CODE 0 text /tmp/cgtI8RYIk.obj
+_MPU6050_setFullScaleAccelRange 3806 0 CODE 0 text9 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+intlevel3 3712 0 CODE 0 text /tmp/cgtI8RYIk.obj
 __CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_I2Cdev_writeByte 376C 0 CODE 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_I2Cdev_writeByte 37E8 0 CODE 0 text12 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBits@length 19 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_WriteI2C 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBit@data 19 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_I2Cdev_readByte 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_initI2C_USART 38F0 0 CODE 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_initI2C_USART 3940 0 CODE 0 text15 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_I2Cdev_writeBit 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__cntErrataNOP_dist/default/production/CAN_Transmit_MPU6050.X.production.obj 42 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_MPU6050_setFullScaleGyroRange 37A8 0 CODE 0 text8 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__cntErrataNOP_dist/default/production/CAN_Transmit_MPU6050.X.production.obj 40 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_MPU6050_setFullScaleGyroRange 3824 0 CODE 0 text8 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_CPB$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 MPU6050_getMotion6@ax 13 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 MPU6050_getMotion6@ay 15 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -906,23 +881,22 @@ MPU6050_getMotion6@az 17 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Tra
 MPU6050_getMotion6@gx 19 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 MPU6050_getMotion6@gy 1B 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 MPU6050_getMotion6@gz 1D 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of___wmul 389A 0 CODE 0 text27 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__size_of_CAN_Transmit 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of___wmul 3916 0 CODE 0 text27 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-start_initialization 3828 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_I2Cdev_readBytes 3DDC 0 CODE 0 text26 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_I2Cdev_writeBits 3CEE 0 CODE 0 text11 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-_MPU6050_getMotion6 3DDC 0 CODE 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+start_initialization 38A4 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_I2Cdev_readBytes 3DE0 0 CODE 0 text26 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_I2Cdev_writeBits 3CF2 0 CODE 0 text11 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+_MPU6050_getMotion6 3DE0 0 CODE 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_OSCS$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __size_of_I2Cdev_readBits 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBytes@regAddr 7 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBits@b 20 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_readBytes@devAddr 11 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_MPU6050_getMotion6 3ED0 0 CODE 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__initialization 3828 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_MPU6050_getMotion6 3ED4 0 CODE 0 text22 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__initialization 38A4 0 CODE 0 cinit dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __activetblptr 2 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 ___wmul@product 5 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
-__end_of_OpenI2C 3828 0 CODE 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
+__end_of_OpenI2C 38A4 0 CODE 0 text17 dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 I2Cdev_writeBit@bitNum 18 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 __CFG_WDT$OFF 0 0 ABS 0 - dist/default/production/CAN_Transmit_MPU6050.X.production.obj
 MPU6050@address 1 0 COMRAM 1 cstackCOMRAM dist/default/production/CAN_Transmit_MPU6050.X.production.obj
@@ -960,37 +934,36 @@ config 0 300000 300000 E 1
 idloc 0 200000 200000 8 1
 cstackCOMRAM 1 1 1 5E 1
 bssBANK0 1 60 60 3C 1
-text0 0 3ED0 3ED0 130 1
-text22 0 3DDC 3DDC F4 1
-text26 0 3CEE 3CEE EE 1
-text11 0 3C64 3C64 8A 1
-text24 0 3BE4 3BE4 80 1
-text7 0 3B66 3B66 7E 1
-text31 0 3AEC 3AEC 7A 1
-text2 0 3A84 3A84 68 1
-text28 0 3A1C 3A1C 68 1
-text16 0 39BC 39BC 60 1
-text13 0 395E 395E 5E 1
-text20 0 391C 391C 42 1
-text15 0 38F0 38F0 2C 1
-text30 0 38C4 38C4 2C 1
-text19 0 389A 389A 2A 1
-text27 0 3870 3870 2A 1
-text21 0 384A 384A 26 1
-cinit 0 3828 3828 22 1
-text17 0 3806 3806 22 1
-text23 0 37E4 37E4 22 1
-text5 0 37C6 37C6 1E 1
-text8 0 37A8 37A8 1E 1
-text9 0 378A 378A 1E 1
-text10 0 376C 376C 1E 1
-text12 0 374E 374E 1E 1
-text25 0 3730 3730 1E 1
-text18 0 3714 3714 1C 1
-text6 0 36FA 36FA 1A 1
-text3 0 36E2 36E2 18 1
-text4 0 36CC 36CC 16 1
-text1 0 36B8 36B8 14 1
-text29 0 36A4 36A4 14 1
-text14 0 3698 3698 C 1
-text 0 3696 3696 2 1
+text0 0 3ED4 3ED4 12C 1
+text22 0 3DE0 3DE0 F4 1
+text26 0 3CF2 3CF2 EE 1
+text11 0 3C68 3C68 8A 1
+text24 0 3BE8 3BE8 80 1
+text7 0 3B6A 3B6A 7E 1
+text2 0 3B02 3B02 68 1
+text28 0 3A9A 3A9A 68 1
+text16 0 3A3A 3A3A 60 1
+text13 0 39DC 39DC 5E 1
+text20 0 399A 399A 42 1
+text30 0 396C 396C 2E 1
+text15 0 3940 3940 2C 1
+text19 0 3916 3916 2A 1
+text27 0 38EC 38EC 2A 1
+text21 0 38C6 38C6 26 1
+cinit 0 38A4 38A4 22 1
+text17 0 3882 3882 22 1
+text23 0 3860 3860 22 1
+text5 0 3842 3842 1E 1
+text8 0 3824 3824 1E 1
+text9 0 3806 3806 1E 1
+text10 0 37E8 37E8 1E 1
+text12 0 37CA 37CA 1E 1
+text25 0 37AC 37AC 1E 1
+text18 0 3790 3790 1C 1
+text6 0 3776 3776 1A 1
+text3 0 375E 375E 18 1
+text4 0 3748 3748 16 1
+text1 0 3734 3734 14 1
+text29 0 3720 3720 14 1
+text14 0 3714 3714 C 1
+text 0 3712 3712 2 1

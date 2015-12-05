@@ -15274,9 +15274,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 150: sendData[7] = a_unsigned_array[1];
 "150
 [e = *U + &U _sendData * -> -> -> 7 `i `ui `ux -> -> # *U &U _sendData `ui `ux *U + &U _a_unsigned_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _a_unsigned_array `ui `ux ]
-[; ;main.c: 152: CAN_Transmit();
-"152
-[e ( _CAN_Transmit ..  ]
 [; ;main.c: 154: if (ay > 10)
 "154
 [e $ ! > _ay -> 10 `i 1554  ]

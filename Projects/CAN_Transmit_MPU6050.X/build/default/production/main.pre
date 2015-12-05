@@ -13699,7 +13699,7 @@ a_unsigned_array[1] = convertFrom16To8( (uint16_t) az )[1];
 sendData[6] = a_unsigned_array[0];
 sendData[7] = a_unsigned_array[1];
 
-CAN_Transmit();
+
 
 if (ay > 10)
 {
