@@ -56,7 +56,7 @@ def echo_records(records):
         #print('+--> echo record:\n{0}'.format(text))
 
 class readCAN(threading.Thread):
-    def __init__(self, workQueue, queueLock):
+    def __init__(self, workQueue):
         super(readCAN, self).__init__()
         self.workQueue = workQueue
         self.queueLock = queueLock
