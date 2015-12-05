@@ -25,8 +25,8 @@ import time
 import datetime
 
 from argparse import RawTextHelpFormatter
-from boto.kinesis.exceptions import ProvisionedThroughputExceededException
-import poster
+#from boto.kinesis.exceptions import ProvisionedThroughputExceededException
+#import poster
 
 import threading
 import Queue
