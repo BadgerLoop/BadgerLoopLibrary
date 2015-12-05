@@ -19,7 +19,7 @@ import sys
 
 import sys
 import re
-import boto
+#import boto
 import argparse
 import time
 import datetime
