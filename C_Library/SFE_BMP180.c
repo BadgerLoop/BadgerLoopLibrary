@@ -38,7 +38,7 @@ char BMP180_init()
 	// used in the calculations when taking pressure measurements.
 
 	// Retrieve calibration data from device:
-	if (I2Cdev_readBits(BMP180_ADDR, 0xAA, 0x00, 2, &AC1) &&
+	/*if (I2Cdev_readBits(BMP180_ADDR, 0xAA, 0x00, 2, &AC1) &&
 		I2Cdev_readBits(BMP180_ADDR, 0xAC, 0x00, 2, &AC2) &&
 		I2Cdev_readBits(BMP180_ADDR, 0xAE, 0x00, 2, &AC3) &&
 		I2Cdev_readBits(BMP180_ADDR, 0xB0, 0x00, 2, &AC4) &&
@@ -49,20 +49,20 @@ char BMP180_init()
 		I2Cdev_readBits(BMP180_ADDR, 0xBA, 0x00, 2, &MB) &&
 		I2Cdev_readBits(BMP180_ADDR, 0xBC, 0x00, 2, &MC) &&
 		I2Cdev_readBits(BMP180_ADDR, 0xBE, 0x00, 2, &MD))
-	{
-	
-	/* if (readInt(0xAA,AC1) &&
-		readInt(0xAC,AC2) &&
-		readInt(0xAE,AC3) &&
-		readUInt(0xB0,AC4) &&
-		readUInt(0xB2,AC5) &&
-		readUInt(0xB4,AC6) &&
-		readInt(0xB6,VB1) &&
-		readInt(0xB8,VB2) &&
-		readInt(0xBA,MB) &&
-		readInt(0xBC,MC) &&
-		readInt(0xBE,MD))
 	{ */
+	
+	if (BMP180_readInt(0xAA,AC1) &&
+		BMP180_readInt(0xAC,AC2) &&
+		BMP180_readInt(0xAE,AC3) &&
+		BMP180_readInt(0xB0,AC4) &&
+		BMP180_readInt(0xB2,AC5) &&
+		BMP180_readInt(0xB4,AC6) &&
+		BMP180_readInt(0xB6,VB1) &&
+		BMP180_readInt(0xB8,VB2) &&
+		BMP180_readInt(0xBA,MB) &&
+		BMP180_readInt(0xBC,MC) &&
+		BMP180_readInt(0xBE,MD))
+	{
 
 		// All reads completed successfully!
 
@@ -149,9 +149,9 @@ char BMP180_readInt(char address, int16_t &value)
 {
 	unsigned char data[2];
 
-	data[0] = address;
-	//I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)value);
-	if (readBytes(data,2))
+	//data[0] = address;
+	//I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data);
+	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data) == 2)
 	{
 		value = (int16_t)((data[0]<<8)|data[1]);
 		//if (*value & 0x8000) *value |= 0xFFFF0000; // sign extend if negative
@@ -169,8 +169,8 @@ char BMP180_readUInt(char address, uint16_t &value)
 {
 	unsigned char data[2];
 
-	data[0] = address;
-	if (readBytes(data,2))
+	//data[0] = address;
+	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data) == 2)
 	{
 		value = (((uint16_t)data[0]<<8)|(uint16_t)data[1]);
 		return(1);
@@ -180,7 +180,7 @@ char BMP180_readUInt(char address, uint16_t &value)
 }
 
 
-char BMP180_readBytes(unsigned char *values, char length)
+/*char BMP180_readBytes(unsigned char *values, char length)
 // Read an array of bytes from device
 // values: external array to hold data. Put starting register in values[0].
 // length: number of bytes to read
@@ -201,10 +201,10 @@ char BMP180_readBytes(unsigned char *values, char length)
 		return(1);
 	}
 	return(0);
-}
+} */
 
 
-char BMP180_writeBytes(unsigned char *values, char length)
+/* char BMP180_writeBytes(unsigned char *values, char length)
 // Write an array of bytes to device
 // values: external array of data to write. Put starting register in values[0].
 // length: number of bytes to write
@@ -218,18 +218,21 @@ char BMP180_writeBytes(unsigned char *values, char length)
 		return(1);
 	else
 		return(0);
-}
+} */
 
 
 char BMP180_startTemperature(void)
 // Begin a temperature reading.
 // Will return delay in ms to wait, or 0 if I2C error
 {
-	unsigned char data[2], result;
+	unsigned char data[2];
+	unsigned char result;
+	bool result;
 	
 	data[0] = BMP180_REG_CONTROL;
 	data[1] = BMP180_COMMAND_TEMPERATURE;
-	result = writeBytes(data, 2);
+	result =  I2Cdev_writeBytes(BMP180_ADDR, (uint8_t)BMP180_REG_CONTROL, 1, (uint8_t*)(data + 1));
+	//result = writeBytes(data, 2);
 	if (result) // good write?
 		return(5); // return the delay in ms (rounded up) to wait before retrieving data
 	else
@@ -250,8 +253,9 @@ char BMP180_getTemperature(double &T)
 	
 	data[0] = BMP180_REG_RESULT;
 
-	result = readBytes(data, 2);
-	if (result) // good read, calculate temperature
+	//result = readBytes(data, 2);
+	//I2Cdev_readBytes(BMP180_ADDR, (uint8_t)BMP180_REG_RESULT, 2, (uint8_t*)data) == 2
+	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)BMP180_REG_RESULT, 2, (uint8_t*)data) == 2) // good read, calculate temperature
 	{
 		tu = (data[0] * 256.0) + data[1];
 
@@ -280,7 +284,9 @@ char BMP180_startPressure(char oversampling)
 // Oversampling: 0 to 3, higher numbers are slower, higher-res outputs.
 // Will return delay in ms to wait, or 0 if I2C error.
 {
-	unsigned char data[2], result, delay;
+	//unsigned char data[2], result, delay;
+	unsigned char data[2], delay;
+	bool result;
 	
 	data[0] = BMP180_REG_CONTROL;
 
@@ -307,7 +313,8 @@ char BMP180_startPressure(char oversampling)
 			delay = 5;
 		break;
 	}
-	result = writeBytes(data, 2);
+	result = I2Cdev_writeBytes(BMP180_ADDR, (uint8_t)BMP180_REG_CONTROL, 1, (uint8_t*)(data + 1));
+	//result = writeBytes(data, 2);
 	if (result) // good write?
 		return(delay); // return the delay in ms (rounded up) to wait before retrieving data
 	else
@@ -333,10 +340,12 @@ char BMP180_getPressure(double &P, double &T)
 	
 	data[0] = BMP180_REG_RESULT;
 
-	result = readBytes(data, 3);
-	if (result) // good read, calculate pressure
+	//result = readBytes(data, 3);
+
+	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)BMP180_REG_RESULT, 3, (uint8_t*)data) == 3) // good read, calculate pressure
 	{
 		pu = (data[0] * 256.0) + data[1] + (data[2]/256.0);
+		result = 1;
 
 		//example from Bosch datasheet
 		//pu = 23843;
