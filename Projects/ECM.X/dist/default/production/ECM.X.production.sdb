@@ -764,13 +764,13 @@ TRUE 1
 [v _WriteI2C WriteI2C `(c  1 e 1 0 ]
 "21 /Applications/microchip/xc8/v1.32/sources/pic18/plib/USART/uopen.c
 [v _OpenUSART OpenUSART `(v  1 e 0 0 ]
-"18 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c
+"18 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/ECM.X/main.c
 [v _CAN_Transmit CAN_Transmit `(v  1 e 0 0 ]
 "48
 [v _CAN_Receive CAN_Receive `(ui  1 e 2 0 ]
 "84
 [v _flashLED flashLED `(v  1 e 0 0 ]
-"100
+"105
 [v _main main `(v  1 e 0 0 ]
 [s S55 MPU6050_t 15 `uc 1 devAddr 1 0 `[14]uc 1 buffer 14 1 ]
 "43 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c
@@ -978,7 +978,7 @@ TRUE 1
 [v _TRISBbits TRISBbits `VES148  1 e 1 @3987 ]
 "13317
 [v _TRISCbits TRISCbits `VES148  1 e 1 @3988 ]
-[s S1054 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S1053 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -988,19 +988,19 @@ TRUE 1
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "13943
-[s S1063 . 1 `uc 1 . 1 0 :5:0 
+[s S1062 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[s S1066 . 1 `uc 1 . 1 0 :4:0 
+[s S1065 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 ]
-[u S1069 . 1 `S1054 1 . 1 0 `S1063 1 . 1 0 `S1066 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES1069  1 e 1 @3997 ]
+[u S1068 . 1 `S1053 1 . 1 0 `S1062 1 . 1 0 `S1065 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES1068  1 e 1 @3997 ]
 "14022
-[v _PIR1bits PIR1bits `VES1069  1 e 1 @3998 ]
+[v _PIR1bits PIR1bits `VES1068  1 e 1 @3998 ]
 "14712
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S1424 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1423 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -1010,27 +1010,27 @@ TRUE 1
 `uc 1 SPEN 1 0 :1:7 
 ]
 "14755
-[s S1433 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S1432 . 1 `uc 1 RCD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S1437 . 1 `uc 1 . 1 0 :6:0 
+[s S1436 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S1440 . 1 `uc 1 . 1 0 :6:0 
+[s S1439 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RC8 1 0 :1:6 
 ]
-[s S1443 . 1 `uc 1 . 1 0 :6:0 
+[s S1442 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nRC8 1 0 :1:6 
 ]
-[s S1446 . 1 `uc 1 . 1 0 :5:0 
+[s S1445 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S1449 . 1 `S1424 1 . 1 0 `S1433 1 . 1 0 `S1437 1 . 1 0 `S1440 1 . 1 0 `S1443 1 . 1 0 `S1446 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES1449  1 e 1 @4011 ]
+[u S1448 . 1 `S1423 1 . 1 0 `S1432 1 . 1 0 `S1436 1 . 1 0 `S1439 1 . 1 0 `S1442 1 . 1 0 `S1445 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES1448  1 e 1 @4011 ]
 "14935
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S1333 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S1332 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1040,55 +1040,55 @@ TRUE 1
 `uc 1 CSRC 1 0 :1:7 
 ]
 "14997
-[s S1342 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S1341 . 1 `uc 1 TXD8 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S1346 . 1 `uc 1 . 1 0 :6:0 
+[s S1345 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_TX8 1 0 :1:6 
 ]
-[s S1349 . 1 `uc 1 . 1 0 :6:0 
+[s S1348 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 nTX8 1 0 :1:6 
 ]
-[s S1352 . 1 `uc 1 . 1 0 :2:0 
+[s S1351 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 BRGH1 1 0 :1:2 
 ]
-[s S1355 . 1 `uc 1 . 1 0 :7:0 
+[s S1354 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S1358 . 1 `uc 1 . 1 0 :4:0 
+[s S1357 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SYNC1 1 0 :1:4 
 ]
-[s S1361 . 1 `uc 1 . 1 0 :1:0 
+[s S1360 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 ]
-[s S1364 . 1 `uc 1 . 1 0 :6:0 
+[s S1363 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX91 1 0 :1:6 
 ]
-[s S1367 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S1366 . 1 `uc 1 TX9D1 1 0 :1:0 
 ]
-[s S1369 . 1 `uc 1 . 1 0 :5:0 
+[s S1368 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 TXEN1 1 0 :1:5 
 ]
-[u S1372 . 1 `S1333 1 . 1 0 `S1342 1 . 1 0 `S1346 1 . 1 0 `S1349 1 . 1 0 `S1352 1 . 1 0 `S1355 1 . 1 0 `S1358 1 . 1 0 `S1361 1 . 1 0 `S1364 1 . 1 0 `S1367 1 . 1 0 `S1369 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES1372  1 e 1 @4012 ]
+[u S1371 . 1 `S1332 1 . 1 0 `S1341 1 . 1 0 `S1345 1 . 1 0 `S1348 1 . 1 0 `S1351 1 . 1 0 `S1354 1 . 1 0 `S1357 1 . 1 0 `S1360 1 . 1 0 `S1363 1 . 1 0 `S1366 1 . 1 0 `S1368 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES1371  1 e 1 @4012 ]
 "15258
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "15942
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "16009
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S1211 . 1 `uc 1 . 1 0 :2:0 
+[s S1210 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GO_NOT_DONE 1 0 :1:2 
 ]
 "16064
-[s S1214 . 1 `uc 1 ADON 1 0 :1:0 
+[s S1213 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 GO_nDONE 1 0 :1:2 
 `uc 1 CHS 1 0 :3:3 
 `uc 1 ADCS 1 0 :2:6 
 ]
-[s S1223 . 1 `uc 1 . 1 0 :2:0 
+[s S1222 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DONE 1 0 :1:2 
 `uc 1 CHS0 1 0 :1:3 
 `uc 1 CHS1 1 0 :1:4 
@@ -1096,26 +1096,26 @@ TRUE 1
 `uc 1 ADCS0 1 0 :1:6 
 `uc 1 ADCS1 1 0 :1:7 
 ]
-[s S1231 . 1 `uc 1 . 1 0 :2:0 
+[s S1230 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GO_DONE 1 0 :1:2 
 ]
-[s S1234 . 1 `uc 1 . 1 0 :2:0 
+[s S1233 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GO 1 0 :1:2 
 ]
-[s S1237 . 1 `uc 1 . 1 0 :2:0 
+[s S1236 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_DONE 1 0 :1:2 
 ]
-[s S1240 . 1 `uc 1 . 1 0 :2:0 
+[s S1239 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nDONE 1 0 :1:2 
 ]
-[s S1243 . 1 `uc 1 . 1 0 :7:0 
+[s S1242 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 ADCAL 1 0 :1:7 
 ]
-[s S1246 . 1 `uc 1 . 1 0 :2:0 
+[s S1245 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 GODONE 1 0 :1:2 
 ]
-[u S1249 . 1 `S1211 1 . 1 0 `S1214 1 . 1 0 `S1211 1 . 1 0 `S1223 1 . 1 0 `S1231 1 . 1 0 `S1234 1 . 1 0 `S1237 1 . 1 0 `S1240 1 . 1 0 `S1243 1 . 1 0 `S1246 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES1249  1 e 1 @4034 ]
+[u S1248 . 1 `S1210 1 . 1 0 `S1213 1 . 1 0 `S1210 1 . 1 0 `S1222 1 . 1 0 `S1230 1 . 1 0 `S1233 1 . 1 0 `S1236 1 . 1 0 `S1239 1 . 1 0 `S1242 1 . 1 0 `S1245 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1248  1 e 1 @4034 ]
 "16171
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
 [s S25 . 1 `uc 1 SEN 1 0 :1:0 
@@ -1132,30 +1132,30 @@ TRUE 1
 [v _SSPCON2bits SSPCON2bits `VES34  1 e 1 @4037 ]
 "16232
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
-[s S1911 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S1910 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "16252
-[s S1917 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S1916 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S1922 . 1 `S1911 1 . 1 0 `S1917 1 . 1 0 ]
-[v _SSPCON1bits SSPCON1bits `VES1922  1 e 1 @4038 ]
+[u S1921 . 1 `S1910 1 . 1 0 `S1916 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES1921  1 e 1 @4038 ]
 "16301
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
-[s S1573 . 1 `uc 1 . 1 0 :2:0 
+[s S1572 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "16407
-[s S1576 . 1 `uc 1 . 1 0 :5:0 
+[s S1575 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S1579 . 1 `uc 1 BF 1 0 :1:0 
+[s S1578 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -1164,71 +1164,71 @@ TRUE 1
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S1594 . 1 `uc 1 . 1 0 :2:0 
+[s S1593 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S1600 . 1 `uc 1 . 1 0 :2:0 
+[s S1599 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S1605 . 1 `uc 1 . 1 0 :2:0 
+[s S1604 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[s S1610 . 1 `uc 1 . 1 0 :2:0 
+[s S1609 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S1613 . 1 `uc 1 . 1 0 :5:0 
+[s S1612 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S1616 . 1 `uc 1 . 1 0 :2:0 
+[s S1615 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S1621 . 1 `uc 1 . 1 0 :2:0 
+[s S1620 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S1626 . 1 `uc 1 . 1 0 :2:0 
+[s S1625 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S1631 . 1 `uc 1 . 1 0 :5:0 
+[s S1630 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
-[s S1634 . 1 `uc 1 . 1 0 :5:0 
+[s S1633 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S1637 . 1 `uc 1 . 1 0 :2:0 
+[s S1636 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 ]
-[s S1640 . 1 `uc 1 . 1 0 :3:0 
+[s S1639 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 START 1 0 :1:3 
 ]
-[s S1643 . 1 `uc 1 . 1 0 :4:0 
+[s S1642 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 STOP 1 0 :1:4 
 ]
-[s S1646 . 1 `uc 1 . 1 0 :2:0 
+[s S1645 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 ]
-[s S1649 . 1 `uc 1 . 1 0 :5:0 
+[s S1648 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S1652 . 1 `S1573 1 . 1 0 `S1576 1 . 1 0 `S1579 1 . 1 0 `S1573 1 . 1 0 `S1576 1 . 1 0 `S1594 1 . 1 0 `S1600 1 . 1 0 `S1605 1 . 1 0 `S1610 1 . 1 0 `S1613 1 . 1 0 `S1616 1 . 1 0 `S1621 1 . 1 0 `S1626 1 . 1 0 `S1631 1 . 1 0 `S1634 1 . 1 0 `S1637 1 . 1 0 `S1640 1 . 1 0 `S1643 1 . 1 0 `S1646 1 . 1 0 `S1649 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES1652  1 e 1 @4039 ]
+[u S1651 . 1 `S1572 1 . 1 0 `S1575 1 . 1 0 `S1578 1 . 1 0 `S1572 1 . 1 0 `S1575 1 . 1 0 `S1593 1 . 1 0 `S1599 1 . 1 0 `S1604 1 . 1 0 `S1609 1 . 1 0 `S1612 1 . 1 0 `S1615 1 . 1 0 `S1620 1 . 1 0 `S1625 1 . 1 0 `S1630 1 . 1 0 `S1633 1 . 1 0 `S1636 1 . 1 0 `S1639 1 . 1 0 `S1642 1 . 1 0 `S1645 1 . 1 0 `S1648 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES1651  1 e 1 @4039 ]
 "16576
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "16582
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
-[s S1124 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S1123 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1238,7 +1238,7 @@ TRUE 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17701
-[s S1133 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S1132 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1247,7 +1247,7 @@ TRUE 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1142 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S1141 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1256,7 +1256,7 @@ TRUE 1
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[s S1151 . 1 `uc 1 . 1 0 :1:0 
+[s S1150 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1265,33 +1265,25 @@ TRUE 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1160 . 1 `uc 1 . 1 0 :6:0 
+[s S1159 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1164 . 1 `S1124 1 . 1 0 `S1133 1 . 1 0 `S1142 1 . 1 0 `S1151 1 . 1 0 `S1160 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1164  1 e 1 @4082 ]
+[u S1163 . 1 `S1123 1 . 1 0 `S1132 1 . 1 0 `S1141 1 . 1 0 `S1150 1 . 1 0 `S1159 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1163  1 e 1 @4082 ]
 "3 /Applications/microchip/xc8/v1.32/sources/common/errno.c
 [v _errno errno `i  1 e 2 0 ]
-"13 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c
+"13 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/ECM.X/main.c
 [v _receivedData receivedData `VE[8]uc  1 e 8 0 ]
 "15
 [v _sendData sendData `VE[8]uc  1 e 8 0 ]
-"100
+"105
 [v _main main `(v  1 e 0 0 ]
 {
-"114
-[v main@AFS_SEL AFS_SEL `uc  1 a 1 42 ]
-"102
-[v main@a_unsigned_array a_unsigned_array `[2]uc  1 a 2 49 ]
-"101
-[v main@ay ay `i  1 a 2 47 ]
-[v main@az az `i  1 a 2 45 ]
-[v main@ax ax `i  1 a 2 43 ]
-[v main@gz gz `i  1 a 2 40 ]
-[v main@gy gy `i  1 a 2 38 ]
-[v main@gx gx `i  1 a 2 36 ]
-"161
+[u S325 doubleAndChar 3 `[1]d 1 d 3 0 `[3]uc 1 b 3 0 ]
+"120
+[v main@temp temp `S325  1 a 3 41 ]
+"175
 } 0
 "211 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c
 [v _setupCANTxRx setupCANTxRx `(v  1 e 0 0 ]
@@ -1312,115 +1304,7 @@ TRUE 1
 [v CAN_SetMode@canMode canMode `uc  1 a 1 0 ]
 "169
 } 0
-"254
-[v _initMPU6050 initMPU6050 `(v  1 e 0 0 ]
-{
-"262
-} 0
-"62 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c
-[v _MPU6050_initialize MPU6050_initialize `(v  1 e 0 0 ]
-{
-"67
-} 0
-"2382
-[v _MPU6050_setSleepEnabled MPU6050_setSleepEnabled `(v  1 e 0 0 ]
-{
-[v MPU6050_setSleepEnabled@enabled enabled `uc  1 a 1 wreg ]
-[v MPU6050_setSleepEnabled@enabled enabled `uc  1 a 1 wreg ]
-[v MPU6050_setSleepEnabled@enabled enabled `uc  1 a 1 34 ]
-"2384
-} 0
-"344 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c
-[v _I2Cdev_writeBit I2Cdev_writeBit `(uc  1 e 1 0 ]
-{
-[v I2Cdev_writeBit@devAddr devAddr `uc  1 a 1 wreg ]
-"345
-[v I2Cdev_writeBit@b b `uc  1 a 1 33 ]
-"344
-[v I2Cdev_writeBit@devAddr devAddr `uc  1 a 1 wreg ]
-[v I2Cdev_writeBit@regAddr regAddr `uc  1 p 1 22 ]
-[v I2Cdev_writeBit@bitNum bitNum `uc  1 p 1 23 ]
-[v I2Cdev_writeBit@data data `uc  1 p 1 24 ]
-"346
-[v I2Cdev_writeBit@devAddr devAddr `uc  1 a 1 32 ]
-"349
-} 0
-"251 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c
-[v _MPU6050_setFullScaleGyroRange MPU6050_setFullScaleGyroRange `(v  1 e 0 0 ]
-{
-[v MPU6050_setFullScaleGyroRange@range range `uc  1 a 1 wreg ]
-[v MPU6050_setFullScaleGyroRange@range range `uc  1 a 1 wreg ]
-[v MPU6050_setFullScaleGyroRange@range range `uc  1 a 1 32 ]
-"253
-} 0
-"327
-[v _MPU6050_setFullScaleAccelRange MPU6050_setFullScaleAccelRange `(v  1 e 0 0 ]
-{
-[v MPU6050_setFullScaleAccelRange@range range `uc  1 a 1 wreg ]
-[v MPU6050_setFullScaleAccelRange@range range `uc  1 a 1 wreg ]
-[v MPU6050_setFullScaleAccelRange@range range `uc  1 a 1 32 ]
-"329
-} 0
-"2475
-[v _MPU6050_setClockSource MPU6050_setClockSource `(v  1 e 0 0 ]
-{
-[v MPU6050_setClockSource@source source `uc  1 a 1 wreg ]
-[v MPU6050_setClockSource@source source `uc  1 a 1 wreg ]
-[v MPU6050_setClockSource@source source `uc  1 a 1 32 ]
-"2477
-} 0
-"373 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c
-[v _I2Cdev_writeBits I2Cdev_writeBits `(uc  1 e 1 0 ]
-{
-[v I2Cdev_writeBits@devAddr devAddr `uc  1 a 1 wreg ]
-"383
-[v I2Cdev_writeBits@mask mask `uc  1 a 1 30 ]
-"381
-[v I2Cdev_writeBits@b b `uc  1 a 1 31 ]
-"373
-[v I2Cdev_writeBits@devAddr devAddr `uc  1 a 1 wreg ]
-[v I2Cdev_writeBits@regAddr regAddr `uc  1 p 1 22 ]
-[v I2Cdev_writeBits@bitStart bitStart `uc  1 p 1 23 ]
-[v I2Cdev_writeBits@length length `uc  1 p 1 24 ]
-[v I2Cdev_writeBits@data data `uc  1 p 1 25 ]
-"382
-[v I2Cdev_writeBits@devAddr devAddr `uc  1 a 1 29 ]
-"392
-} 0
-"286
-[v _I2Cdev_writeByte I2Cdev_writeByte `(uc  1 e 1 0 ]
-{
-[v I2Cdev_writeByte@devAddr devAddr `uc  1 a 1 wreg ]
-[v I2Cdev_writeByte@devAddr devAddr `uc  1 a 1 wreg ]
-[v I2Cdev_writeByte@regAddr regAddr `uc  1 p 1 9 ]
-[v I2Cdev_writeByte@data data `uc  1 p 1 10 ]
-[v I2Cdev_writeByte@devAddr devAddr `uc  1 a 1 11 ]
-"288
-} 0
-"254
-[v _I2Cdev_writeBytes I2Cdev_writeBytes `(uc  1 e 1 0 ]
-{
-[v I2Cdev_writeBytes@devAddr devAddr `uc  1 a 1 wreg ]
-"267
-[v I2Cdev_writeBytes@i i `uc  1 a 1 8 ]
-"254
-[v I2Cdev_writeBytes@devAddr devAddr `uc  1 a 1 wreg ]
-[v I2Cdev_writeBytes@regAddr regAddr `uc  1 p 1 3 ]
-[v I2Cdev_writeBytes@length length `uc  1 p 1 4 ]
-[v I2Cdev_writeBytes@data data `*.39uc  1 p 2 5 ]
-"256
-[v I2Cdev_writeBytes@devAddr devAddr `uc  1 a 1 7 ]
-"278
-} 0
-"51 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c
-[v _MPU6050 MPU6050 `(v  1 e 0 0 ]
-{
-[v MPU6050@address address `uc  1 a 1 wreg ]
-[v MPU6050@address address `uc  1 a 1 wreg ]
-[v MPU6050@address address `uc  1 a 1 0 ]
-"53
-} 0
-"230 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/pic18f458_badgerloop.c
+"230
 [v _initI2C_USART initI2C_USART `(v  1 e 0 0 ]
 {
 "252
@@ -1453,7 +1337,7 @@ TRUE 1
 [v Delay10KTCYx@unit unit `uc  1 a 1 1 ]
 "13
 } 0
-"84 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c
+"84 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/ECM.X/main.c
 [v _flashLED flashLED `(v  1 e 0 0 ]
 {
 "85
@@ -1468,60 +1352,269 @@ TRUE 1
 [v delayzz@i i `i  1 a 2 0 ]
 "137
 } 0
-"154
-[v _convertFrom16To8 convertFrom16To8 `(*.39uc  1 e 2 0 ]
+"18 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/ECM.X/main.c
+[v _CAN_Transmit CAN_Transmit `(v  1 e 0 0 ]
 {
-[v convertFrom16To8@dataAll dataAll `ui  1 p 2 0 ]
-"155
-[v convertFrom16To8@arrayData arrayData `[2]uc  1 s 2 arrayData ]
-"160
+"20
+[v CAN_Transmit@canId canId `ui  1 a 2 3 ]
+"46
 } 0
-"1733 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/MPU6050.c
-[v _MPU6050_getMotion6 MPU6050_getMotion6 `(v  1 e 0 0 ]
+"223 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/SFE_BMP180.c
+[v _BMP180_startTemperature BMP180_startTemperature `(i  1 e 2 0 ]
 {
-[v MPU6050_getMotion6@ax ax `*.39i  1 p 2 18 ]
-[v MPU6050_getMotion6@ay ay `*.39i  1 p 2 20 ]
-[v MPU6050_getMotion6@az az `*.39i  1 p 2 22 ]
-[v MPU6050_getMotion6@gx gx `*.39i  1 p 2 24 ]
-[v MPU6050_getMotion6@gy gy `*.39i  1 p 2 26 ]
-[v MPU6050_getMotion6@gz gz `*.39i  1 p 2 28 ]
-"1741
+"227
+[v BMP180_startTemperature@data data `[2]uc  1 a 2 11 ]
+"231
+[v BMP180_startTemperature@resultBool resultBool `uc  1 a 1 13 ]
+"237
 } 0
-"319
-[v _MPU6050_getFullScaleAccelRange MPU6050_getFullScaleAccelRange `(uc  1 e 1 0 ]
+"254 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c
+[v _I2Cdev_writeBytes I2Cdev_writeBytes `(uc  1 e 1 0 ]
 {
-"322
+[v I2Cdev_writeBytes@devAddr devAddr `uc  1 a 1 wreg ]
+"267
+[v I2Cdev_writeBytes@i i `uc  1 a 1 8 ]
+"254
+[v I2Cdev_writeBytes@devAddr devAddr `uc  1 a 1 wreg ]
+[v I2Cdev_writeBytes@regAddr regAddr `uc  1 p 1 3 ]
+[v I2Cdev_writeBytes@length length `uc  1 p 1 4 ]
+[v I2Cdev_writeBytes@data data `*.39uc  1 p 2 5 ]
+"256
+[v I2Cdev_writeBytes@devAddr devAddr `uc  1 a 1 7 ]
+"278
 } 0
-"206 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c
-[v _I2Cdev_readBits I2Cdev_readBits `(c  1 e 1 0 ]
+"67 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/SFE_BMP180.c
+[v _BMP180_init BMP180_init `(i  1 e 2 0 ]
 {
-[v I2Cdev_readBits@devAddr devAddr `uc  1 a 1 wreg ]
-"214
-[v I2Cdev_readBits@mask mask `uc  1 a 1 32 ]
-"212
-[v I2Cdev_readBits@b b `uc  1 a 1 33 ]
-[v I2Cdev_readBits@count count `uc  1 a 1 30 ]
-"206
-[v I2Cdev_readBits@devAddr devAddr `uc  1 a 1 wreg ]
-[v I2Cdev_readBits@regAddr regAddr `uc  1 p 1 22 ]
-[v I2Cdev_readBits@bitStart bitStart `uc  1 p 1 23 ]
-[v I2Cdev_readBits@length length `uc  1 p 1 24 ]
-[v I2Cdev_readBits@data data `*.39uc  1 p 2 25 ]
-"213
-[v I2Cdev_readBits@devAddr devAddr `uc  1 a 1 31 ]
-"220
+"70
+[v BMP180_init@c4 c4 `d  1 a 3 28 ]
+[v BMP180_init@b1 b1 `d  1 a 3 16 ]
+[v BMP180_init@c3 c3 `d  1 a 3 13 ]
+"179
 } 0
-"95
-[v _I2Cdev_readByte I2Cdev_readByte `(c  1 e 1 0 ]
+"5 /Applications/microchip/xc8/v1.32/sources/common/pow.c
+[v _pow pow `(d  1 e 3 0 ]
 {
-[v I2Cdev_readByte@devAddr devAddr `uc  1 a 1 wreg ]
-[v I2Cdev_readByte@devAddr devAddr `uc  1 a 1 wreg ]
-[v I2Cdev_readByte@regAddr regAddr `uc  1 p 1 18 ]
-[v I2Cdev_readByte@data data `*.39uc  1 p 2 19 ]
-[v I2Cdev_readByte@devAddr devAddr `uc  1 a 1 21 ]
-"97
+"8
+[v pow@yi yi `ul  1 a 4 7 ]
+"7
+[v pow@sign sign `uc  1 a 1 6 ]
+"5
+[v pow@x x `d  1 p 3 89 ]
+[v pow@y y `d  1 p 3 92 ]
+"31
 } 0
-"43
+"5 /Applications/microchip/xc8/v1.32/sources/common/log.c
+[v _log log `(d  1 e 3 0 ]
+{
+"7
+[v log@exponent exponent `i  1 a 2 72 ]
+"5
+[v log@x x `d  1 p 3 69 ]
+"9
+[v log@coeff coeff `C[9]d  1 s 27 coeff ]
+"36
+} 0
+"12 /Applications/microchip/xc8/v1.32/sources/common/exp.c
+[v _exp exp `(d  1 e 3 0 ]
+{
+"14
+[v exp@exponent exponent `i  1 a 2 86 ]
+"15
+[v exp@sign sign `uc  1 a 1 88 ]
+"12
+[v exp@x x `d  1 p 3 76 ]
+"17
+[v exp@coeff coeff `C[10]d  1 s 30 coeff ]
+"57
+} 0
+"277 /Applications/microchip/xc8/v1.32/sources/common/frexp.c
+[v _ldexp ldexp `(d  1 e 3 0 ]
+{
+[v ldexp@value value `d  1 p 3 69 ]
+[v ldexp@newexp newexp `i  1 p 2 72 ]
+"307
+} 0
+"13 /Applications/microchip/xc8/v1.32/sources/common/floor.c
+[v _floor floor `(d  1 e 3 0 ]
+{
+"15
+[v floor@i i `d  1 a 3 60 ]
+"16
+[v floor@expon expon `i  1 a 2 63 ]
+"13
+[v floor@x x `d  1 p 3 57 ]
+"30
+} 0
+"254 /Applications/microchip/xc8/v1.32/sources/common/frexp.c
+[v _frexp frexp `(d  1 e 3 0 ]
+{
+[v frexp@value value `d  1 p 3 0 ]
+[v frexp@eptr eptr `*.39i  1 p 2 3 ]
+"274
+} 0
+"44 /Applications/microchip/xc8/v1.32/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+{
+"47
+[v ___fttol@lval lval `ul  1 a 4 10 ]
+"46
+[v ___fttol@exp1 exp1 `uc  1 a 1 14 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 9 ]
+"44
+[v ___fttol@f1 f1 `f  1 p 3 0 ]
+"73
+} 0
+"4 /Applications/microchip/xc8/v1.32/sources/common/ftge.c
+[v ___ftge __ftge `(b  1 e 0 0 ]
+{
+[v ___ftge@ff1 ff1 `f  1 p 3 0 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 3 ]
+"13
+} 0
+"42 /Applications/microchip/xc8/v1.32/sources/common/altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+{
+"44
+[v ___altoft@sign sign `uc  1 a 1 24 ]
+[v ___altoft@exp exp `uc  1 a 1 23 ]
+"42
+[v ___altoft@c c `l  1 p 4 15 ]
+"57
+} 0
+"4 /Applications/microchip/xc8/v1.32/sources/common/evalpoly.c
+[v _eval_poly eval_poly `(d  1 e 3 0 ]
+{
+"6
+[v eval_poly@res res `d  1 a 3 66 ]
+"4
+[v eval_poly@x x `d  1 p 3 57 ]
+[v eval_poly@d d `*.25Cd  1 p 2 60 ]
+[v eval_poly@n n `i  1 p 2 62 ]
+"12
+} 0
+"20 /Applications/microchip/xc8/v1.32/sources/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+{
+[v ___ftsub@f1 f1 `f  1 p 3 57 ]
+[v ___ftsub@f2 f2 `f  1 p 3 60 ]
+"25
+} 0
+"32 /Applications/microchip/xc8/v1.32/sources/common/awtoft.c
+[v ___awtoft __awtoft `(f  1 e 3 0 ]
+{
+"34
+[v ___awtoft@sign sign `uc  1 a 1 11 ]
+"32
+[v ___awtoft@c c `i  1 p 2 8 ]
+"42
+} 0
+"35 /Applications/microchip/xc8/v1.32/sources/common/lltoft.c
+[v ___lltoft __lltoft `(f  1 e 3 0 ]
+{
+"37
+[v ___lltoft@exp exp `uc  1 a 1 16 ]
+"35
+[v ___lltoft@c c `ul  1 p 4 8 ]
+"46
+} 0
+"28 /Applications/microchip/xc8/v1.32/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+{
+[v ___lwtoft@c c `ui  1 p 2 8 ]
+"31
+} 0
+"32 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/SFE_BMP180.c
+[v _BMP180_readInt BMP180_readInt `(i  1 e 2 0 ]
+{
+[v BMP180_readInt@address address `uc  1 a 1 wreg ]
+"34
+[v BMP180_readInt@data data `[2]uc  1 a 2 23 ]
+"32
+[v BMP180_readInt@address address `uc  1 a 1 wreg ]
+[v BMP180_readInt@value value `i  1 p 2 18 ]
+"38
+[v BMP180_readInt@address address `uc  1 a 1 22 ]
+"46
+} 0
+"240
+[v _BMP180_getTemperature BMP180_getTemperature `(i  1 e 2 0 ]
+{
+"249
+[v BMP180_getTemperature@a a `d  1 a 3 70 ]
+[v BMP180_getTemperature@tu tu `d  1 a 3 60 ]
+"247
+[v BMP180_getTemperature@data data `[2]uc  1 a 2 68 ]
+"248
+[v BMP180_getTemperature@result result `i  1 a 2 66 ]
+"240
+[v BMP180_getTemperature@T T `d  1 p 3 57 ]
+"277
+} 0
+"27 /Applications/microchip/xc8/v1.32/sources/common/lbtoft.c
+[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
+{
+[v ___lbtoft@c c `uc  1 a 1 wreg ]
+[v ___lbtoft@c c `uc  1 a 1 wreg ]
+"29
+[v ___lbtoft@c c `uc  1 a 1 11 ]
+"30
+} 0
+"15 /Applications/microchip/xc8/v1.32/sources/common/ftneg.c
+[v ___ftneg __ftneg `(f  1 e 3 0 ]
+{
+[v ___ftneg@f1 f1 `f  1 p 3 42 ]
+"20
+} 0
+"62 /Applications/microchip/xc8/v1.32/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 37 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 41 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 40 ]
+[v ___ftmul@exp exp `uc  1 a 1 36 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 27 ]
+[v ___ftmul@f2 f2 `f  1 p 3 30 ]
+"157
+} 0
+"49 /Applications/microchip/xc8/v1.32/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+{
+"52
+[v ___ftdiv@f3 f3 `f  1 a 3 22 ]
+"51
+[v ___ftdiv@sign sign `uc  1 a 1 26 ]
+[v ___ftdiv@exp exp `uc  1 a 1 25 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 21 ]
+"49
+[v ___ftdiv@f1 f1 `f  1 p 3 12 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 15 ]
+"78
+} 0
+"86 /Applications/microchip/xc8/v1.32/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+{
+"88
+[v ___ftadd@exp1 exp1 `uc  1 a 1 56 ]
+[v ___ftadd@exp2 exp2 `uc  1 a 1 55 ]
+[v ___ftadd@sign sign `uc  1 a 1 54 ]
+"86
+[v ___ftadd@f1 f1 `f  1 p 3 45 ]
+[v ___ftadd@f2 f2 `f  1 p 3 48 ]
+"148
+} 0
+"62 /Applications/microchip/xc8/v1.32/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg arg `um  1 p 3 0 ]
+[v ___ftpack@exp exp `uc  1 p 1 3 ]
+[v ___ftpack@sign sign `uc  1 p 1 4 ]
+"86
+} 0
+"43 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/C_Library/I2Cdev.c
 [v _I2Cdev_readBytes I2Cdev_readBytes `(c  1 e 1 0 ]
 {
 [v I2Cdev_readBytes@devAddr devAddr `uc  1 a 1 wreg ]
@@ -1563,11 +1656,4 @@ TRUE 1
 [v _ReadI2C ReadI2C `(uc  1 e 1 0 ]
 {
 "17
-} 0
-"18 /Users/njaunich/MPLABXProjects/BadgerLoopLibrary/Projects/CAN_Transmit_MPU6050.X/main.c
-[v _CAN_Transmit CAN_Transmit `(v  1 e 0 0 ]
-{
-"20
-[v CAN_Transmit@canId canId `ui  1 a 2 3 ]
-"46
 } 0

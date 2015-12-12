@@ -13,6 +13,7 @@
 #include "I2Cdev.c" /* I2Cdev library */
 #include "MPU6050.c" /* MPU6050 drivers */
 #include "MS5803-01BA.c" /* MS5803-01BA drivers */
+#include "SFE_BMP180.c"
 
 /******************************************************************************/
 /*	These are the configuration bits for the PIC18F458

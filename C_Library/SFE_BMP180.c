@@ -26,8 +26,45 @@ uint16_t AC4,AC5,AC6;
 double c5,c6,mc,md,x0,x1,x2,y0,y1,y2,p0,p1,p2;
 char _error;
 
+// Read a signed integer (two bytes) from device
+// address: register to start reading (plus subsequent register)
+// value: external variable to store data (function modifies value)
+int BMP180_readInt(char address, int16_t value)
+{
+	unsigned char data[2];
 
-char BMP180_init()
+	//data[0] = address;
+	//I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data);
+	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data) == 2)
+	{
+		value = (int16_t)((data[0]<<8)|data[1]);
+		//if (*value & 0x8000) *value |= 0xFFFF0000; // sign extend if negative
+		return 1;
+	}
+	value = 0;
+	return 0;
+}
+
+
+int BMP180_readUInt(char address, uint16_t value)
+// Read an unsigned integer (two bytes) from device
+// address: register to start reading (plus subsequent register)
+// value: external variable to store data (function modifies value)
+{
+	unsigned char data[2];
+
+	//data[0] = address;
+	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data) == 2)
+	{
+		value = (((uint16_t)data[0]<<8)|(uint16_t)data[1]);
+		return 1;
+	}
+	value = 0;
+	return 0;
+}
+
+
+int BMP180_init(void)
 // Initialize library for subsequent pressure measurements
 {
 	double c3,c4,b1;
@@ -132,51 +169,13 @@ char BMP180_init()
 		*/
 		
 		// Success!
-		return(1);
+		return 1;
 	}
 	else
 	{
 		// Error reading calibration data; bad component or connection?
-		return(0);
+		return 0;
 	}
-}
-
-
-char BMP180_readInt(char address, int16_t &value)
-// Read a signed integer (two bytes) from device
-// address: register to start reading (plus subsequent register)
-// value: external variable to store data (function modifies value)
-{
-	unsigned char data[2];
-
-	//data[0] = address;
-	//I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data);
-	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data) == 2)
-	{
-		value = (int16_t)((data[0]<<8)|data[1]);
-		//if (*value & 0x8000) *value |= 0xFFFF0000; // sign extend if negative
-		return(1);
-	}
-	value = 0;
-	return(0);
-}
-
-
-char BMP180_readUInt(char address, uint16_t &value)
-// Read an unsigned integer (two bytes) from device
-// address: register to start reading (plus subsequent register)
-// value: external variable to store data (function modifies value)
-{
-	unsigned char data[2];
-
-	//data[0] = address;
-	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)address, 2, (uint8_t*)data) == 2)
-	{
-		value = (((uint16_t)data[0]<<8)|(uint16_t)data[1]);
-		return(1);
-	}
-	value = 0;
-	return(0);
 }
 
 
@@ -221,26 +220,24 @@ char BMP180_readUInt(char address, uint16_t &value)
 } */
 
 
-char BMP180_startTemperature(void)
+int BMP180_startTemperature(void)
 // Begin a temperature reading.
 // Will return delay in ms to wait, or 0 if I2C error
 {
 	unsigned char data[2];
-	unsigned char result;
-	bool result;
 	
 	data[0] = BMP180_REG_CONTROL;
 	data[1] = BMP180_COMMAND_TEMPERATURE;
-	result =  I2Cdev_writeBytes(BMP180_ADDR, (uint8_t)BMP180_REG_CONTROL, 1, (uint8_t*)(data + 1));
+	bool resultBool =  I2Cdev_writeBytes(BMP180_ADDR, (uint8_t)BMP180_REG_CONTROL, 1, (uint8_t*)(data + 1));
 	//result = writeBytes(data, 2);
-	if (result) // good write?
-		return(5); // return the delay in ms (rounded up) to wait before retrieving data
+	if (resultBool) // good write?
+		return 5; // return the delay in ms (rounded up) to wait before retrieving data
 	else
-		return(0); // or return 0 if there was a problem communicating with the BMP
+		return 0; // or return 0 if there was a problem communicating with the BMP
 }
 
 
-char BMP180_getTemperature(double &T)
+int BMP180_getTemperature(double T)
 // Retrieve a previously-started temperature reading.
 // Requires begin() to be called once prior to retrieve calibration parameters.
 // Requires startTemperature() to have been called prior and sufficient time elapsed.
@@ -248,7 +245,7 @@ char BMP180_getTemperature(double &T)
 // Returns 1 if successful, 0 if I2C error.
 {
 	unsigned char data[2];
-	char result;
+	int result = 0;
 	double tu, a;
 	
 	data[0] = BMP180_REG_RESULT;
@@ -258,6 +255,7 @@ char BMP180_getTemperature(double &T)
 	if (I2Cdev_readBytes(BMP180_ADDR, (uint8_t)BMP180_REG_RESULT, 2, (uint8_t*)data) == 2) // good read, calculate temperature
 	{
 		tu = (data[0] * 256.0) + data[1];
+		result = 1;
 
 		//example from Bosch datasheet
 		//tu = 27898;
@@ -275,18 +273,18 @@ char BMP180_getTemperature(double &T)
 		Serial.print("T: "); Serial.println(*T);
 		*/
 	}
-	return(result);
+	return result;
 }
 
 
-char BMP180_startPressure(char oversampling)
+int BMP180_startPressure(char oversampling)
 // Begin a pressure reading.
 // Oversampling: 0 to 3, higher numbers are slower, higher-res outputs.
 // Will return delay in ms to wait, or 0 if I2C error.
 {
 	//unsigned char data[2], result, delay;
-	unsigned char data[2], delay;
-	bool result;
+	unsigned char data[2];
+	int delay, result;
 	
 	data[0] = BMP180_REG_CONTROL;
 
@@ -313,16 +311,16 @@ char BMP180_startPressure(char oversampling)
 			delay = 5;
 		break;
 	}
-	result = I2Cdev_writeBytes(BMP180_ADDR, (uint8_t)BMP180_REG_CONTROL, 1, (uint8_t*)(data + 1));
+	bool resultBool = I2Cdev_writeBytes(BMP180_ADDR, (uint8_t)BMP180_REG_CONTROL, 1, (uint8_t*)(data + 1));
 	//result = writeBytes(data, 2);
-	if (result) // good write?
-		return(delay); // return the delay in ms (rounded up) to wait before retrieving data
+	if (resultBool) // good write?
+		return delay; // return the delay in ms (rounded up) to wait before retrieving data
 	else
-		return(0); // or return 0 if there was a problem communicating with the BMP
+		return 0; // or return 0 if there was a problem communicating with the BMP
 }
 
 
-char BMP180_getPressure(double &P, double &T)
+int BMP180_getPressure(double P, double T)
 // Retrieve a previously started pressure reading, calculate abolute pressure in mbars.
 // Requires begin() to be called once prior to retrieve calibration parameters.
 // Requires startPressure() to have been called prior and sufficient time elapsed.
@@ -335,7 +333,7 @@ char BMP180_getPressure(double &P, double &T)
 // Note that calculated pressure value is absolute mbars, to compensate for altitude call sealevel().
 {
 	unsigned char data[3];
-	char result;
+	int result = 0;
 	double pu,s,x,y,z;
 	
 	data[0] = BMP180_REG_RESULT;
@@ -370,7 +368,7 @@ char BMP180_getPressure(double &P, double &T)
 		Serial.print("P: "); Serial.println(*P);
 		*/
 	}
-	return(result);
+	return result;
 }
 
 

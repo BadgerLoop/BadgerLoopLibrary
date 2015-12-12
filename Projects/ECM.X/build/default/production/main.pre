@@ -13929,49 +13929,46 @@ break;
 }
 }
 
+union doubleAndChar {
+double d[1];
+char b[sizeof(double)];
+};
+
 void main(void) {
-int16_t ax, ay, az, gx, gy, gz;
-uint8_t a_unsigned_array[2];
+
+
 initI2C_USART();
-initMPU6050();
 setupCANTxRx();
+LATBbits.LATB0 = 1;
 
 
 TRISBbits.TRISB0 = 0;
 flashLED();
+if (BMP180_init() != 1) {
+LATBbits.LATB0 = 1;
+}
 while(1)
 {
-
-MPU6050_getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-uint8_t AFS_SEL = MPU6050_getFullScaleAccelRange();
-
-# 132
+union doubleAndChar temp;
 sendData[0] = 1;
-sendData[1] = AFS_SEL;
-
-
-a_unsigned_array[0] = convertFrom16To8( (uint16_t) ax )[0];
-a_unsigned_array[1] = convertFrom16To8( (uint16_t) ax )[1];
-sendData[2] = a_unsigned_array[0];
-sendData[3] = a_unsigned_array[1];
-
-a_unsigned_array[0] = convertFrom16To8( (uint16_t) ay )[0];
-a_unsigned_array[1] = convertFrom16To8( (uint16_t) ay )[1];
-sendData[4] = a_unsigned_array[0];
-sendData[5] = a_unsigned_array[1];
-
-
-a_unsigned_array[0] = convertFrom16To8( (uint16_t) az )[0];
-a_unsigned_array[1] = convertFrom16To8( (uint16_t) az )[1];
-sendData[6] = a_unsigned_array[0];
-sendData[7] = a_unsigned_array[1];
-
-CAN_Transmit();
-
-if (ay > 10)
+sendData[1] = 1;
+if (BMP180_startTemperature() != 5)
 {
-LATBbits.LATB0 ^= 1;
+LATBbits.LATB0 = 1;
 }
+_delay((unsigned long)((5)*(20000000/4000.0)));
+
+if (BMP180_getTemperature((double)temp.d) == 1)
+{
+sendData[1] = (char)temp.b[0];
+
+# 139
+LATBbits.LATB0 ^= 1;
+_delay((unsigned long)((25)*(20000000/4000.0)));
+}
+
+# 171
+CAN_Transmit();
 
 _delay((unsigned long)((25)*(20000000/4000.0)));
 }

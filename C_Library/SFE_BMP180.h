@@ -79,13 +79,13 @@
 			// value: external unsigned int for returned value (16 bits)
 			// returns 1 for success, 0 for fail, with result in value
 
-		char BMP180_readBytes(unsigned char *values, char length);
+		//char BMP180_readBytes(unsigned char *values, char length);
 			// read a number of bytes from a BMP180 register
 			// values: array of char with register address in first location [0]
 			// length: number of bytes to read back
 			// returns 1 for success, 0 for fail, with read bytes in values[] array
 			
-		char BMP180_writeBytes(unsigned char *values, char length);
+		//char BMP180_writeBytes(unsigned char *values, char length);
 			// write a number of bytes to a BMP180 register (and consecutive subsequent registers)
 			// values: array of char with register address in first location [0]
 			// length: number of bytes to write
