@@ -86,6 +86,56 @@ int8_t I2Cdev_readBytes(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint8_
     return count;
 }
 
+int8_t I2Cdev_readByte2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint8_t *data) {
+    int8_t count = 0;
+
+    // S
+    IdleI2C();
+    StartI2C();
+
+    // Device write address
+    IdleI2C();
+    WriteI2C(devAddr << 1 | 0x00);
+
+    // Register address MSB
+    IdleI2C();
+    WriteI2C(regAddr >> 8);
+
+	// Register address LSB
+	IdleI2C();
+	WriteI2C(regAddr & 0xFF);
+    // R
+    IdleI2C();
+    RestartI2C();
+
+    // Device read address
+    IdleI2C();
+    WriteI2C(devAddr << 1 | 0x01);
+
+    for (count = 0; count < length; count++) {
+        // Data byte
+        IdleI2C();
+        data[count] = ReadI2C();
+
+        if (count == length - 1) {
+            // NACK
+            IdleI2C();
+            NotAckI2C();
+        } else {
+            // ACK
+            IdleI2C();
+            AckI2C();
+        }
+    }
+
+    // P
+    IdleI2C();
+    StopI2C();
+
+    return count;
+}
+
+
 /** Read single byte from an 8-bit device register.
  * @param devAddr I2C slave device address
  * @param regAddr Register regAddr to read from
@@ -95,6 +145,8 @@ int8_t I2Cdev_readBytes(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint8_
 int8_t I2Cdev_readByte(uint8_t devAddr, uint8_t regAddr, uint8_t *data) {
     return I2Cdev_readBytes(devAddr, regAddr, 1, data);
 }
+
+
 
 /** Read multiple words from a 16-bit device register.
  * @param devAddr I2C slave device address
@@ -156,6 +208,65 @@ int8_t I2Cdev_readWords(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint16
 
     return count;
 }
+
+int8_t I2Cdev_readWords2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint16_t *data) {
+    int8_t count = 0;
+
+    // S
+    IdleI2C();
+    StartI2C();
+
+    // Device write address
+    IdleI2C();
+    WriteI2C(devAddr << 1 | 0x00);
+
+    // Register address MSB
+    IdleI2C();
+    WriteI2C(regAddr >> 8);
+
+	 // Register address LSB
+	 IdleI2C();
+	 WriteI2C(regAddr & 0xFF);
+	
+    // R
+    IdleI2C();
+    RestartI2C();
+
+    // Device read address
+    IdleI2C();
+    WriteI2C(devAddr << 1 | 0x01);
+
+    for (count = 0; count < length; count++) {
+        // First byte is bits 15-8 (MSb=15)
+        IdleI2C();
+        data[count] = ReadI2C() << 8;
+
+        // NACK
+        IdleI2C();
+        NotAckI2C();
+
+        // Second byte is bits 7-0 (LSb=0)
+        IdleI2C();
+        data[count] |= ReadI2C();
+
+        if (count == length - 1) {
+            // NACK
+            IdleI2C();
+            NotAckI2C();
+        } else {
+            // ACK
+            IdleI2C();
+            AckI2C();
+        }
+    }
+
+    // P
+    IdleI2C();
+    StopI2C();
+
+    return count;
+}
+
 
 /** Read single word from a 16-bit device register.
  * @param devAddr I2C slave device address
@@ -277,6 +388,38 @@ bool I2Cdev_writeBytes(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint8_t
     return true;
 }
 
+bool I2Cdev_writeByte2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint8_t* data) {
+    // S
+    IdleI2C();
+    StartI2C();
+
+    // Device write address
+    IdleI2C();
+    WriteI2C(devAddr << 1 | 0x00);
+
+    // Register address MSB
+    IdleI2C();
+    WriteI2C(regAddr >> 8 );
+
+	//Register address LSB
+	IdleI2C();
+	WriteI2C(regAddr & 0xFF);
+	
+
+    for (uint8_t i = 0; i < length; i++) {
+        // Data byte
+        IdleI2C();
+        WriteI2C(data[i]);
+    }
+    
+    // P
+    IdleI2C();
+    StopI2C();
+
+    return true;
+}
+
+
 /** Write single byte to an 8-bit device register.
  * @param devAddr I2C slave device address
  * @param regAddr Register address to write to
@@ -294,6 +437,40 @@ bool I2Cdev_writeByte(uint8_t devAddr, uint8_t regAddr, uint8_t data) {
  * @param data Buffer to copy new data from
  * @return Status of operation (true = success)
  */
+bool I2Cdev_writeDWord(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint32_t* data){
+    // S
+    IdleI2C();
+    StartI2C();
+
+    // Device write address
+    IdleI2C();
+    WriteI2C(devAddr << 1 | 0x00);
+
+    // Register address MSB
+    IdleI2C();
+    WriteI2C(regAddr >> 8);
+
+	// Register address LSB
+	IdleI2C();
+	WriteI2C(regAddr & 0xFF);
+
+    for (uint8_t i = 0; i < length; i++) {
+        // Send MSB
+        IdleI2C();
+        WriteI2C(data[i] >> 8);
+
+        // Send LSB
+        IdleI2C();
+        WriteI2C(data[i] & 0xFF);
+    }
+
+    // P
+    IdleI2C();
+    StopI2C();
+
+    return true;
+}
+
 bool I2Cdev_writeWords(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint16_t* data) {
     // S
     IdleI2C();
@@ -307,6 +484,40 @@ bool I2Cdev_writeWords(uint8_t devAddr, uint8_t regAddr, uint8_t length, uint16_
     IdleI2C();
     WriteI2C(regAddr);
 
+    for (uint8_t i = 0; i < length; i++) {
+        // Send MSB
+        IdleI2C();
+        WriteI2C(data[i] >> 8);
+
+        // Send LSB
+        IdleI2C();
+        WriteI2C(data[i] & 0xFF);
+    }
+
+    // P
+    IdleI2C();
+    StopI2C();
+
+    return true;
+}
+
+bool I2Cdev_writeWord2(uint8_t devAddr, uint16_t regAddr, uint8_t length, uint16_t* data) {
+    // S
+    IdleI2C();
+    StartI2C();
+
+    // Device write address
+    IdleI2C();
+    WriteI2C(devAddr << 1 | 0x00);
+
+    // Register address MSB
+    IdleI2C();
+    WriteI2C(regAddr >> 8);
+
+	// Register address LSB
+	IdleI2C();
+	WriteI2C(regAddr & 0xFF);
+	
     for (uint8_t i = 0; i < length; i++) {
         // Send MSB
         IdleI2C();
