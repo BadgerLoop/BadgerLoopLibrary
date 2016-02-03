@@ -35,13 +35,10 @@ THE SOFTWARE.
 #define _I2CDEV_H_
 
 #ifndef __XC8
-    #error Use XC8 for compiling
+    //#error Use XC8 for compiling
 #endif 
 
-#include <xc.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <plib.h>
+#include "c18_defs.h"
 
 int8_t I2Cdev_readBit(uint8_t devAddr, uint8_t regAddr, uint8_t bitNum, uint8_t *data);
 int8_t I2Cdev_readBitW(uint8_t devAddr, uint8_t regAddr, uint8_t bitNum, uint16_t *data);

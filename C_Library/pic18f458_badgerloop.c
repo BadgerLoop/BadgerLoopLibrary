@@ -9,12 +9,16 @@
 #include <stdio.h>
 #include <plib/usart.h>
 #include <plib/adc.h>
+#define USE_AND_MASKS
 
 #include "I2Cdev.c" /* I2Cdev library */
 #include "MPU6050.c" /* MPU6050 drivers */
-#include "MS5803-01BA.c" /* MS5803-01BA drivers */
-#include "SFE_BMP180.c"
-#include "vl6180x_api.c"
+#//include "vl6180.c"
+#include "SparkFun_VL6180X.c"
+//#include "MS5803-01BA.c" /* MS5803-01BA drivers */
+//#include "SFE_BMP180.c"
+//#include "vl6180-driver.c"
+//#include "mpu9250.c" /* MPU6050 drivers */
 
 /******************************************************************************/
 /*	These are the configuration bits for the PIC18F458
@@ -140,7 +144,7 @@ void delayzz(void) {
 //Function to Initialise the ADC Module
 void ADCInit(void)
 {
-   OpenADC(ADC_FOSC_2 & ADC_RIGHT_JUST & ADC_8ANA_0REF, ADC_CH0 & ADC_INT_ON);
+   OpenADC(ADC_FOSC_32 & ADC_RIGHT_JUST & ADC_8ANA_0REF, ADC_CH0 & ADC_INT_ON);
 }
 
 uint16_t convertFrom8To16(uint8_t dataFirst, uint8_t dataSecond) {
@@ -214,7 +218,7 @@ void setupCANTxRx(void) {
     //Set RB2 (CANTX) to output
     TRISBbits.TRISB2 = 0; 
     //Set RB3 (CANRX) to input
-    TRISBbits.TRISB3 = 1;  
+    TRISBbits.TRISB3 = 1;
     
     //Run CAN_Init function
     CAN_Init();
@@ -253,6 +257,16 @@ void initI2C_USART(void) {
 }
 
 void initMPU6050(void) {
+	// MPU6050
+    MPU6050(MPU6050_ADDRESS_AD0_LOW);
+    // Initialize MPU6050
+    MPU6050_initialize();
+
+    //Slight delay
+    Delay10KTCYx(50);
+}
+
+void initMPU9250(void) {
 	// MPU6050
     MPU6050(MPU6050_ADDRESS_AD0_LOW);
     // Initialize MPU6050
